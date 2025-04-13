@@ -1,32 +1,54 @@
-version: '3.8'
+version: '3.9'
 
 services:
-  web:
-    build: .
-    command: ["bash", "entrypoint.sh"]
-    ports:
-      - "8058:8058"
-    volumes:
-      - .:/app
-    depends_on:
-      - mysql
-    environment:
-      - DJANGO_SETTINGS_MODULE=panic_button.settings
-      - PYTHONDONTWRITEBYTECODE=1
-      - PYTHONUNBUFFERED=1
-
-  mysql:
-    image: mysql:5.7
-    ports:
-      - "3306:3306"
+  # Database service
+  db:
+    image: mysql:8.0
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: Snippet@1
       MYSQL_DATABASE: newdb_sos
       MYSQL_USER: kanik-snippet
       MYSQL_PASSWORD: Snippet@1
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - dbdata:/var/lib/mysql
+    networks:
+      - app_network
+
+  # Redis service
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - app_network
+
+  # Web service (Django with Gunicorn)
+  web:
+    build: .
+    command: ["gunicorn", "panic_button.wsgi:application", "--bind", "0.0.0.0:8000"]
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - DJANGO_SETTINGS_MODULE=panic_button.settings
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=newdb_sos
+      - MYSQL_USER=kanik-snippet
+      - MYSQL_PASSWORD=Snippet@1
+    networks:
+      - app_network
 
 volumes:
-  mysql_data:
+  dbdata:  # MySQL data storage
+
+networks:
+  app_network:
+    driver: bridge

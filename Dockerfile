@@ -1,33 +1,37 @@
-# Use the official Python base image with Python 3.10
-FROM python:3.10-slim
+# Use official Python image
+FROM python:3.11-slim
 
-# Install system dependencies, including gettext
+# Set env vars
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set work directory
+WORKDIR /app
+
+# Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    default-mysql-client \
     build-essential \
     libssl-dev \
     libffi-dev \
     pkg-config \
     default-libmysqlclient-dev \
     gettext \
-    redis-server \
     && rm -rf /var/lib/apt/lists/*
 
-
-# Set the working directory in the container
-WORKDIR /app
-
-# Copy the requirements.txt file to the Docker image
+# Install dependencies
 COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Install the Python dependencies
-RUN pip install --no-cache-dir --disable-pip-version-check -r requirements.txt
-
-
-# Copy the entire project to the Docker image
+# Copy project files
 COPY . .
 
-# Expose the port Django will run on (default 8000)
-EXPOSE 8058
+# Copy entrypoint script
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# Run migrations and create a superuser, then start the Django application
-CMD ["sh", "/app/entrypoint.sh"]
+# Run entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
+
+# Expose Gunicorn port
+EXPOSE 8000
