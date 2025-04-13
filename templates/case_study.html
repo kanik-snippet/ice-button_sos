@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: ICE Button</title>
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #f04438, #1a1a2e);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+        .nav-link {
+            color: #6b7280; /* Default color (Tailwind's gray-600) */
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        
+        .nav-link.active {
+            color: #f04438; /* Tailwind's red-500 */
+            border-bottom: 2px solid #f04438;
+        }
+        
+        .validation-error {
+            color: #f87171; /* Tailwind red-500 */
+            font-size: 0.75rem; /* Tailwind text-xs */
+            margin-top: 0.25rem; /* Tailwind mt-1 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .clip-path-diagonal {
+            clip-path: polygon(0 132%, 100% -45%, 100% 100%, 0 100%);
+
+        }
+        .custom-icon {
+            transform: rotate(-55deg); /* Icon ko 90 degree rotate karna */
+        }
+        footer button {
+            margin-top: 40px; /* Adjusted to match the white button's spacing in the design */
+        }
+        /* Custom Ease-In Animation */
+        @keyframes easeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ease-in {
+            animation: easeIn 1s ease-in-out;
+        }
+
+        /* Hover Animation for Buttons */
+        .btn-hover:hover {
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Scaling Animation */
+        @keyframes scaleUp {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .scale-up {
+            animation: scaleUp 1s ease-in-out;
+        }
+
+        /* Rotation Animation */
+        @keyframes rotateIn {
+            0% {
+                transform: rotate(0deg);
+                opacity: 0;
+            }
+            100% {
+                transform: rotate(360deg);
+                opacity: 1;
+            }
+        }
+
+        .rotate-in {
+            animation: rotateIn 1.5s ease-in-out;
+        }
+
+        /* Slide Up Animation */
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-up {
+            animation: slideUp 1s ease-out;
+        }
+        /* Media query for screens smaller than 350px */
+    @media (max-width: 384px) {
+        .custom-responsive-layout {
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+
+        .custom-responsive-layout .flex {
+            justify-content: center;
+        }
+
+        .custom-responsive-layout .space-x-4 {
+            margin-top: 12px !important;
+        }
+
+        .custom-responsive-layout .mt-4 {
+            margin-top: 16px !important;
+        }
+    }
+
+
+    
+    </style>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .line {
+            width: 100%;
+            height: 1px;
+            background-color: #dee2e6;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+.section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            font-size: 2.2em;
+            margin-bottom: 60px;
+            color: #f04438;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .section h3{
+            text-align:center;
+        }
+.image-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 100px;
+    align-items: flex-start; /* Ensures items start from the top */
+    box-sizing: border-box; /* Ensures padding and margin are included in element's total width and height */
+}
+
+.image-placeholder {
+    width: 350px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    color: #777;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures no overflow outside this div */
+    box-sizing: border-box; /* Prevents images from going out of the grid */
+}
+
+.image-placeholder img {
+    width: 100%; /* Forces the image to fit the width of its container */
+    height: 100%; /* Forces the image to fit the height of its container */
+    object-fit: cover; /* Ensures the image covers the area, cropping as needed */
+    border-radius: 10px; /* Matches the container's border-radius */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .image-row {
+        flex-direction: column; /* Stack images vertically */
+        align-items: center; /* Center align the single image in a row */
+        gap: 20px; /* Adjust gap for vertical alignment */
+        margin: 20px; /* Reduce margin to fit within smaller screens */
+    }
+
+    .image-placeholder {
+        width: 100%; /* Full width for mobile */
+        max-width: 350px; /* Ensure the width doesn't exceed 350px */
+        height: 250px; /* Fixed height */
+    }
+}
+
+
+        .features-list, .impact-list {
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        .features-list li, .impact-list li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .how-it-works {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            border-radius: 10px;
+        }
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Space between grid items */
+}
+
+.step {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden; /* Prevent content overflow */
+    transition: transform 0.3s ease-in-out;
+
+}
+.step:hover {
+    transform: scale(1.05);
+}
+.image-placeholder-small {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    color: #777;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures images don’t spill out of this container */
+    margin-bottom: 20px; /* Space between image and text */
+}
+
+.image-placeholder-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images maintain aspect ratio and fit the container */
+    border-radius: 10px; /* Matches the container's border radius */
+}
+
+        .step h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .success-story {
+            margin: 20px 0;
+        }
+
+        .success-story h3 {
+            font-size: 1.4em;
+            color: #f04438;
+            margin-bottom: 10px;
+        }
+        /* Adjusting list indentation for both ol and ul */
+ol, ul {
+    padding-left: 40px; /* Increase padding to move the list to the right */
+    margin-left: 20px; /* Optional: Add margin for extra spacing */
+}
+        /* Styling for Ordered Lists (ol) */
+ol {
+    list-style-type: decimal; /* Uses numbers (1, 2, 3, ...) */
+    padding-left: 20px; /* Adds some indentation */
+}
+
+/* Styling for Unordered Lists (ul) */
+ul {
+    list-style-type: disc; /* Uses dots for bullets */
+    padding-left: 20px; /* Adds some indentation */
+}
+
+/* General List Items (for both ul and ol) */
+li {
+    margin-bottom: 10px; /* Adds spacing between items */
+}
+.quote {
+    font-style: italic;
+    background-color: #f9f9fb;
+    border-left: 4px solid #f04438;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin: 30px 0;
+}
+    </style>
+</head>
+<body class="bg-gray-50">
+    {% include "header.html" %}
+    
+
+  <main class="mt-12 mb-12">
+    <div class="container">
+        <section class="hero">
+            <h2><strong>{% trans 'Transforming Healthcare Security with ICE-Button' %}</strong></h2>
+            <p>{% trans 'An Advanced Emergency Response System for Healthcare Facilities' %}</p>
+        </section>
+        <div class="line"></div>
+        <!-- Introduction Section -->
+        <section class="section">
+            <h2><strong>{% trans 'Executive Summary' %}</strong></h2>
+            <p>{% trans 'The healthcare sector has become increasingly vulnerable to violent incidents, jeopardizing the safety of staff, patients, and visitors. Recognizing the urgent need for a comprehensive security system, Mobiloitte Technologies Pvt Ltd developed ICE-Button, an advanced Emergency Response System specifically designed for healthcare facilities.' %}<br><br>
+                {% trans 'ICE-Button is a tech-enabled emergency solution that ensures swift, multi-channel communication and real-time situational awareness during emergencies. With its intuitive interface, the system reduces incident escalation and improves response times, safeguarding lives and property while restoring confidence in healthcare environments.' %}
+            </p>
+            <div class="image-row">
+                <div class="image-placeholder">
+                    <img src="{% static 'images/overview/1.jpg' %}" alt="{% trans 'Image 1' %}" class="img-fluid">
+                </div>
+                <div class="image-placeholder">
+                    <img src="{% static 'images/overview/2.jpg' %}" alt="{% trans 'Image 2' %}" class="img-fluid">
+                </div>
+                <div class="image-placeholder">
+                    <img src="{% static 'images/overview/3.jpg' %}" alt="{% trans 'Image 3' %}" class="img-fluid">
+                </div>
+            </div>
+        </section>
+        <div class="line"></div>
+
+
+
+          <!-- Challenges Addressed -->
+<section class="section">
+    <h2><strong>{% trans 'Business Challenges' %}</strong></h2>
+    <h3 class="pl-"><strong>{% trans 'Challenges Faced by Healthcare Facilities' %}</strong></h3>
+    <br>
+    <ol class="features-list list-decimal pl-16">
+        <li>
+            <strong>{% trans 'Increasing Violence' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Rising incidents of aggression directed toward healthcare professionals and patients.' %}</li>
+                <li>{% trans 'Growing safety concerns for healthcare workers on duty, particularly during critical emergencies.' %}</li>
+            </ul>
+        </li>
+        <li>
+            <strong>{% trans 'Safety Gaps' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Healthcare facilities lacked an efficient, technology-driven solution for responding to real-time incidents.' %}</li>
+            </ul>
+        </li>
+        <li>
+            <strong>{% trans 'Delayed Responses' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Healthcare facilities lacked an efficient, technology-driven solution for responding to real-time incidents.' %}</li>
+                <li>{% trans 'Delays escalated incidents, leading to reputational losses and impacting operational trust.' %}</li>
+            </ul>
+        </li>
+    </ol>
+
+    <br>
+    <h3><strong>{% trans 'Impact of These Challenges' %}</strong></h3>
+    <br>
+    <ul class="features-list list-disc pl-16">
+        <li><strong>{% trans 'Safety Threats' %}:</strong> {% trans 'Risks to staff, patients, and visitors, increasing the liability of healthcare organizations.' %}</li>
+        <li><strong>{% trans 'Operational Disruptions' %}:</strong> {% trans 'Escalations caused unnecessary financial and infrastructural stress.' %}</li>
+        <li><strong>{% trans 'Loss of Trust' %}:</strong> {% trans 'Diminished confidence in the healthcare system due to recurring safety lapses.' %}</li>
+    </ul>
+</section>
+<div class="line"></div>
+
+<!-- Key Features -->
+<section class="section mt-8">
+    <h2><strong>{% trans 'The ICE-Button Solution' %}</strong></h2>
+    <h3><b>{% trans 'ICE-Button' %}</b> {% trans 'is an' %} <b>{% trans 'end-to-end emergency response system' %}</b> {% trans 'combining advanced technology with real-time communication capabilities to mitigate safety risks. Designed specifically for healthcare settings, ICE-Button ensures that healthcare professionals can quickly' %} <b>{% trans 'activate alerts,' %}</b> {% trans 'escalate incidents, and monitor events in real time.' %}</h3>
+    <br>
+    <h3><strong>{% trans 'Key Features' %}</strong></h3>
+    <br>
+    <ol class="features-list list-decimal pl-16">
+        <li>
+            <strong>{% trans 'Instant Activation' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'A single press of the red SOS button triggers immediate emergency alerts.' %}</li>
+            </ul>
+        </li>
+        <li>
+            <strong>{% trans 'Multi-Channel Notifications' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Alerts are sent simultaneously via SMS, WhatsApp, email, and voice calls to predefined contacts.' %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans 'Real-Time Monitoring' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Live video and audio streaming provides continuous situational updates during an incident.' %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans 'Post-Incident Reporting' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Automatically generates detailed reports with recorded evidence for documentation and analysis.' %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans 'Ease of Use' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'An intuitive user interface designed to ensure ease of operation for healthcare professionals.' %}</li>
+            </ul>
+        </li>
+    </ol>
+</section>
+<div class="line"></div>
+
+<!-- How It Works Section -->
+<section class="how-it-works section">
+    <h2><strong>{% trans 'How ICE-Button Works' %}</strong></h2>
+    <h3>{% trans 'The ICE-Button workflow ensures quick emergency activation and resolution in six simple steps:' %}</h3>
+    <br><br>
+    <div class="steps">
+        <div class="step">
+            <div class="image-placeholder-medium">
+                <img src="{% static 'images/howitwork/1.jpg' %}" alt="{% trans 'Step 1' %}" class="img-fluid">
+            </div>
+            <h3><b>{% trans 'Press the Button' %}</b></h3>
+            <p>{% trans 'Press the ICE SOS Button during an emergency to send an immediate alert to pre-configured contacts.' %}</p>
+        </div>
+        <div class="step">
+            <div class="image-placeholder-medium">
+                <img src="{% static 'images/howitwork/2.jpg' %}" alt="{% trans 'Step 2' %}" class="img-fluid">
+            </div>
+            <h3><b>{% trans 'Instant Notification' %}</b></h3>
+            <p>{% trans 'Your contacts receive an alert with your location, ensuring quick assistance is on its way.' %}</p>
+        </div>
+        <div class="step">
+            <div class="image-placeholder-medium">
+                <img src="{% static 'images/howitwork/3.jpg' %}" alt="{% trans 'Step 3' %}" class="img-fluid">
+            </div>
+            <h3><b>{% trans 'Continuous Monitoring' %}</b></h3>
+            <p>{% trans 'The device continues to track and notify contacts until the situation is resolved.' %}</p>
+        </div>
+    </div><br><br>
+    <ol class="features-list list-disc pl-16">
+        <li><strong>{% trans 'Step 1: Trigger Alerts' %}</strong><br>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Press the ICE SOS button to initiate emergency notifications.' %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans 'Step 2: Send Notifications' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Notifications are sent to up to 15 pre-configured contacts via multiple communication channels (SMS, email, WhatsApp, and voice calls).' %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans 'Step 3: Continuous Monitoring' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Real-time video and audio feeds are streamed to provide immediate situational awareness.' %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans 'Step 4: Acknowledge Alerts' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Responders confirm receipt of the alert and initiate necessary actions.' %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans 'Step 5: Resolve' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Situations are marked as resolved using the blue button upon completion of emergency handling.' %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans 'Step 6: Incident Reporting' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'A comprehensive post-incident report with recorded audio, video, and alert logs is generated for documentation.' %}</li>
+            </ul>
+        </li>
+    </ol>
+</section>
+<div class="line"></div>
+
+<!-- Success Stories -->
+<section class="section">
+    <h2><strong>{% trans 'Implementation Impact' %}</strong></h2>
+    <ul class="features-list list-decimal pl-16">
+        <li><strong>{% trans 'Case Study 1: Hospital A' %}</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Achieved a 50% reduction in violent incidents within the first quarter of implementation.' %}</li>
+                <li>{% trans 'Improved staff confidence and increased trust in security protocols.' %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans 'Case Study 2: Hospital B' %}</strong>
+            <ul class="list-disc pl-4">
+                <li>{% trans 'Enhanced emergency response times by 25%, ensuring faster resolution and minimizing escalations.' %}</li>
+                <li>{% trans 'Enabled real-time monitoring, empowering security personnel to take proactive measures.' %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans 'Tangible Benefits' %}:</strong>
+            <ul class="list-disc pl-4">
+                <li><strong>{% trans 'Enhanced Safety' %}:</strong> {% trans 'Reduced risks to healthcare staff, patients, and visitors.' %}</li>
+                <li><strong>{% trans 'Improved Trust' %}:</strong> {% trans 'Increased operational transparency and confidence among stakeholders.' %}</li>
+                <li><strong>{% trans 'Operational Efficiency' %}:</strong> {% trans 'Streamlined emergency management workflows with automated reporting.' %}</li>
+                <li><strong>{% trans 'Data-Driven Decisions' %}:</strong> {% trans 'Enabled actionable insights through comprehensive incident reporting.' %}</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<div class="line"></div>
+
+    
+          <!-- Success Stories -->
+<section class="section">
+    <h2><strong>{% trans "Value Proposition" %}</strong></h2>
+    <h3><strong>{% trans "ICE-Button stands out as an innovative, scalable, and user-centric solution designed for healthcare security:" %}</strong></h3>
+    <br>
+    <ul class="features-list list-decimal pl-16">
+        <li><strong>{% trans "Proactive Safety" %}:</strong>
+            <ul class="list-disc pl-4"><li>{% trans "Prevents escalation of incidents through immediate activation and real-time situational awareness." %}</li>
+            </ul></li>
+        <li><strong>{% trans "Comprehensive Coverage" %}:</strong>
+            <ul class="list-disc pl-4"><li>{% trans "Multi-channel notifications and monitoring ensure timely responses from designated contacts." %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans "Ease of Use" %}:</strong>
+            <ul class="list-disc pl-4"><li>{% trans "Simple, intuitive interface designed specifically for healthcare professionals to operate under stress." %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans "Scalability" %}:</strong>
+            <ul class="list-disc pl-4"><li>{% trans "Adaptable to facilities of all sizes, from small clinics to large multi-specialty hospitals." %}</li>
+            </ul>
+        </li>
+    </ul>
+    <br>
+</section>
+<div class="line"></div>
+<!-- Success Stories -->
+<section class="section">
+    <h2><strong>{% trans "Client Testimonial" %}</strong></h2>
+    <p class="quote">"{% trans "Implementing ICE-Button has been a game-changer for our hospital. The system’s rapid alert mechanism and real-time monitoring have significantly improved the safety of our staff and patients. It’s an investment in trust and security." %}" — {% trans "Dr. Ramesh Kumar, Director, Hospital A" %}</p>
+</section>
+<div class="line"></div>
+
+<section class="section pl-5">
+    <h2><strong>{% trans "Challenges and Solutions" %}</strong></h2>
+
+    <br>
+    <ol class="features-list list-disc pl-16">
+        <li><strong>{% trans "Challenge 1: Inefficient Emergency Communication" %}</strong><br>
+            <ul class="list-disc pl-4">
+                <li><strong>{% trans "Issue" %}:</strong> {% trans "Delays in notifying relevant personnel during emergencies." %}</li>
+                <li><strong>{% trans "Solution" %}:</strong> {% trans "Multi-channel alerts via SMS, WhatsApp, email, and voice calls ensured timely notifications." %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans "Challenge 2: Lack of Situational Awareness" %}</strong>
+            <ul class="list-disc pl-4">
+                <li><strong>{% trans "Issue" %}:</strong> {% trans "Security teams struggled to assess the on-ground reality." %}</li>
+                <li><strong>{% trans "Solution" %}:</strong> {% trans "Real-time video and audio streaming enabled instant situational clarity for responders." %}</li>
+            </ul>
+        </li>
+        <li><strong>{% trans "Challenge 3: Absence of Post-Incident Data" %}</strong>
+            <ul class="list-disc pl-4">
+                <li><strong>{% trans "Issue" %}:</strong> {% trans "Facilities lacked systematic incident documentation for analysis and improvement." %}</li>
+                <li><strong>{% trans "Solution" %}:</strong> {% trans "Automated post-incident reporting provided structured evidence for review and decision-making." %}</li>
+            </ul>
+        </li>
+    </ol>
+    <br>
+</section>
+<div class="line"></div>
+<!-- Success Stories -->
+<section class="section pl-5">
+    <h2><strong>{% trans "Conclusion" %}</strong></h2>
+
+    <br>
+    <h3>{% trans "ICE-Button has redefined emergency management within healthcare facilities by ensuring rapid responses, real-time situational monitoring, and comprehensive reporting. This user-friendly and scalable solution empowers healthcare professionals to act decisively, improving safety, operational efficiency, and trust." %}<br><br>
+        {% trans "By addressing critical safety gaps and delivering measurable results, ICE-Button stands as a benchmark for emergency response systems in the healthcare industry." %}
+    </h3>
+    <br>
+</section>
+<div class="line"></div>
+<!-- Success Stories -->
+
+
+<section class="section pl-5">
+    <h2><strong>{% trans "Key Takeaways" %}</strong></h2>
+    <br>
+    <ol class="features-list list-decimal pl-16">
+        <li>
+            <strong>{% trans "Real-Time Response" %}:</strong> {% trans "ICE-Button ensures immediate and multi-channel emergency alerts." %}</li>
+
+        <li>
+            <strong>{% trans "Situational Awareness" %}:</strong> {% trans "Live audio and video feeds empower security teams with actionable insights." %}</li>
+
+        <li><strong>{% trans "Operational Efficiency" %}:</strong> {% trans "Post-incident reports streamline incident analysis and continuous improvement." %}</li>
+
+        <li><strong>{% trans "Scalable and User-Friendly" %}:</strong> {% trans "ICE-Button’s adaptable design serves facilities of all sizes while maintaining ease of use." %}</li>
+
+        <li><strong>{% trans "Enhanced Trust" %}:</strong> {% trans "A proactive approach to safety strengthens confidence among healthcare professionals, patients, and stakeholders." %}</li>
+
+    </ol>
+</section>
+<div class="line"></div>
+
+<section class="section">
+    <p class="quote">{% trans "Start using ICE-Button today and ensure the safety of your healthcare facility." %}<br>
+        <a href="#" class="text-custom" style="color: #f04438; text-decoration: underline;">{% trans "Request a Demo" %}</a>
+    </p>
+</section>
+<div class="line"></div>
+
+        </div>
+
+    </main>
+    {% include "footer.html" %}
+
+
+</body>
+</html>

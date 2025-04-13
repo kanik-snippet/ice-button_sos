@@ -1,0 +1,3731 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-28 13:12+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: core/views.py:237
+msgid "Email is required."
+msgstr "ईमेल आवश्यक है।"
+
+#: core/views.py:242
+msgid "Already subscribed."
+msgstr "पहले से सब्सक्राइब किया गया है।"
+
+#: core/views.py:255
+msgid "Successfully subscribed."
+msgstr "सफलतापूर्वक सब्सक्राइब किया गया।"
+
+#: core/views.py:304
+msgid "You have successfully unsubscribed."
+msgstr "आपने सफलतापूर्वक सदस्यता समाप्त कर दी है।"
+
+#: core/views.py:426
+msgid ""
+"The email address you entered is already registered. Please use a different "
+"email."
+msgstr "डाला गया ईमेल पहले से पंजीकृत है। कृपया कोई दूसरा ईमेल उपयोग करें।"
+
+#: core/views.py:428
+msgid ""
+"The phone number you entered is already registered. Please use a different "
+"phone number."
+msgstr "डाला गया फोन नंबर पहले से पंजीकृत है। कृपया कोई दूसरा नंबर उपयोग करें।"
+
+#: core/views.py:430
+msgid "The username is already taken. Please choose a different username."
+msgstr "यह उपयोगकर्ता नाम पहले से लिया जा चुका है। कृपया कोई दूसरा नाम चुनें।"
+
+#: core/views.py:485
+msgid ""
+"Registration successfull Please check your email to verify your account. "
+"Thank you for joining the ICE-Button System."
+msgstr ""
+"पंजीकरण सफल रहा! कृपया अपना खाता सत्यापित करने के लिए ईमेल देखें। आपातकालीन-बटन "
+"System में शामिल होने के लिए धन्यवाद।"
+
+#: core/views.py:491
+msgid "Registration failed"
+msgstr "पंजीकरण विफल हुआ।"
+
+#: core/views.py:517 core/views.py:1039 core/views.py:1061 core/views.py:1151
+#: core/views.py:1200 core/views.py:1208
+msgid "Verification Failed"
+msgstr "सत्यापन असफल।"
+
+#: core/views.py:545 customadmin/models.py:130
+#: templates/frontend/subscription_txn.html:66
+msgid "Failed"
+msgstr "असफल"
+
+#: core/views.py:546 core/views.py:1040 core/views.py:1062 core/views.py:1152
+msgid ""
+"The verification link is invalid or expired. Please request a new "
+"verification link."
+msgstr "सत्यापन लिंक अमान्य है या समाप्त हो गया है। कृपया नया सत्यापन लिंक अनुरोध करें।"
+
+#: core/views.py:649
+msgid "The user does not exist. Please register before logging in."
+msgstr "उपयोगकर्ता मौजूद नहीं है। कृपया लॉग इन करने से पहले पंजीकरण करें।"
+
+#: core/views.py:678 templates/auth/login.html:172
+msgid "You have logged in successfully. Welcome back!"
+msgstr "आप सफलतापूर्वक लॉग इन हो चुके हैं। स्वागत है!"
+
+#: core/views.py:690
+msgid ""
+"Your email address is not verified. Please verify your email to proceed."
+msgstr "आपका ईमेल पता सत्यापित नहीं है। कृपया आगे बढ़ने के लिए अपना ईमेल सत्यापित करें।"
+
+#: core/views.py:695
+msgid "The password you entered is incorrect. Please try again."
+msgstr "डाला गया पासवर्ड गलत है। कृपया फिर से प्रयास करें।"
+
+#: core/views.py:734
+msgid "Your password was successfully updated!"
+msgstr "आपका पासवर्ड सफलतापूर्वक अपडेट हो गया है!"
+
+#: core/views.py:761
+msgid "Email field is required."
+msgstr "ईमेल आवश्यक है।"
+
+#: core/views.py:766
+msgid ""
+"We couldn’t find an account with the provided email. Please check and try "
+"again."
+msgstr "दिए गए ईमेल से कोई खाता नहीं मिला। कृपया जांचें और फिर से प्रयास करें।"
+
+#: core/views.py:792
+msgid ""
+"A password reset link has been sent to your registered email address. Please "
+"check your inbox and follow the instructions. Note: The reset link will "
+"expire in 5 minutes."
+msgstr ""
+"एक पासवर्ड रीसेट लिंक आपके पंजीकृत ईमेल पते पर भेजा गया है। कृपया अपना इनबॉक्स जांचें और "
+"निर्देशों का पालन करें। ध्यान दें: रीसेट लिंक 5 मिनट में समाप्त हो जाएगा।"
+
+#: core/views.py:866
+msgid "Your new password cannot be the same as your old password."
+msgstr "नया पासवर्ड पुराने पासवर्ड जैसा नहीं हो सकता।"
+
+#: core/views.py:870
+msgid "The passwords you entered do not match. Please try again."
+msgstr "आपके द्वारा डाले गए पासवर्ड मेल नहीं खाते। कृपया फिर से प्रयास करें।"
+
+#: core/views.py:892
+msgid ""
+"Your password has been reset successfully! You can now log in with your new "
+"password."
+msgstr ""
+"आपका पासवर्ड सफलतापूर्वक रीसेट हो गया है! अब आप नए पासवर्ड के साथ लॉग इन कर सकते हैं।"
+
+#: core/views.py:912
+msgid "You have logged out successfully. See you soon!"
+msgstr "आप सफलतापूर्वक लॉग आउट हो गए हैं। जल्दी मिलते हैं!"
+
+#: core/views.py:983
+msgid "Email ID is required."
+msgstr "ईमेल आवश्यक है।"
+
+#: core/views.py:1106 core/views.py:1295
+msgid "Verification link sent successfully! Please check your SMS."
+msgstr "सत्यापन लिंक सफलतापूर्वक भेजा गया! कृपया अपना एसएमएस जांचें।"
+
+#: core/views.py:1185
+msgid "Verification successfull"
+msgstr "सत्यापन सफल।"
+
+#: core/views.py:1192
+msgid "Phone Verification successfull"
+msgstr "फोन सत्यापन सफल।"
+
+#: core/views.py:1271
+msgid "Phone ID is required."
+msgstr "फोन आईडी आवश्यक है।"
+
+#: core/views.py:1279
+msgid "This phone number is already verified."
+msgstr "यह फोन नंबर पहले से सत्यापित है।"
+
+#: core/views.py:1298
+msgid "Phone ID not found."
+msgstr "फोन आईडी नहीं मिली।"
+
+#: core/views.py:1536
+msgid "SOS contact updated successfully."
+msgstr "संपर्क सफलतापूर्वक अपडेट किया गया!"
+
+#: core/views.py:1580
+msgid "Please provide either an email_id or phone_id to delete."
+msgstr "कृपया कम से कम एक ईमेल या फोन नंबर प्रदान करें।"
+
+#: core/views.py:1815
+msgid "Device ID is required."
+msgstr "डिवाइस आईडी आवश्यक है।"
+
+#: core/views.py:1817
+msgid "At least one contact (email or phone) must be provided."
+msgstr "कृपया कम से कम एक ईमेल या फोन नंबर प्रदान करें।"
+
+#: core/views.py:1823
+msgid "Device not found or access denied."
+msgstr "डिवाइस नहीं मिला या पहुँच अस्वीकृत।"
+
+#: core/views.py:2317
+msgid "Button limit exceeded. You cannot register more buttons."
+msgstr "बटन सीमा पार हो गई। आप अधिक बटन पंजीकृत नहीं कर सकते।"
+
+#: core/views.py:2571
+msgid "Device deleted successfully."
+msgstr "आपका डिवाइस सफलतापूर्वक जोड़ा गया।"
+
+#: core/views.py:2605
+msgid "mac_address is required"
+msgstr "मैक एड्रेस आवश्यक है।"
+
+#: core/views.py:2846
+msgid "Profile updated successfully!"
+msgstr "प्रोफाइल सफलतापूर्वक अपडेट हो गया है!"
+
+#: core/views.py:2914
+msgid "Profile image deleted successfully!"
+msgstr "प्रोफाइल छवि सफलतापूर्वक हटा दी गई है!"
+
+#: core/views.py:2916
+msgid "No profile image found to delete."
+msgstr "हटाने के लिए कोई प्रोफाइल छवि नहीं मिली।"
+
+#: core/views.py:3056
+msgid "Video deleted successfully."
+msgstr "वीडियो सफलतापूर्वक हटा दिया गया है।"
+
+#: core/views.py:3073
+msgid "Connected successfully to the hotspot!"
+msgstr "हॉटस्पॉट से सफलतापूर्वक जुड़ गए हैं!"
+
+#: core/views.py:3083
+msgid ""
+"Unable to connect to the hotspot. Please ensure the device is connected."
+msgstr "त्रुटि: आपातकालीन-बटन हॉटस्पॉट से कनेक्ट करने में असमर्थ। कृपया अपना कनेक्शन जांचें।"
+
+#: core/views.py:3088
+msgid "Connection to the hotspot timed out. Please try again."
+msgstr "हॉटस्पॉट से कनेक्शन का समय समाप्त हो गया। कृपया फिर से प्रयास करें।"
+
+#: core/views.py:3489
+msgid "Thank you for contacting us! Emails sent successfully."
+msgstr "हमसे संपर्क करने के लिए धन्यवाद! ईमेल सफलतापूर्वक भेजा गया।"
+
+#: core/views.py:3652
+msgid "No logs found for this user."
+msgstr "इस उपयोगकर्ता के लिए कोई लॉग्स नहीं मिले।"
+
+#: customadmin/models.py:121
+msgid "Card"
+msgstr "कार्ड"
+
+#: customadmin/models.py:122
+msgid "UPI"
+msgstr "UPI"
+
+#: customadmin/models.py:123
+msgid "Wallet"
+msgstr "वॉलेट"
+
+#: customadmin/models.py:124
+msgid "Bank Transfer"
+msgstr "बैंक ट्रांसफर"
+
+#: customadmin/models.py:125 templates/frontend/add_contact.html:64
+#: templates/frontend/add_contact.html:410
+msgid "Other"
+msgstr "अन्य"
+
+#: customadmin/models.py:128 templates/frontend/subscription_txn.html:65
+msgid "Pending"
+msgstr "लंबित"
+
+#: customadmin/models.py:129
+msgid "Succeeded"
+msgstr "सफल"
+
+#: customadmin/models.py:131
+msgid "Cancelled"
+msgstr "रद्द किया गया"
+
+#: customadmin/models.py:132
+msgid "Refunded"
+msgstr "रिफंड किया गया"
+
+#: customadmin/models.py:133
+msgid "Disputed"
+msgstr "विवादित"
+
+#: templates/Privacy.html:30 templates/auth/home.html:1077
+#: templates/footer.html:189
+msgid "Privacy Policy"
+msgstr "गोपनीयता नीति"
+
+#: templates/Privacy.html:31 templates/termsOfuse.html:31
+msgid "Effective Date: 29-Nov-2024"
+msgstr "प्रभावी तिथि: 29-नव-2024"
+
+#: templates/Privacy.html:33
+msgid ""
+"At Mobiloitte Technologies India Private Limited, your privacy is of utmost "
+"importance to us. This Privacy Policy outlines how we collect, use, "
+"disclose, and safeguard your information when you use our services, "
+"including the ICE-Button system, our website, and any related applications. "
+"By accessing or using our services, you agree to the terms of this Privacy "
+"Policy."
+msgstr ""
+"Mobiloitte Technologies India Private Limited में, आपकी गोपनीयता हमारे लिए बहुत "
+"महत्वपूर्ण है। यह गोपनीयता नीति समझाती है कि हम आपकी जानकारी को कैसे इकट्ठा, उपयोग, "
+"साझा और सुरक्षा करते हैं जब आप हमारी सेवाओं का उपयोग करते हैं, जैसे कि आपातकालीन-बटन "
+"सिस्टम, हमारी वेबसाइट और ऐप्स। हमारी सेवाओं का उपयोग करके, आप इस गोपनीयता नीति से "
+"सहमत होते हैं।"
+
+#: templates/Privacy.html:35
+msgid "1. Information We Collect"
+msgstr "1. जानकारी जो हम एकत्र करते हैं"
+
+#: templates/Privacy.html:37
+msgid "Personal Information:"
+msgstr "व्यक्तिगत जानकारी:"
+
+#: templates/Privacy.html:37
+msgid "Name, email address, phone number, and emergency contact details."
+msgstr "नाम, ईमेल पता, फोन नंबर, और आपातकालीन संपर्क जानकारी।"
+
+#: templates/Privacy.html:38
+msgid "Device Information:"
+msgstr "डिवाइस जानकारी:"
+
+#: templates/Privacy.html:38
+msgid ""
+"Hardware and software details, device identifiers such as MAC and IP "
+"addresses."
+msgstr "हार्डवेयर और सॉफ़्टवेयर का विवरण, MAC और IP पते जैसे डिवाइस ID।"
+
+#: templates/Privacy.html:39
+msgid "Usage Information:"
+msgstr "उपयोग जानकारी:"
+
+#: templates/Privacy.html:39
+msgid "Logs related to alerts, including timestamps and notification history."
+msgstr "अलर्ट से संबंधित अभिलेख, जैसे समय और अधिसूचना इतिहास।"
+
+#: templates/Privacy.html:40
+msgid "Location Data:"
+msgstr "स्थान डेटा:"
+
+#: templates/Privacy.html:40
+msgid "Real-time location during alerts (with consent)."
+msgstr "अलर्ट के दौरान स्थान (सहमति से)।"
+
+#: templates/Privacy.html:41
+msgid "Communication Data:"
+msgstr "संचार डेटा:"
+
+#: templates/Privacy.html:41
+msgid ""
+"Messages sent through SMS, WhatsApp, email, and voice call functionality."
+msgstr "SMS, WhatsApp, ईमेल और कॉल के माध्यम से भेजे गए संदेश।"
+
+#: templates/Privacy.html:44
+msgid "2. How We Use Your Information"
+msgstr "2. हम आपकी जानकारी का उपयोग कैसे करते हैं"
+
+#: templates/Privacy.html:46
+msgid "To provide services and facilitate emergency alerts."
+msgstr "सेवाएं प्रदान करने और आपातकालीन अलर्ट सक्षम करने के लिए।"
+
+#: templates/Privacy.html:47
+msgid "To improve system functionality and user experience."
+msgstr "सिस्टम की कार्यप्रणाली और उपयोगकर्ता अनुभव को बेहतर बनाने के लिए।"
+
+#: templates/Privacy.html:48
+msgid "To ensure security and protect against unauthorized access."
+msgstr "सुरक्षा सुनिश्चित करने और अनधिकृत पहुँच को रोकने के लिए।"
+
+#: templates/Privacy.html:49
+msgid "To comply with legal obligations and fulfill regulatory requirements."
+msgstr "कानूनी कर्तव्यों का पालन करने और नियामक आवश्यकताओं को पूरा करने के लिए।"
+
+#: templates/Privacy.html:50
+msgid "To communicate updates, service changes, or customer support."
+msgstr "अपडेट, सेवा परिवर्तन या समर्थन भेजने के लिए।"
+
+#: templates/Privacy.html:53
+msgid "3. Information Sharing"
+msgstr "3. जानकारी साझा करना"
+
+#: templates/Privacy.html:55
+msgid "Emergency Contacts:"
+msgstr "आपातकालीन संपर्क:"
+
+#: templates/Privacy.html:55
+msgid "During alert activation for rapid response."
+msgstr "अलर्ट के दौरान तेज प्रतिक्रिया के लिए।"
+
+#: templates/Privacy.html:56
+msgid "Third-Party Service Providers:"
+msgstr "तीसरी पार्टी सेवा प्रदाता:"
+
+#: templates/Privacy.html:56
+msgid "For messaging, voice calls, and hosting services."
+msgstr "संदेश, कॉल और होस्टिंग सेवाओं के लिए।"
+
+#: templates/Privacy.html:57
+msgid "Legal Compliance:"
+msgstr "कानूनी अनुपालन:"
+
+#: templates/Privacy.html:57
+msgid "When required to comply with applicable laws."
+msgstr "जब लागू कानूनों का पालन करना आवश्यक हो।"
+
+#: templates/Privacy.html:58
+msgid "With Consent:"
+msgstr "सहमति से:"
+
+#: templates/Privacy.html:58
+msgid "Sharing beyond the above scenarios only with explicit consent."
+msgstr "सिर्फ स्पष्ट सहमति से साझा करना।"
+
+#: templates/Privacy.html:61
+msgid "4. Data Retention"
+msgstr "4. डेटा संधारण"
+
+#: templates/Privacy.html:62
+msgid ""
+"Personal data and alert logs are retained for a specified period in line "
+"with operational and legal requirements."
+msgstr ""
+"व्यक्तिगत डेटा और अलर्ट अभिलेख को कानून और व्यवसाय आवश्यकताओं के अनुसार एक निश्चित अवधि "
+"तक रखा जाता है।"
+
+#: templates/Privacy.html:64
+msgid "5. Security Measures"
+msgstr "5. सुरक्षा उपाय"
+
+#: templates/Privacy.html:65
+msgid ""
+"We employ end-to-end encryption, role-based access control, and conduct "
+"regular security audits to safeguard your data against unauthorized access."
+msgstr ""
+"हम आपके डेटा की सुरक्षा के लिए एन्क्रिप्शन, एक्सेस नियंत्रण और सुरक्षा ऑडिट का उपयोग करते हैं।"
+
+#: templates/Privacy.html:67
+msgid "6. Your Rights"
+msgstr "6. आपके अधिकार"
+
+#: templates/Privacy.html:69
+msgid "Access, update, or delete your information."
+msgstr "आपका डेटा एक्सेस, अपडेट या हटाएं।"
+
+#: templates/Privacy.html:70
+msgid "Withdraw consent for data processing."
+msgstr "डेटा उपयोग के लिए सहमति वापस लें।"
+
+#: templates/Privacy.html:71
+msgid ""
+"Lodge a complaint with data protection authorities if your rights are "
+"violated."
+msgstr "अगर आपके डेटा अधिकारों का उल्लंघन होता है तो शिकायत दर्ज करें।"
+
+#: templates/Privacy.html:74
+msgid "7. Cookies and Tracking"
+msgstr "7. कुकीज़ और ट्रैकिंग"
+
+#: templates/Privacy.html:75
+msgid ""
+"Our website uses cookies to enhance your browsing experience. You can manage "
+"cookie preferences through your browser settings."
+msgstr ""
+"हमारी वेबसाइट आपके अनुभव को बेहतर बनाने के लिए कुकीज़ का उपयोग करती है। आप अपने ब्राउज़र "
+"में कुकी सेटिंग्स को प्रबंधित कर सकते हैं।"
+
+#: templates/Privacy.html:77
+msgid "8. Updates to this Policy"
+msgstr "8. इस नीति में अपडेट"
+
+#: templates/Privacy.html:78
+msgid ""
+"We may update this Privacy Policy periodically to reflect changes in "
+"practices or legal obligations. Updates will be posted on our website with "
+"the effective date."
+msgstr ""
+"हम इस नीति को अपडेट कर सकते हैं, बदलावों को दर्शाने के लिए। अपडेट हमारी वेबसाइट पर "
+"तिथि के साथ होंगे।"
+
+#: templates/Privacy.html:80
+msgid "9. Contact Us"
+msgstr "9. हमसे संपर्क करें"
+
+#: templates/Privacy.html:81
+msgid "For questions, please reach out to us at"
+msgstr "प्रश्नों के लिए, कृपया हमसे संपर्क करें"
+
+#: templates/auth/forgot.html:152
+msgid "An error occurred. Please try again."
+msgstr "एक त्रुटि हुई। कृपया पुनः प्रयास करें।"
+
+#: templates/auth/forgot.html:157
+msgid "Forgot Password "
+msgstr "पासवर्ड भूल गए"
+
+#: templates/auth/forgot.html:158
+msgid "Don’t worry we are here for you"
+msgstr "चिंता मत करें, हम आपके लिए हैं"
+
+#: templates/auth/forgot.html:161 templates/auth/register.html:314
+#: templates/frontend/add_contact.html:72
+#: templates/frontend/add_contact.html:417
+#: templates/frontend/pod_detail.html:924
+msgid "Email"
+msgstr "ईमेल"
+
+#: templates/auth/forgot.html:166 templates/auth/home.html:774
+#: templates/auth/home.html:979 templates/auth/home.html:1059
+#: templates/auth/register.html:321 templates/footer.html:91
+msgid "Enter your email"
+msgstr "अपना ईमेल दर्ज करें"
+
+#: templates/auth/forgot.html:170
+msgid "Submit Request"
+msgstr "अनुरोध सबमिट करें"
+
+#: templates/auth/forgot.html:181
+msgid "Back to log in"
+msgstr "लॉगिन पर वापस जाएं"
+
+#: templates/auth/home.html:305 templates/auth/home.html:346
+#: templates/auth/home.html:933 templates/auth/home.html:1015
+#: templates/blogheader.html:25 templates/blogheader.html:64
+#: templates/footer.html:45 templates/footer.html:127 templates/header.html:25
+#: templates/header.html:64
+msgid "Home"
+msgstr "होम"
+
+#: templates/auth/home.html:306 templates/auth/home.html:347
+#: templates/blogheader.html:26 templates/blogheader.html:65
+#: templates/header.html:26 templates/header.html:65
+msgid "Blogs"
+msgstr "ब्लॉग्स"
+
+#: templates/auth/home.html:307 templates/auth/home.html:348
+#: templates/auth/home.html:936 templates/auth/home.html:1018
+#: templates/blogheader.html:27 templates/blogheader.html:66
+#: templates/footer.html:48 templates/footer.html:130 templates/header.html:27
+#: templates/header.html:66
+msgid "Tutorials"
+msgstr "सीखने का तरीका"
+
+#: templates/auth/home.html:308 templates/auth/home.html:349
+#: templates/auth/home.html:628 templates/auth/home.html:934
+#: templates/auth/home.html:1016 templates/blogheader.html:28
+#: templates/blogheader.html:67 templates/footer.html:46
+#: templates/footer.html:128 templates/header.html:28 templates/header.html:67
+msgid "Features"
+msgstr "विशेषताएँ"
+
+#: templates/auth/home.html:309 templates/auth/home.html:350
+#: templates/blogheader.html:29 templates/blogheader.html:68
+#: templates/header.html:29 templates/header.html:68
+msgid "Plan & Pricing"
+msgstr "योजना और मूल्य निर्धारण"
+
+#: templates/auth/home.html:310 templates/auth/home.html:351
+#: templates/auth/home.html:924 templates/auth/home.html:1005
+#: templates/blogheader.html:30 templates/blogheader.html:69
+#: templates/footer.html:36 templates/footer.html:117 templates/header.html:30
+#: templates/header.html:69
+msgid "FAQs"
+msgstr "अक्सर पूछे जाने वाले प्रश्न"
+
+#: templates/auth/home.html:311 templates/auth/home.html:352
+#: templates/auth/home.html:935 templates/auth/home.html:1017
+#: templates/blogheader.html:31 templates/blogheader.html:70
+#: templates/footer.html:47 templates/footer.html:129 templates/header.html:31
+#: templates/header.html:70 templates/ordernow.html:85
+#: templates/plan_pricing.html:255
+msgid "Order Now"
+msgstr "अभी ऑर्डर करें"
+
+#: templates/auth/home.html:332 templates/auth/home.html:355
+#: templates/blogheader.html:50 templates/blogheader.html:73
+#: templates/header.html:50 templates/header.html:73
+msgid "Log in"
+msgstr "लॉग इन"
+
+#: templates/auth/home.html:333 templates/auth/home.html:356
+#: templates/auth/login.html:157 templates/blogheader.html:51
+#: templates/blogheader.html:74 templates/header.html:51
+#: templates/header.html:74
+msgid "Sign up"
+msgstr "साइन अप करें"
+
+#: templates/auth/home.html:336
+msgctxt "webiste"
+msgid "Dashboard"
+msgstr "डैशबोर्ड"
+
+#: templates/auth/home.html:359 templates/auth/home.html:415
+#: templates/auth/home.html:419 templates/auth/home.html:500
+#: templates/blogheader.html:54 templates/blogheader.html:77
+#: templates/blogheader.html:132 templates/blogheader.html:136
+#: templates/frontend/nav.html:56 templates/header.html:54
+#: templates/header.html:77 templates/header.html:132 templates/header.html:136
+msgid "Dashboard"
+msgstr "डैशबोर्ड"
+
+#: templates/auth/home.html:447
+msgid "New feature"
+msgstr "विशेषताएँ"
+
+#: templates/auth/home.html:451
+msgid "Check out the team dashboard"
+msgstr "टीम डैशबोर्ड देखें"
+
+#: templates/auth/home.html:459
+msgid "Secure Your Safety with ICE-Button: Instant Safety at Your Fingertips."
+msgstr "आपातकालीन-बटन के साथ अपनी सुरक्षा सुनिश्चित करें: आपकी अंगुलियों पर तत्काल सुरक्षा।"
+
+#: templates/auth/home.html:464
+msgid ""
+"Alert your trusted people instantly with ICE-Button. One tap for quick "
+"emergency assistance."
+msgstr ""
+"आपातकालीन-बटन के साथ तुरंत अपने विश्वासपात्र लोगों को सूचित करें। एक टैप के साथ तत्काल "
+"आपातकालीन सहायता।"
+
+#: templates/auth/home.html:472
+msgid "Your browser does not support the video tag."
+msgstr "आपका ब्राउज़र वीडियो टैग का समर्थन नहीं करता।"
+
+#: templates/auth/home.html:482
+msgid "Demo"
+msgstr "डेमो"
+
+#: templates/auth/home.html:488
+msgid "Get Started"
+msgstr "शुरू करें"
+
+#: templates/auth/home.html:502
+msgid ""
+"Include a visual or interactive dashboard showcasing key metrics or "
+"information."
+msgstr ""
+"मुख्य मापदंडों या जानकारी को प्रदर्शित करने वाला एक दृश्य या इंटरैक्टिव डैशबोर्ड शामिल करें।"
+
+#: templates/auth/home.html:506
+msgid "Dashboard Preview"
+msgstr "डैशबोर्ड"
+
+#: templates/auth/home.html:512
+msgid "Introduction"
+msgstr "परिचय"
+
+#: templates/auth/home.html:514
+msgid ""
+"The ICE-Button is a reliable emergency alert system that provides real-time, "
+"multi-channel notifications during critical situations. It combines trusted "
+"hardware, software, and cloud services to ensure fast, efficient responses "
+"in emergencies. Designed for individuals, families, businesses, and "
+"institutions,The ICE-Button improves safety and helps in emergencies by "
+"making sure help arrives quickly to protect people and property."
+msgstr ""
+"आपातकालीन-बटन एक विश्वसनीय आपातकालीन अलर्ट सिस्टम है जो महत्वपूर्ण स्थितियों के दौरान "
+"वास्तविक समय में, मल्टी-चैनल सूचनाएं प्रदान करता है। यह विश्वसनीय हार्डवेयर, सॉफ़्टवेयर और "
+"क्लाउड सेवाओं को जोड़ता है ताकि आपातकालीन स्थितियों में तेज और कुशल प्रतिक्रियाएं सुनिश्चित "
+"की जा सकें। यह व्यक्तियों, परिवारों, व्यवसायों और संस्थानों के लिए डिज़ाइन किया गया है, और "
+"आपातकालीन-बटन सुरक्षा में सुधार करता है और आपातकालीन स्थितियों में मदद करता है, यह "
+"सुनिश्चित करता है कि मदद जल्दी पहुंचे ताकि लोगों और संपत्ति की सुरक्षा की जा सके।"
+
+#: templates/auth/home.html:520
+msgid "Problem Statement"
+msgstr "समस्या विवरण"
+
+#: templates/auth/home.html:522
+msgid ""
+"In emergencies, delayed communication and unreliable alert systems can "
+"escalate situations. Many current solutions lack integration, reliability, "
+"or affordability, making it hard to alert multiple contacts or track events "
+"in real time. The ICE-Button addresses these challenges with an easy-to-use, "
+"automated system that sends alerts across multiple channels, enabling faster "
+"communication and quick responses while keeping everyone informed."
+msgstr ""
+"आपातकालीन स्थितियों में, विलंबित संचार और अविश्वसनीय अलर्ट सिस्टम स्थितियों को बढ़ा सकते "
+"हैं। वर्तमान समाधान कई बार एकीकरण, विश्वसनीयता या किफ़ायतीपन की कमी रखते हैं, जिससे "
+"कई संपर्कों को सूचित करना या घटनाओं को वास्तविक समय में ट्रैक करना कठिन हो जाता है। "
+"आपातकालीन-बटन इन चुनौतियों को एक उपयोग में आसान, स्वचालित सिस्टम के साथ संबोधित करता "
+"है जो कई चैनलों के माध्यम से अलर्ट भेजता है, तेजी से संचार और त्वरित प्रतिक्रियाएं सक्षम करता "
+"है, जबकि सभी को सूचित रखता है।"
+
+#: templates/auth/home.html:532
+msgid "Objectives"
+msgstr "लक्ष्य"
+
+#: templates/auth/home.html:534
+msgid "Key Objectives of ICE-Button"
+msgstr "आपातकालीन-बटन के मुख्य लक्ष्य"
+
+#: templates/auth/home.html:537
+msgid ""
+"The ICE-Button is built to ensure safety, reliability, and efficiency, "
+"tackling key objectives for effective emergency response in critical "
+"situations."
+msgstr ""
+"आपातकालीन-बटन को सुरक्षा, विश्वसनीयता और दक्षता सुनिश्चित करने के लिए बनाया गया है, "
+"जो महत्वपूर्ण स्थितियों में प्रभावी आपातकालीन प्रतिक्रिया के लिए प्रमुख उद्देश्यों को पूरा "
+"करता है।"
+
+#: templates/auth/home.html:548
+msgid "Real-Time Alerts"
+msgstr "रियल-टाइम अलर्ट्स"
+
+#: templates/auth/home.html:551
+msgid ""
+"Instant notifications via SMS, WhatsApp, email, and voice calls to ensure "
+"rapid communication during emergencies."
+msgstr ""
+"आपातकालीन स्थितियों में त्वरित संचार सुनिश्चित करने के लिए SMS, WhatsApp, ईमेल और वॉयस "
+"कॉल के माध्यम से तात्कालिक सूचनाएँ।"
+
+#: templates/auth/home.html:561
+msgid "Audio-Video Documentation"
+msgstr "ऑडियो-वीडियो दस्तावेज़ीकरण"
+
+#: templates/auth/home.html:564
+msgid ""
+"Record and share event details for future review or evidence, promoting "
+"transparency and accountability."
+msgstr ""
+"भविष्य में समीक्षा या साक्ष्य के लिए घटना विवरण रिकॉर्ड करें और साझा करें, पारदर्शिता और "
+"उत्तरदायित्व को बढ़ावा दें।"
+
+#: templates/auth/home.html:574
+msgid "Live Streaming"
+msgstr "लाइव स्ट्रीमिंग"
+
+#: templates/auth/home.html:577
+msgid ""
+"Provide real-time visual access to emergency situations, enabling responders "
+"to assess the situation and respond accordingly."
+msgstr ""
+"आपातकालीन स्थितियों में वास्तविक समय की दृश्य पहुंच प्रदान करें, जिससे उत्तरदाता स्थिति का "
+"मूल्यांकन कर सकें और तदनुसार प्रतिक्रिया दे सकें।"
+
+#: templates/auth/home.html:587 templates/case_study.html:446
+#: templates/case_study.html:560
+msgid "Ease of Use"
+msgstr "उपयोग में सरलता"
+
+#: templates/auth/home.html:590
+msgid ""
+"Easy setup and operation for users of all technical skill levels, ensuring "
+"accessibility for everyone."
+msgstr ""
+"सभी तकनीकी कौशल स्तरों के उपयोगकर्ताओं के लिए आसान सेटअप और संचालन, यह सुनिश्चित करता "
+"है कि यह सभी के लिए सुलभ हो।"
+
+#: templates/auth/home.html:600
+msgid "System Resilience"
+msgstr "सिस्टम का लचीलापन"
+
+#: templates/auth/home.html:603
+msgid ""
+"Ensures operation even in low-connectivity or during initial setup, allowing "
+"continuous emergency assistance."
+msgstr ""
+"यह सुनिश्चित करता है कि कम कनेक्टिविटी या प्रारंभिक सेटअप के दौरान भी सिस्टम का संचालन "
+"होता है, जिससे निरंतर आपातकालीन सहायता प्राप्त होती है।"
+
+#: templates/auth/home.html:613 templates/case_study.html:431
+msgid "Multi-Channel Notifications"
+msgstr "मल्टी-चैनल सूचनाएँ"
+
+#: templates/auth/home.html:616
+msgid ""
+"Send alerts across multiple channels simultaneously, ensuring the message "
+"reaches contacts on the most suitable platform."
+msgstr ""
+"अलर्ट्स को एक साथ कई चैनलों के माध्यम से भेजें, यह सुनिश्चित करते हुए कि संदेश संपर्कों तक सबसे "
+"उपयुक्त प्लेटफॉर्म पर पहुंचे।"
+
+#: templates/auth/home.html:630
+msgid "Key Features of ICE-Button"
+msgstr "आपातकालीन-बटन की मुख्य विशेषताएँ"
+
+#: templates/auth/home.html:633
+msgid ""
+"The ICE-Button offers a comprehensive safety solution designed to provide "
+"peace of mind in critical situations. Here are some of its key features:"
+msgstr ""
+"आपातकालीन-बटन एक व्यापक सुरक्षा समाधान है जो गंभीर स्थितियों में मानसिक शांति प्रदान "
+"करने के लिए डिज़ाइन किया गया है। इसके कुछ मुख्य फीचर्स यहां दिए गए हैं:"
+
+#: templates/auth/home.html:644
+msgid "Multi-Channel Notification System"
+msgstr "मल्टी-चैनल सूचना प्रणाली"
+
+#: templates/auth/home.html:646
+msgid ""
+"Sends alerts via SMS, WhatsApp, email, and voice calls, ensuring "
+"notifications reach multiple contacts across platforms quickly."
+msgstr ""
+"SMS, WhatsApp, ईमेल और वॉयस कॉल के माध्यम से अलर्ट भेजे जाते हैं, यह सुनिश्चित करते हुए कि "
+"सूचनाएँ विभिन्न संपर्कों तक जल्दी पहुंचें।"
+
+#: templates/auth/home.html:655
+msgid "Audio and Video Recording & Streaming"
+msgstr "ऑडियो और वीडियो रिकॉर्डिंग और स्ट्रीमिंग"
+
+#: templates/auth/home.html:657
+msgid ""
+"Captures audio and video during emergencies, documenting events or streaming "
+"the situation in real time."
+msgstr ""
+"आपातकाल के दौरान ऑडियो और वीडियो कैप्चर करता है, घटनाओं को दस्तावेज करता है या "
+"वास्तविक समय में स्थिति को स्ट्रीम करता है।"
+
+#: templates/auth/home.html:666
+msgid "Easy Wi-Fi Setup & Hotspot Mode"
+msgstr "आसान Wi-Fi सेटअप और हॉटस्पॉट मोड"
+
+#: templates/auth/home.html:668
+msgid ""
+"Easily configured through a web app, it works even in low- or no-network "
+"areas, ensuring operation in emergencies."
+msgstr ""
+"वेब ऐप के माध्यम से आसानी से कॉन्फ़िगर किया जाता है, यह कम या बिना नेटवर्क वाले क्षेत्रों में "
+"भी काम करता है, जो आपातकालीन स्थितियों में संचालन सुनिश्चित करता है।"
+
+#: templates/auth/home.html:677
+msgid "Intuitive LED Indicators"
+msgstr "सहज LED संकेतक"
+
+#: templates/auth/home.html:679
+msgid ""
+"RGB LED lights provide clear visual feedback on system status, including "
+"boot-up, network connection, and active recording."
+msgstr ""
+"RGB LED लाइट्स सिस्टम स्थिति पर स्पष्ट दृश्य प्रतिक्रिया प्रदान करती हैं, जिसमें बूट-अप, "
+"नेटवर्क कनेक्शन, और सक्रिय रिकॉर्डिंग शामिल हैं।"
+
+#: templates/auth/home.html:688
+msgid "'All is Well' Feature"
+msgstr "'सब कुछ ठीक है' फीचर"
+
+#: templates/auth/home.html:690
+msgid ""
+"With a single press of the blue button, users can send reassuring updates to "
+"their contacts, letting them know everything is fine."
+msgstr ""
+"नीले बटन के एक प्रेस के साथ, उपयोगकर्ता अपने संपर्कों को आश्वस्त करने वाले अपडेट भेज सकते हैं, "
+"जिससे उन्हें पता चलता है कि सब कुछ ठीक है।"
+
+#: templates/auth/home.html:699
+msgid "Reliable Performance in Low-Connectivity Areas"
+msgstr "निम्न-कनेक्टिविटी क्षेत्रों में विश्वसनीय प्रदर्शन"
+
+#: templates/auth/home.html:701
+msgid ""
+"The system is designed to function even in areas with poor or unstable "
+"internet connection, ensuring alerts are sent during critical moments."
+msgstr ""
+"यह सिस्टम उन क्षेत्रों में भी कार्य करने के लिए डिज़ाइन किया गया है जहाँ इंटरनेट कनेक्शन खराब "
+"या अस्थिर है, यह सुनिश्चित करते हुए कि महत्वपूर्ण क्षणों में अलर्ट भेजे जाते हैं।"
+
+#: templates/auth/home.html:710
+msgid "User-Friendly Design for All Skill Levels"
+msgstr "सभी कौशल स्तरों के लिए उपयोगकर्ता-अनुकूल डिज़ाइन"
+
+#: templates/auth/home.html:712
+msgid ""
+"The ICE-Button is simple to set up and use, with an intuitive interface that "
+"makes it accessible to individuals with varying levels of technical "
+"expertise."
+msgstr ""
+"आपातकालीन-बटन को सेट अप और उपयोग करना सरल है, इसमें एक सहज इंटरफ़ेस है जो इसे विभिन्न "
+"तकनीकी विशेषज्ञता स्तरों वाले व्यक्तियों के लिए सुलभ बनाता है।"
+
+#: templates/auth/home.html:728
+msgid "Frequently Asked Questions (FAQ)"
+msgstr "सामान्य प्रश्न (FAQ)"
+
+#: templates/auth/home.html:731
+msgid "Everything you need to know about the product and billing."
+msgstr "उत्पाद और बिलिंग के बारे में आपको जो कुछ भी जानने की आवश्यकता है।"
+
+#: templates/auth/home.html:755
+msgid "Get in Touch"
+msgstr "संपर्क में आएं"
+
+#: templates/auth/home.html:756 templates/ordernow.html:86
+msgid "Have questions or feedback? Reach out to us using the form below."
+msgstr ""
+"क्या आपके पास कोई सवाल या प्रतिक्रिया है? नीचे दिए गए फॉर्म का उपयोग करके हमसे संपर्क "
+"करें।"
+
+#: templates/auth/home.html:763 templates/auth/register.html:286
+msgid "Full Name"
+msgstr "पूरा नाम"
+
+#: templates/auth/home.html:765
+msgid "Enter your full name"
+msgstr "अपना पूरा नाम लिखें"
+
+#: templates/auth/home.html:772 templates/frontend/profile.html:96
+msgid "Email Address"
+msgstr "ईमेल पता"
+
+#: templates/auth/home.html:781 templates/auth/register.html:326
+#: templates/frontend/pod_detail.html:929 templates/frontend/profile.html:108
+msgid "Phone Number"
+msgstr "फोन नंबर"
+
+#: templates/auth/home.html:844
+msgid "Enter your phone number"
+msgstr "फोन नंबर दर्ज करें"
+
+#: templates/auth/home.html:852
+msgid "Subject"
+msgstr "विषय"
+
+#: templates/auth/home.html:854
+msgid "Enter your subject"
+msgstr "अपना विषय दर्ज करें"
+
+#: templates/auth/home.html:861
+msgid "Message"
+msgstr "संदेश"
+
+#: templates/auth/home.html:863
+msgid "Enter your message"
+msgstr "अपना संदेश दर्ज करें"
+
+#: templates/auth/home.html:873 templates/frontend/dash.html:165
+#: templates/ordernow.html:159
+msgid "Submit"
+msgstr "जमा करें"
+
+#: templates/auth/home.html:909 templates/footer.html:21
+msgid ""
+"Empowering safety with innovation. ICE-Button ensures help is just a press "
+"away."
+msgstr ""
+"नवाचार के साथ सुरक्षा को सशक्त बनाना। आपातकालीन-बटन यह सुनिश्चित करता है कि मदद "
+"सिर्फ एक दबाव दूर है।"
+
+#: templates/auth/home.html:914 templates/footer.html:26
+msgid "Get started"
+msgstr "शुरू करें"
+
+#: templates/auth/home.html:920 templates/auth/home.html:1000
+#: templates/footer.html:32 templates/footer.html:112
+msgid "Help & Support"
+msgstr "सहायता और समर्थन"
+
+#: templates/auth/home.html:922 templates/auth/home.html:1003
+#: templates/footer.html:34 templates/footer.html:115
+msgid "Case Study"
+msgstr "मामला अध्ययन"
+
+#: templates/auth/home.html:923 templates/auth/home.html:1004
+#: templates/footer.html:35 templates/footer.html:116
+msgid "How It Works"
+msgstr "यह कैसे काम करता है"
+
+#: templates/auth/home.html:925 templates/auth/home.html:1006
+#: templates/footer.html:37 templates/footer.html:118
+msgid "Contact Us"
+msgstr "संपर्क करें"
+
+#: templates/auth/home.html:931 templates/auth/home.html:1012
+#: templates/footer.html:43 templates/footer.html:124
+msgid "Quick Links"
+msgstr "त्वरित लिंक"
+
+#: templates/auth/home.html:942 templates/auth/home.html:1024
+#: templates/footer.html:54 templates/footer.html:136
+msgid "Social Media"
+msgstr "सोशल मीडिया"
+
+#: templates/auth/home.html:946 templates/auth/home.html:1029
+#: templates/footer.html:58 templates/footer.html:141
+msgid "Facebook"
+msgstr "फेसबुक"
+
+#: templates/auth/home.html:950 templates/auth/home.html:1033
+#: templates/footer.html:62 templates/footer.html:145
+msgid "Telegram"
+msgstr "टेलीग्राम"
+
+#: templates/auth/home.html:954 templates/auth/home.html:1037
+#: templates/footer.html:66 templates/footer.html:149
+msgid "Instagram"
+msgstr "इंस्टाग्राम"
+
+#: templates/auth/home.html:958 templates/auth/home.html:1041
+#: templates/footer.html:70 templates/footer.html:153
+msgid "Pinterest"
+msgstr "पिनटेरेस्ट"
+
+#: templates/auth/home.html:962 templates/auth/home.html:1045
+#: templates/footer.html:74 templates/footer.html:157
+msgid "Twitter X"
+msgstr "ट्विटर X"
+
+#: templates/auth/home.html:968 templates/auth/home.html:1050
+#: templates/footer.html:80 templates/footer.html:162
+msgid "Subscribe to Our Newsletter"
+msgstr "हमारे न्यूज़लेटर की सदस्यता लें"
+
+#: templates/auth/home.html:971 templates/auth/home.html:1052
+#: templates/footer.html:83 templates/footer.html:164
+msgid "Stay updated with the latest news and updates from ICE-Button."
+msgstr "आपातकालीन-बटन से नवीनतम समाचार और अपडेट प्राप्त करने के लिए जुड़ें।"
+
+#: templates/auth/home.html:988 templates/auth/home.html:1068
+#: templates/auth/home.html:1142 templates/auth/home.html:1176
+#: templates/footer.html:100 templates/footer.html:180
+#: templates/footer.html:255 templates/footer.html:289
+msgid "Subscribe"
+msgstr "सब्सक्राइब करें"
+
+#: templates/auth/home.html:1075 templates/footer.html:187
+msgid "2024 ICE-Button. All rights reserved"
+msgstr "2024 आपातकालीन-बटन। सभी अधिकार सुरक्षित हैं।"
+
+#: templates/auth/home.html:1078 templates/footer.html:190
+#: templates/termsOfuse.html:30
+msgid "Terms of Use"
+msgstr "उपयोग की शर्तें"
+
+#: templates/auth/home.html:1079 templates/footer.html:191
+msgid "Sales and Refunds"
+msgstr "बिक्री और रिफंड नीति"
+
+#: templates/auth/home.html:1080 templates/footer.html:192
+msgid "Legal"
+msgstr "कानूनी जानकारी"
+
+#: templates/auth/home.html:1121 templates/auth/home.html:1155
+#: templates/footer.html:234 templates/footer.html:268
+#, fuzzy
+#| msgid "Subscribe"
+msgid "Subscribing..."
+msgstr "सब्सक्राइब करें"
+
+#: templates/auth/home.html:1137 templates/auth/home.html:1171
+#: templates/footer.html:250 templates/footer.html:284
+#, fuzzy
+#| msgid "An error occurred. Please try again."
+msgid "Error subscribing. Please try again."
+msgstr "एक त्रुटि हुई। कृपया पुनः प्रयास करें।"
+
+#: templates/auth/login.html:128
+msgid "Welcome back"
+msgstr "स्वागत है"
+
+#: templates/auth/login.html:129
+msgid "Welcome back! Please enter your details."
+msgstr "स्वागत है! कृपया अपनी जानकारी दर्ज करें।"
+
+#: templates/auth/login.html:132
+msgid "Username or Email"
+msgstr "उपयोगकर्ता नाम या ईमेल"
+
+#: templates/auth/login.html:133
+msgid "Enter your username or email"
+msgstr "अपना उपयोगकर्ता नाम या ईमेल दर्ज करें"
+
+#: templates/auth/login.html:136 templates/auth/register.html:394
+msgid "Password"
+msgstr "पासवर्ड"
+
+#: templates/auth/login.html:137
+msgid "Enter your password"
+msgstr "अपना पासवर्ड दर्ज करें"
+
+#: templates/auth/login.html:144
+msgid "Remember me"
+msgstr "मुझे याद रखें"
+
+#: templates/auth/login.html:146
+msgid "Forgot password"
+msgstr "पासवर्ड भूल गए"
+
+#: templates/auth/login.html:150
+msgid "Sign in"
+msgstr "साइन इन करें"
+
+#: templates/auth/login.html:157
+msgid "Don't have an account"
+msgstr "क्या आपके पास खाता नहीं है?"
+
+#: templates/auth/login.html:168
+msgid "Login Successfull"
+msgstr "लॉगिन सफल।"
+
+#: templates/auth/login.html:176 templates/auth/login.html:195
+#: templates/auth/register.html:474 templates/auth/register.html:482
+#: templates/auth/register.html:490 templates/auth/register.html:498
+#: templates/frontend/add_contact.html:335
+#: templates/frontend/add_contact.html:353
+#: templates/frontend/add_contact.html:368
+#: templates/frontend/add_contact.html:990
+#: templates/frontend/changepass.html:101 templates/frontend/pod.html:122
+#: templates/frontend/profile.html:166 templates/frontend/profile.html:186
+#: templates/frontend/profile.html:241
+msgid "Close"
+msgstr "बंद करें"
+
+#: templates/auth/login.html:188 templates/auth/register.html:525
+#: templates/frontend/add_contact.html:346
+msgid "Error"
+msgstr "त्रुटि"
+
+#: templates/auth/register.html:281
+msgid "Create New Account"
+msgstr "नया खाता बनाएं"
+
+#: templates/auth/register.html:282
+msgid "Secure your safety in emergency situation"
+msgstr "आपातकालीन स्थिति में अपनी सुरक्षा सुनिश्चित करें"
+
+#: templates/auth/register.html:292
+msgid "Enter your name"
+msgstr "अपना नाम दर्ज करें"
+
+#: templates/auth/register.html:298 templates/frontend/profile.html:120
+msgid "Username"
+msgstr "उपयोगकर्ता नाम"
+
+#: templates/auth/register.html:304
+msgid "Enter username"
+msgstr "उपयोगकर्ता नाम दर्ज करें"
+
+#: templates/auth/register.html:388
+msgid "Enter phone number "
+msgstr "फोन नंबर दर्ज करें"
+
+#: templates/auth/register.html:401
+msgid "Create a password"
+msgstr "एक पासवर्ड बनाएं"
+
+#: templates/auth/register.html:412
+msgid "Password must be 8-24 characters"
+msgstr "पासवर्ड 8-24 अक्षरों के बीच होना चाहिए।"
+
+#: templates/auth/register.html:415
+msgid "Contain at least one uppercase letter"
+msgstr "कम से कम एक बड़ा अक्षर शामिल होना चाहिए।"
+
+#: templates/auth/register.html:418
+msgid "Contain at least one lowercase letter"
+msgstr "कम से कम एक छोटा अक्षर शामिल होना चाहिए।"
+
+#: templates/auth/register.html:421
+msgid "Contain at least one special character"
+msgstr "कम से कम एक विशेष अक्षर शामिल होना चाहिए।"
+
+#: templates/auth/register.html:424
+msgid "Contain at least one number"
+msgstr "कम से कम एक संख्या शामिल होनी चाहिए।"
+
+#: templates/auth/register.html:431 templates/auth/resetpass.html:142
+msgid "Confirm Password"
+msgstr "नए पासवर्ड की पुष्टि"
+
+#: templates/auth/register.html:439
+msgid "Confirm a password"
+msgstr "नए पासवर्ड की पुष्टि करें"
+
+#: templates/auth/register.html:453
+msgid "I agree to"
+msgstr "मैं सहमत हूँ"
+
+#: templates/auth/register.html:453
+msgid "terms & conditions"
+msgstr "नियम और शर्तें"
+
+#: templates/auth/register.html:458
+msgid "Sign Up"
+msgstr "साइन अप करें"
+
+#: templates/auth/register.html:465
+msgid "Already have an account?"
+msgstr "क्या आपके पास पहले से खाता है?"
+
+#: templates/auth/register.html:465
+msgid "Log In"
+msgstr "लॉग इन"
+
+#: templates/auth/register.html:508 templates/frontend/add_contact.html:329
+#: templates/frontend/subscription_txn.html:64
+msgid "Success"
+msgstr "सफलता"
+
+#: templates/auth/register.html:511
+msgid "Account created successfully!"
+msgstr "खाता सफलतापूर्वक बनाया गया है!"
+
+#: templates/auth/register.html:514
+msgid "Go to Login"
+msgstr "लॉगिन पर जाएं"
+
+#: templates/auth/register.html:528
+msgid "Something went wrong. Please try again."
+msgstr "कुछ गलत हो गया। कृपया फिर से प्रयास करें।"
+
+#: templates/auth/resetpass.html:132
+msgid "Create New Password"
+msgstr "नया पासवर्ड बनाएं।"
+
+#: templates/auth/resetpass.html:133
+msgid "Let’s set up a new password for you"
+msgstr "आइए, हम आपके लिए नया पासवर्ड सेट करें"
+
+#: templates/auth/resetpass.html:138 templates/frontend/changepass.html:52
+#: templates/frontend/changepass.html:56
+msgid "New Password"
+msgstr "नया पासवर्ड"
+
+#: templates/auth/resetpass.html:146
+msgid "Continue"
+msgstr "जारी रखें"
+
+#: templates/auth/resetpass.html:161
+msgid ""
+"Your password has been reset successfully. Redirecting to the login page"
+msgstr ""
+"आपका पासवर्ड सफलतापूर्वक रीसेट हो गया है। लॉगिन पेज पर पुनः निर्देशित किया जा रहा है।"
+
+#: templates/blogs/blogDetails.html:142 templates/blogs/blogGrid.html:57
+#: templates/blogs/blogGrid.html:59
+msgid "By"
+msgstr "के द्वारा"
+
+#: templates/blogs/blogDetails.html:225
+msgid "Tags"
+msgstr "टैग"
+
+# Translation in Hindi (example)
+#: templates/blogs/blogDetails.html:235
+msgid "Share"
+msgstr "साझा करें"
+
+# Translation in Hindi (example)
+#: templates/blogs/blogDetails.html:286 templates/blogs/blogGrid.html:109
+msgid "Categories"
+msgstr "श्रेणियाँ"
+
+#: templates/blogs/blogDetails.html:290 templates/blogs/blogGrid.html:113
+msgid "Technology & Innovation"
+msgstr "तकनीक और नवाचार"
+
+#: templates/blogs/blogDetails.html:293 templates/blogs/blogGrid.html:116
+msgid "Cybersecurity"
+msgstr "साइबर सुरक्षा"
+
+#: templates/blogs/blogDetails.html:296 templates/blogs/blogGrid.html:119
+msgid "Disaster Preparedness"
+msgstr "आपदा तैयारी"
+
+#: templates/blogs/blogDetails.html:299 templates/blogs/blogGrid.html:122
+msgid "Business & Entrepreneurship"
+msgstr "व्यवसाय और उद्यमिता"
+
+#: templates/blogs/blogDetails.html:302 templates/blogs/blogGrid.html:125
+msgid "Personal Safety & Security"
+msgstr "व्यक्तिगत सुरक्षा"
+
+#: templates/blogs/blogDetails.html:305 templates/blogs/blogGrid.html:128
+msgid "Health & Wellness"
+msgstr "स्वास्थ्य और कल्याण"
+
+#: templates/blogs/blogDetails.html:308 templates/blogs/blogGrid.html:131
+msgid "Lifestyle & Productivity"
+msgstr "जीवनशैली और उत्पादकता"
+
+#: templates/blogs/blogDetails.html:311 templates/blogs/blogGrid.html:134
+msgid "Community Engagement & Social Impact"
+msgstr "समुदाय भागीदारी और सामाजिक प्रभाव"
+
+#: templates/blogs/blogDetails.html:314 templates/blogs/blogGrid.html:137
+msgid "Tech Reviews & Tutorials"
+msgstr "तकनीकी समीक्षा और ट्यूटोरियल"
+
+#: templates/blogs/blogDetails.html:317 templates/blogs/blogGrid.html:140
+msgid "Environmental Sustainability"
+msgstr "पर्यावरणीय स्थिरता"
+
+#: templates/blogs/blogGrid.html:38
+msgid "BLOGS"
+msgstr "ब्लॉग्स"
+
+#: templates/case_study.html:351
+msgid "Transforming Healthcare Security with ICE-Button"
+msgstr "आपातकालीन-बटन के साथ स्वास्थ्य सुरक्षा में सुधार"
+
+#: templates/case_study.html:352
+msgid "An Advanced Emergency Response System for Healthcare Facilities"
+msgstr "स्वास्थ्य देखभाल सुविधाओं के लिए एक उन्नत आपातकालीन प्रतिक्रिया प्रणाली"
+
+#: templates/case_study.html:357
+msgid "Executive Summary"
+msgstr "कार्यकारी सारांश"
+
+#: templates/case_study.html:358
+msgid ""
+"The healthcare sector has become increasingly vulnerable to violent "
+"incidents, jeopardizing the safety of staff, patients, and visitors. "
+"Recognizing the urgent need for a comprehensive security system, Mobiloitte "
+"Technologies Pvt Ltd developed ICE-Button, an advanced Emergency Response "
+"System specifically designed for healthcare facilities."
+msgstr ""
+"स्वास्थ्य क्षेत्र हिंसक घटनाओं के प्रति अधिक संवेदनशील होता जा रहा है, जिससे कर्मचारियों, "
+"रोगियों और आगंतुकों की सुरक्षा खतरे में पड़ रही है। Mobiloitte Technologies Pvt Ltd ने "
+"इस समस्या को समझते हुए आपातकालीन-बटन को विकसित किया है, जो स्वास्थ्य सुविधाओं के लिए "
+"एक उन्नत आपातकालीन प्रतिक्रिया प्रणाली है।"
+
+#: templates/case_study.html:359
+msgid ""
+"ICE-Button is a tech-enabled emergency solution that ensures swift, multi-"
+"channel communication and real-time situational awareness during "
+"emergencies. With its intuitive interface, the system reduces incident "
+"escalation and improves response times, safeguarding lives and property "
+"while restoring confidence in healthcare environments."
+msgstr ""
+"आपातकालीन-बटन एक प्रौद्योगिकी-समर्थित आपातकालीन समाधान है जो आपातकाल के दौरान "
+"त्वरित, बहु-चैनल संचार और वास्तविक समय की स्थिति जागरूकता सुनिश्चित करता है। इसका "
+"उपयोगकर्ता-अनुकूल इंटरफ़ेस घटना की बढ़ोतरी को कम करता है और प्रतिक्रिया समय में सुधार "
+"करता है, जिससे जीवन और संपत्ति की सुरक्षा होती है और स्वास्थ्य देखभाल वातावरण में विश्वास "
+"फिर से स्थापित होता है।"
+
+#: templates/case_study.html:363
+msgid "Image 1"
+msgstr "चित्र 1"
+
+#: templates/case_study.html:366
+msgid "Image 2"
+msgstr "चित्र 2"
+
+#: templates/case_study.html:369
+msgid "Image 3"
+msgstr "चित्र 3"
+
+#: templates/case_study.html:379
+msgid "Business Challenges"
+msgstr "व्यवसाय की चुनौतियाँ"
+
+#: templates/case_study.html:380
+msgid "Challenges Faced by Healthcare Facilities"
+msgstr "स्वास्थ्य देखभाल सुविधाओं द्वारा सामना की गई चुनौतियाँ"
+
+#: templates/case_study.html:384
+msgid "Increasing Violence"
+msgstr "बढ़ती हुई हिंसा"
+
+#: templates/case_study.html:386
+msgid ""
+"Rising incidents of aggression directed toward healthcare professionals and "
+"patients."
+msgstr "स्वास्थ्य पेशेवरों और रोगियों के खिलाफ आक्रामकता की बढ़ती घटनाएँ।"
+
+#: templates/case_study.html:387
+msgid ""
+"Growing safety concerns for healthcare workers on duty, particularly during "
+"critical emergencies."
+msgstr ""
+"ड्यूटी पर स्वास्थ्य कर्मचारियों के लिए बढ़ती हुई सुरक्षा चिंताएँ, विशेष रूप से संकटपूर्ण आपात "
+"स्थितियों के दौरान।"
+
+#: templates/case_study.html:391
+msgid "Safety Gaps"
+msgstr "सुरक्षा अंतर"
+
+#: templates/case_study.html:393 templates/case_study.html:399
+msgid ""
+"Healthcare facilities lacked an efficient, technology-driven solution for "
+"responding to real-time incidents."
+msgstr ""
+"स्वास्थ्य देखभाल सुविधाओं में वास्तविक समय की घटनाओं का जवाब देने के लिए एक प्रभावी, "
+"प्रौद्योगिकी-आधारित समाधान की कमी थी।"
+
+#: templates/case_study.html:397
+msgid "Delayed Responses"
+msgstr "विलंबित प्रतिक्रियाएँ"
+
+#: templates/case_study.html:400
+msgid ""
+"Delays escalated incidents, leading to reputational losses and impacting "
+"operational trust."
+msgstr ""
+"विलंब ने घटनाओं को बढ़ा दिया, जिससे प्रतिष्ठा को नुकसान हुआ और संचालन में विश्वास प्रभावित "
+"हुआ।"
+
+#: templates/case_study.html:406
+msgid "Impact of These Challenges"
+msgstr "इन चुनौतियों का प्रभाव"
+
+#: templates/case_study.html:409
+msgid "Safety Threats"
+msgstr "सुरक्षा खतरे"
+
+#: templates/case_study.html:409
+msgid ""
+"Risks to staff, patients, and visitors, increasing the liability of "
+"healthcare organizations."
+msgstr ""
+"कर्मचारियों, रोगियों और आगंतुकों के लिए जोखिम, जो स्वास्थ्य देखभाल संगठनों की जिम्मेदारी को "
+"बढ़ाते हैं।"
+
+#: templates/case_study.html:410
+msgid "Operational Disruptions"
+msgstr "संचालन में व्यवधान"
+
+#: templates/case_study.html:410
+msgid "Escalations caused unnecessary financial and infrastructural stress."
+msgstr "वृद्धि ने अनावश्यक वित्तीय और संरचनात्मक तनाव उत्पन्न किया।"
+
+#: templates/case_study.html:411
+msgid "Loss of Trust"
+msgstr "विश्वास का नुकसान"
+
+#: templates/case_study.html:411
+msgid ""
+"Diminished confidence in the healthcare system due to recurring safety "
+"lapses."
+msgstr "सुरक्षा में लगातार लापरवाही के कारण स्वास्थ्य देखभाल प्रणाली में विश्वास की कमी।"
+
+#: templates/case_study.html:418
+msgid "The ICE-Button Solution"
+msgstr "आपातकालीन-बटन समाधान"
+
+#: templates/case_study.html:419
+msgid "ICE-Button"
+msgstr "आपातकालीन-बटन"
+
+#: templates/case_study.html:419
+msgid "is an"
+msgstr "यह एक"
+
+#: templates/case_study.html:419
+msgid "end-to-end emergency response system"
+msgstr "सम्पूर्ण आपातकालीन प्रतिक्रिया प्रणाली"
+
+#: templates/case_study.html:419
+msgid ""
+"combining advanced technology with real-time communication capabilities to "
+"mitigate safety risks. Designed specifically for healthcare settings, ICE-"
+"Button ensures that healthcare professionals can quickly"
+msgstr ""
+"सुरक्षा जोखिमों को कम करने के लिए उन्नत प्रौद्योगिकी को वास्तविक समय संचार क्षमताओं के "
+"साथ मिलाकर। स्वास्थ्य देखभाल वातावरण के लिए विशेष रूप से डिज़ाइन किया गया, आपातकालीन-"
+"बटन यह सुनिश्चित करता है कि स्वास्थ्य पेशेवर जल्दी से"
+
+#: templates/case_study.html:419
+msgid "activate alerts,"
+msgstr "अलर्ट सक्रिय करें,"
+
+#: templates/case_study.html:419
+msgid "escalate incidents, and monitor events in real time."
+msgstr "घटनाओं को बढ़ाएँ, और वास्तविक समय में घटनाओं की निगरानी करें।"
+
+#: templates/case_study.html:421
+msgid "Key Features"
+msgstr "मुख्य विशेषताएँ"
+
+#: templates/case_study.html:425
+msgid "Instant Activation"
+msgstr "तत्काल सक्रियण"
+
+#: templates/case_study.html:427
+msgid ""
+"A single press of the red SOS button triggers immediate emergency alerts."
+msgstr "लाल SOS बटन दबाने से तत्काल आपातकालीन अलर्ट सक्रिय हो जाता है।"
+
+#: templates/case_study.html:433
+msgid ""
+"Alerts are sent simultaneously via SMS, WhatsApp, email, and voice calls to "
+"predefined contacts."
+msgstr ""
+"अलर्ट्स एक साथ SMS, WhatsApp, ईमेल, और वॉयस कॉल्स के माध्यम से पूर्वनिर्धारित संपर्कों पर "
+"भेजे जाते हैं।"
+
+#: templates/case_study.html:436
+msgid "Real-Time Monitoring"
+msgstr "वास्तविक समय की निगरानी"
+
+#: templates/case_study.html:438
+msgid ""
+"Live video and audio streaming provides continuous situational updates "
+"during an incident."
+msgstr ""
+"लाइव वीडियो और ऑडियो स्ट्रीमिंग घटना के दौरान निरंतर स्थिति अपडेट प्रदान करती है।"
+
+#: templates/case_study.html:441
+msgid "Post-Incident Reporting"
+msgstr "घटना के बाद रिपोर्टिंग"
+
+#: templates/case_study.html:443
+msgid ""
+"Automatically generates detailed reports with recorded evidence for "
+"documentation and analysis."
+msgstr ""
+"स्वचालित रूप से दस्तावेज़ीकरण और विश्लेषण के लिए रिकॉर्ड किए गए साक्ष्य के साथ विस्तृत "
+"रिपोर्ट उत्पन्न करता है।"
+
+#: templates/case_study.html:448
+msgid ""
+"An intuitive user interface designed to ensure ease of operation for "
+"healthcare professionals."
+msgstr ""
+"एक सहज उपयोगकर्ता इंटरफ़ेस जिसे स्वास्थ्य पेशेवरों के लिए संचालन में सरलता सुनिश्चित करने के "
+"लिए डिज़ाइन किया गया है।"
+
+#: templates/case_study.html:457
+msgid "How ICE-Button Works"
+msgstr "आपातकालीन-बटन कैसे काम करता है"
+
+#: templates/case_study.html:458
+msgid ""
+"The ICE-Button workflow ensures quick emergency activation and resolution in "
+"six simple steps:"
+msgstr ""
+"आपातकालीन-बटन कार्यप्रवाह छह सरल कदमों में तुरंत आपातकालीन सक्रियण और समाधान सुनिश्चित "
+"करता है:"
+
+#: templates/case_study.html:463 templates/tutorials.html:79
+msgid "Step 1"
+msgstr ""
+
+#: templates/case_study.html:465
+msgid "Press the Button"
+msgstr "बटन दबाएं"
+
+#: templates/case_study.html:466
+msgid ""
+"Press the ICE SOS Button during an emergency to send an immediate alert to "
+"pre-configured contacts."
+msgstr ""
+"आपातकाल में आपातकालीन बटन दबाएं, ताकि पूर्व निर्धारित संपर्कों को तुरंत अलर्ट भेजा जा सके।"
+
+#: templates/case_study.html:470 templates/tutorials.html:85
+msgid "Step 2"
+msgstr "कदम 2"
+
+#: templates/case_study.html:472
+msgid "Instant Notification"
+msgstr "तत्काल सूचना"
+
+#: templates/case_study.html:473
+msgid ""
+"Your contacts receive an alert with your location, ensuring quick assistance "
+"is on its way."
+msgstr ""
+"आपके संपर्कों को आपकी लोकेशन के साथ एक अलर्ट प्राप्त होता है, ताकि शीघ्र सहायता उपलब्ध "
+"हो सके।"
+
+#: templates/case_study.html:477 templates/tutorials.html:91
+msgid "Step 3"
+msgstr "कदम 3"
+
+#: templates/case_study.html:479
+msgid "Continuous Monitoring"
+msgstr "चरण 3: निरंतर निगरानी"
+
+#: templates/case_study.html:480
+msgid ""
+"The device continues to track and notify contacts until the situation is "
+"resolved."
+msgstr "उपकरण स्थिति सुलझने तक ट्रैक करता है और संपर्कों को सूचित करता है।"
+
+#: templates/case_study.html:484
+msgid "Step 1: Trigger Alerts"
+msgstr "चरण 1: अलर्ट शुरू करें"
+
+#: templates/case_study.html:486
+msgid "Press the ICE SOS button to initiate emergency notifications."
+msgstr "आपातकालीन सूचनाएं शुरू करने के लिए आपातकालीन बटन दबाएं।"
+
+#: templates/case_study.html:489
+msgid "Step 2: Send Notifications"
+msgstr "चरण 2: सूचनाएं भेजें:"
+
+#: templates/case_study.html:491
+msgid ""
+"Notifications are sent to up to 15 pre-configured contacts via multiple "
+"communication channels (SMS, email, WhatsApp, and voice calls)."
+msgstr ""
+"सूचनाएं 15 तक पूर्व निर्धारित संपर्कों को विभिन्न संचार चैनलों (SMS, ईमेल, WhatsApp, और "
+"वॉयस कॉल्स) के माध्यम से भेजी जाती हैं।"
+
+#: templates/case_study.html:494
+msgid "Step 3: Continuous Monitoring"
+msgstr "चरण 3: निरंतर निगरानी"
+
+#: templates/case_study.html:496
+msgid ""
+"Real-time video and audio feeds are streamed to provide immediate "
+"situational awareness."
+msgstr ""
+"तत्काल स्थिति की जानकारी देने के लिए रीयल-टाइम वीडियो और ऑडियो फीड्स स्ट्रीम किए जाते "
+"हैं।"
+
+#: templates/case_study.html:499
+msgid "Step 4: Acknowledge Alerts"
+msgstr "चरण 4: अलर्ट स्वीकार करें"
+
+#: templates/case_study.html:501
+msgid "Responders confirm receipt of the alert and initiate necessary actions."
+msgstr "प्रतिक्रिया देने वाले अलर्ट प्राप्ति की पुष्टि करते हैं और आवश्यक कार्य शुरू करते हैं।"
+
+#: templates/case_study.html:504
+msgid "Step 5: Resolve"
+msgstr "चरण 5: समाधान करें"
+
+#: templates/case_study.html:506
+msgid ""
+"Situations are marked as resolved using the blue button upon completion of "
+"emergency handling."
+msgstr ""
+"आपातकालीन समाधान के पूरा होने पर नीले बटन का उपयोग करके स्थिति को हल किया जाता है।"
+
+#: templates/case_study.html:509
+msgid "Step 6: Incident Reporting"
+msgstr "चरण 6: घटना रिपोर्टिंग"
+
+#: templates/case_study.html:511
+msgid ""
+"A comprehensive post-incident report with recorded audio, video, and alert "
+"logs is generated for documentation."
+msgstr ""
+"घटना के बाद की एक विस्तृत रिपोर्ट रिकॉर्ड किए गए ऑडियो, वीडियो और अलर्ट अभिलेख के "
+"साथ दस्तावेज़ीकरण के लिए तैयार की जाती है।"
+
+#: templates/case_study.html:520
+msgid "Implementation Impact"
+msgstr "कार्यान्वयन का प्रभाव"
+
+#: templates/case_study.html:522
+msgid "Case Study 1: Hospital A"
+msgstr "केस अध्ययन 1: अस्पताल A"
+
+#: templates/case_study.html:524
+#, fuzzy, python-format
+#| msgid ""
+#| "Achieved a 50%% reduction in violent incidents within the first quarter "
+#| "of implementation."
+msgid ""
+"Achieved a 50%% reduction in violent incidents within the first quarter of "
+"implementation."
+msgstr "पहले क्वार्टर में हिंसक घटनाओं में 50% की कमी हासिल की।"
+
+#: templates/case_study.html:525
+msgid "Improved staff confidence and increased trust in security protocols."
+msgstr "कर्मचारी का आत्मविश्वास बढ़ा और सुरक्षा प्रोटोकॉल में विश्वास बढ़ा।"
+
+#: templates/case_study.html:528
+msgid "Case Study 2: Hospital B"
+msgstr "केस अध्ययन 2: अस्पताल B"
+
+#: templates/case_study.html:530
+#, fuzzy, python-format
+#| msgid ""
+#| "Enhanced emergency response times by 25%%, ensuring faster resolution and "
+#| "minimizing escalations."
+msgid ""
+"Enhanced emergency response times by 25%%, ensuring faster resolution and "
+"minimizing escalations."
+msgstr ""
+"आपातकालीन प्रतिक्रिया समय में 25% की वृद्धि की, जिससे तेजी से समाधान सुनिश्चित हुआ और "
+"बढ़ोतरी कम हुई।"
+
+#: templates/case_study.html:531
+msgid ""
+"Enabled real-time monitoring, empowering security personnel to take "
+"proactive measures."
+msgstr ""
+"रीयल-टाइम निगरानी सक्षम की, जिससे सुरक्षा कर्मचारियों को सक्रिय उपाय करने का सामर्थ्य "
+"मिला।"
+
+#: templates/case_study.html:534
+msgid "Tangible Benefits"
+msgstr "ठोस लाभ:"
+
+#: templates/case_study.html:536
+msgid "Enhanced Safety"
+msgstr "बेहतर सुरक्षा:"
+
+#: templates/case_study.html:536
+msgid "Reduced risks to healthcare staff, patients, and visitors."
+msgstr "स्वास्थ्यकर्मी, मरीजों और आगंतुकों के लिए जोखिम कम हुए।"
+
+#: templates/case_study.html:537
+msgid "Improved Trust"
+msgstr "बढ़ा हुआ विश्वास:"
+
+#: templates/case_study.html:537
+msgid "Increased operational transparency and confidence among stakeholders."
+msgstr "ऑपरेशनल पारदर्शिता और स्टेकहोल्डर्स के बीच विश्वास बढ़ा।"
+
+#: templates/case_study.html:538 templates/case_study.html:630
+msgid "Operational Efficiency"
+msgstr "परिचालन दक्षता:"
+
+#: templates/case_study.html:538
+msgid "Streamlined emergency management workflows with automated reporting."
+msgstr "स्वचालित रिपोर्टिंग के साथ आपातकालीन प्रबंधन कार्यप्रवाहों को सरल किया।"
+
+#: templates/case_study.html:539
+msgid "Data-Driven Decisions"
+msgstr "डेटा-संचालित निर्णय:"
+
+#: templates/case_study.html:539
+msgid "Enabled actionable insights through comprehensive incident reporting."
+msgstr "समग्र घटना रिपोर्टिंग के माध्यम से उपयोगी अंतर्दृष्टि सक्षम की गई।"
+
+#: templates/case_study.html:549
+msgid "Value Proposition"
+msgstr "मूल्य प्रस्ताव"
+
+#: templates/case_study.html:550
+msgid ""
+"ICE-Button stands out as an innovative, scalable, and user-centric solution "
+"designed for healthcare security:"
+msgstr ""
+"आपातकालीन-बटन एक अभिनव, स्केलेबल, और उपयोगकर्ता-केंद्रित समाधान है जो स्वास्थ्य देखभाल "
+"सुरक्षा के लिए डिज़ाइन किया गया है:"
+
+#: templates/case_study.html:553
+msgid "Proactive Safety"
+msgstr "प्रोएक्टिव सुरक्षा"
+
+#: templates/case_study.html:554
+msgid ""
+"Prevents escalation of incidents through immediate activation and real-time "
+"situational awareness."
+msgstr ""
+"तत्काल सक्रियण और वास्तविक समय की स्थिति जागरूकता के माध्यम से घटनाओं के बढ़ने को रोकता "
+"है।"
+
+#: templates/case_study.html:556
+msgid "Comprehensive Coverage"
+msgstr "व्यापक कवरेज"
+
+#: templates/case_study.html:557
+msgid ""
+"Multi-channel notifications and monitoring ensure timely responses from "
+"designated contacts."
+msgstr ""
+"मल्टी-चैनल सूचनाएं और निगरानी यह सुनिश्चित करती हैं कि निर्धारित संपर्कों से समय पर "
+"प्रतिक्रिया मिले।"
+
+#: templates/case_study.html:561
+msgid ""
+"Simple, intuitive interface designed specifically for healthcare "
+"professionals to operate under stress."
+msgstr ""
+"स्वास्थ्य देखभाल पेशेवरों के लिए तनावपूर्ण स्थितियों में संचालित करने के लिए डिज़ाइन किया गया "
+"सरल, सहज इंटरफ़ेस।"
+
+#: templates/case_study.html:564
+msgid "Scalability"
+msgstr "स्केलेबिलिटी"
+
+#: templates/case_study.html:565
+msgid ""
+"Adaptable to facilities of all sizes, from small clinics to large multi-"
+"specialty hospitals."
+msgstr ""
+"छोटी क्लीनिकों से लेकर बड़े बहु-विशेषज्ञ अस्पतालों तक सभी प्रकार की सुविधाओं के लिए अनुकूलनीय।"
+
+#: templates/case_study.html:574
+msgid "Client Testimonial"
+msgstr "ग्राहक प्रशंसा"
+
+#: templates/case_study.html:575
+msgid ""
+"Implementing ICE-Button has been a game-changer for our hospital. The "
+"system’s rapid alert mechanism and real-time monitoring have significantly "
+"improved the safety of our staff and patients. It’s an investment in trust "
+"and security."
+msgstr ""
+"आपातकालीन-बटन को लागू करना हमारे अस्पताल के लिए एक गेम-चेंजर रहा है। सिस्टम की त्वरित "
+"अलर्ट प्रणाली और वास्तविक समय की निगरानी ने हमारे कर्मचारियों और रोगियों की सुरक्षा में "
+"महत्वपूर्ण सुधार किया है। यह विश्वास और सुरक्षा में निवेश है।"
+
+#: templates/case_study.html:575
+msgid "Dr. Ramesh Kumar, Director, Hospital A"
+msgstr "डॉ. रमेश कुमार, निदेशक, अस्पताल A"
+
+#: templates/case_study.html:580
+msgid "Challenges and Solutions"
+msgstr "चुनौतियाँ और समाधान"
+
+#: templates/case_study.html:584
+msgid "Challenge 1: Inefficient Emergency Communication"
+msgstr "चुनौती 1: अप्रभावी आपातकालीन संचार"
+
+#: templates/case_study.html:586 templates/case_study.html:592
+#: templates/case_study.html:598
+msgid "Issue"
+msgstr "समस्या"
+
+#: templates/case_study.html:586
+msgid "Delays in notifying relevant personnel during emergencies."
+msgstr "आपातकाल के दौरान संबंधित कर्मचारियों को सूचित करने में देरी।"
+
+#: templates/case_study.html:587 templates/case_study.html:593
+#: templates/case_study.html:599
+msgid "Solution"
+msgstr "समाधान"
+
+#: templates/case_study.html:587
+msgid ""
+"Multi-channel alerts via SMS, WhatsApp, email, and voice calls ensured "
+"timely notifications."
+msgstr ""
+"SMS, WhatsApp, ईमेल और वॉयस कॉल्स के माध्यम से मल्टी-चैनल अलर्ट ने समय पर सूचनाएं "
+"सुनिश्चित की।"
+
+#: templates/case_study.html:590
+msgid "Challenge 2: Lack of Situational Awareness"
+msgstr "चुनौती 2: स्थिति जागरूकता की कमी"
+
+#: templates/case_study.html:592
+msgid "Security teams struggled to assess the on-ground reality."
+msgstr "सुरक्षा टीमों को ज़मीनी स्थिति का मूल्यांकन करने में कठिनाई थी।"
+
+#: templates/case_study.html:593
+msgid ""
+"Real-time video and audio streaming enabled instant situational clarity for "
+"responders."
+msgstr ""
+"वास्तविक समय में वीडियो और ऑडियो स्ट्रीमिंग ने उत्तरदाताओं को तुरंत स्थिति की स्पष्टता "
+"प्रदान की।"
+
+#: templates/case_study.html:596
+msgid "Challenge 3: Absence of Post-Incident Data"
+msgstr "चुनौती 3: घटना के बाद डेटा की कमी"
+
+#: templates/case_study.html:598
+msgid ""
+"Facilities lacked systematic incident documentation for analysis and "
+"improvement."
+msgstr "सुविधाओं में विश्लेषण और सुधार के लिए व्यवस्थित घटना दस्तावेज़ीकरण की कमी थी।"
+
+#: templates/case_study.html:599
+msgid ""
+"Automated post-incident reporting provided structured evidence for review "
+"and decision-making."
+msgstr ""
+"स्वचालित घटना के बाद की रिपोर्टिंग ने समीक्षा और निर्णय-निर्माण के लिए संरचित प्रमाण "
+"प्रदान किया।"
+
+#: templates/case_study.html:608
+msgid "Conclusion"
+msgstr "निष्कर्ष"
+
+#: templates/case_study.html:611
+msgid ""
+"ICE-Button has redefined emergency management within healthcare facilities "
+"by ensuring rapid responses, real-time situational monitoring, and "
+"comprehensive reporting. This user-friendly and scalable solution empowers "
+"healthcare professionals to act decisively, improving safety, operational "
+"efficiency, and trust."
+msgstr ""
+"आपातकालीन-बटन ने स्वास्थ्य देखभाल सुविधाओं में आपातकालीन प्रबंधन को फिर से परिभाषित किया "
+"है, जो त्वरित प्रतिक्रियाएं, वास्तविक समय की स्थिति निगरानी, और व्यापक रिपोर्टिंग "
+"सुनिश्चित करता है। यह उपयोगकर्ता-मित्र और स्केलेबल समाधान स्वास्थ्य देखभाल पेशेवरों को "
+"निर्णायक रूप से कार्य करने का सामर्थ्य देता है, जिससे सुरक्षा, ऑपरेशनल दक्षता और विश्वास में "
+"सुधार होता है।"
+
+#: templates/case_study.html:612
+msgid ""
+"By addressing critical safety gaps and delivering measurable results, ICE-"
+"Button stands as a benchmark for emergency response systems in the "
+"healthcare industry."
+msgstr ""
+"महत्वपूर्ण सुरक्षा अंतराल को संबोधित करके और मापने योग्य परिणाम प्रदान करके, आपातकालीन-"
+"बटन स्वास्थ्य देखभाल उद्योग में आपातकालीन प्रतिक्रिया प्रणालियों के लिए एक मानक के रूप में "
+"खड़ा है।"
+
+#: templates/case_study.html:621
+msgid "Key Takeaways"
+msgstr "मुख्य निष्कर्ष"
+
+#: templates/case_study.html:625
+msgid "Real-Time Response"
+msgstr "वास्तविक समय की प्रतिक्रिया"
+
+#: templates/case_study.html:625
+msgid "ICE-Button ensures immediate and multi-channel emergency alerts."
+msgstr "आपातकालीन-बटन तत्काल और मल्टी-चैनल आपातकालीन अलर्ट सुनिश्चित करता है।"
+
+#: templates/case_study.html:628
+msgid "Situational Awareness"
+msgstr "स्थिति जागरूकता"
+
+#: templates/case_study.html:628
+msgid ""
+"Live audio and video feeds empower security teams with actionable insights."
+msgstr "लाइव ऑडियो और वीडियो फीड्स सुरक्षा टीमों को क्रियाशील अंतर्दृष्टि प्रदान करते हैं।"
+
+#: templates/case_study.html:630
+msgid ""
+"Post-incident reports streamline incident analysis and continuous "
+"improvement."
+msgstr "घटना के बाद की रिपोर्ट्स घटना विश्लेषण और निरंतर सुधार को सरल बनाती हैं।"
+
+#: templates/case_study.html:632
+msgid "Scalable and User-Friendly"
+msgstr "स्केलेबिल और उपयोगकर्ता-मित्र"
+
+#: templates/case_study.html:632
+msgid ""
+"ICE-Button’s adaptable design serves facilities of all sizes while "
+"maintaining ease of use."
+msgstr ""
+"आपातकालीन-बटन का अनुकूलनीय डिज़ाइन सभी आकार की सुविधाओं को सेवा प्रदान करता है, साथ "
+"ही उपयोग में आसानी बनाए रखता है।"
+
+#: templates/case_study.html:634
+msgid "Enhanced Trust"
+msgstr "बढ़ा हुआ विश्वास:"
+
+#: templates/case_study.html:634
+msgid ""
+"A proactive approach to safety strengthens confidence among healthcare "
+"professionals, patients, and stakeholders."
+msgstr ""
+"सुरक्षा के प्रति प्रोएक्टिव दृष्टिकोण स्वास्थ्य देखभाल पेशेवरों, मरीजों और स्टेकहोल्डर्स के बीच "
+"विश्वास को मजबूत करता है।"
+
+#: templates/case_study.html:641
+msgid ""
+"Start using ICE-Button today and ensure the safety of your healthcare "
+"facility."
+msgstr ""
+"आज ही आपातकालीन-बटन का उपयोग शुरू करें और अपनी स्वास्थ्य देखभाल सुविधा की सुरक्षा "
+"सुनिश्चित करें।"
+
+#: templates/case_study.html:642
+msgid "Request a Demo"
+msgstr "डेमो का अनुरोध करें"
+
+#: templates/frontend/add_contact.html:14 templates/frontend/dash.html:15
+msgid "Welcome"
+msgstr "स्वागत है"
+
+#: templates/frontend/add_contact.html:18
+msgid "Add New Contact"
+msgstr "संपर्क जोड़ें"
+
+#: templates/frontend/add_contact.html:23
+#: templates/frontend/add_contact.html:386 templates/frontend/profile.html:67
+msgid "Name"
+msgstr "नाम"
+
+#: templates/frontend/add_contact.html:45
+#: templates/frontend/add_contact.html:392
+msgid "Relation"
+msgstr "समाधान"
+
+#: templates/frontend/add_contact.html:48
+#: templates/frontend/add_contact.html:394
+msgid "Select relation"
+msgstr "संबंध चुनें"
+
+#: templates/frontend/add_contact.html:49
+#: templates/frontend/add_contact.html:395
+msgid "Parent"
+msgstr "माता-पिता"
+
+#: templates/frontend/add_contact.html:50
+#: templates/frontend/add_contact.html:396
+msgid "Spouse"
+msgstr "पति/पत्नी"
+
+#: templates/frontend/add_contact.html:51
+#: templates/frontend/add_contact.html:397
+msgid "Sibling"
+msgstr "भाई/बहन"
+
+#: templates/frontend/add_contact.html:52
+#: templates/frontend/add_contact.html:398
+msgid "Child"
+msgstr "बच्चा"
+
+#: templates/frontend/add_contact.html:53
+#: templates/frontend/add_contact.html:399
+msgid "Guardian"
+msgstr "अभिभावक"
+
+#: templates/frontend/add_contact.html:54
+#: templates/frontend/add_contact.html:400
+msgid "Relative"
+msgstr "रिश्तेदार"
+
+#: templates/frontend/add_contact.html:55
+#: templates/frontend/add_contact.html:401
+msgid "Friend"
+msgstr "मित्र"
+
+#: templates/frontend/add_contact.html:56
+#: templates/frontend/add_contact.html:402
+msgid "Neighbor"
+msgstr "पड़ोसी"
+
+#: templates/frontend/add_contact.html:57
+#: templates/frontend/add_contact.html:403
+msgid "Colleague"
+msgstr "सहकर्मी"
+
+#: templates/frontend/add_contact.html:58
+#: templates/frontend/add_contact.html:404
+msgid "Employer"
+msgstr "नियोक्ता"
+
+#: templates/frontend/add_contact.html:59
+#: templates/frontend/add_contact.html:405
+msgid "Emergency Contact"
+msgstr "आपातकालीन संपर्क:"
+
+#: templates/frontend/add_contact.html:60
+#: templates/frontend/add_contact.html:406
+msgid "Beat Officer"
+msgstr "बीट अधिकारी"
+
+#: templates/frontend/add_contact.html:61
+#: templates/frontend/add_contact.html:407
+msgid "Doctor"
+msgstr "डॉक्टर"
+
+#: templates/frontend/add_contact.html:62
+#: templates/frontend/add_contact.html:408
+msgid "Teacher"
+msgstr "शिक्षक"
+
+#: templates/frontend/add_contact.html:63
+#: templates/frontend/add_contact.html:409
+msgid "Partner"
+msgstr "साथी"
+
+#: templates/frontend/add_contact.html:97
+msgid "Add Phone Number"
+msgstr "फोन नंबर"
+
+#: templates/frontend/add_contact.html:189
+msgid "Allow WhatsApp"
+msgstr "व्हाट्सएप की अनुमति दें"
+
+#: templates/frontend/add_contact.html:202
+#: templates/frontend/add_contact.html:442
+msgid "Allow SMS"
+msgstr "एसएमएस की अनुमति दें"
+
+#: templates/frontend/add_contact.html:214
+#: templates/frontend/add_contact.html:446
+msgid "Allow Call"
+msgstr "कॉल की अनुमति दें"
+
+#: templates/frontend/add_contact.html:233
+msgid ""
+"I confirm that I have the consent of the person whose contact details are "
+"being added and that they approve being added as an emergency contact"
+msgstr ""
+"मैं पुष्टि करता हूं कि मुझे उस व्यक्ति की सहमति प्राप्त है, जिनके संपर्क विवरण जोड़े जा रहे हैं, "
+"और वे आपातकालीन संपर्क के रूप में जोड़े जाने को स्वीकृति देते हैं।"
+
+#: templates/frontend/add_contact.html:248
+#: templates/frontend/add_contact.html:451
+#: templates/frontend/add_contact.html:967 templates/frontend/dash.html:164
+#: templates/frontend/nav.html:169 templates/frontend/pod.html:106
+#: templates/frontend/pod_detail.html:143
+#: templates/frontend/pod_detail.html:934 templates/frontend/remote.html:131
+msgid "Cancel"
+msgstr "रद्द करें"
+
+#: templates/frontend/add_contact.html:258 templates/frontend/dash.html:478
+msgid "Add Contact"
+msgstr "संपर्क जोड़ें"
+
+#: templates/frontend/add_contact.html:272 templates/frontend/dash.html:90
+#: templates/frontend/dash.html:108 templates/frontend/pod.html:78
+#: templates/frontend/pod_detail.html:83
+msgid "Contacts"
+msgstr "संपर्क"
+
+#: templates/frontend/add_contact.html:377
+#: templates/frontend/add_contact.html:452
+msgid "Update Contact"
+msgstr "संपर्क जोड़ें"
+
+#: templates/frontend/add_contact.html:423
+msgid "Phone"
+msgstr "फ़ोन"
+
+#: templates/frontend/add_contact.html:438
+msgid "Allow Whatsapp"
+msgstr "व्हाट्सएप की अनुमति दें"
+
+#: templates/frontend/add_contact.html:499
+msgid "No contacts available."
+msgstr "कोई संपर्क उपलब्ध नहीं है।"
+
+#: templates/frontend/add_contact.html:710
+msgid "Email verification request sent successfully!"
+msgstr "ईमेल सत्यापन अनुरोध सफलतापूर्वक भेजा गया!"
+
+#: templates/frontend/add_contact.html:714
+msgid "Error during email verification. Please try again."
+msgstr "ईमेल सत्यापन के दौरान त्रुटि हुई। कृपया पुनः प्रयास करें।"
+
+#: templates/frontend/add_contact.html:753
+msgid "Phone verification request sent successfully!"
+msgstr "फ़ोन सत्यापन अनुरोध सफलतापूर्वक भेजा गया!"
+
+#: templates/frontend/add_contact.html:757
+msgid "Error during phone verification. Please try again."
+msgstr "फ़ोन सत्यापन के दौरान त्रुटि हुई। कृपया पुनः प्रयास करें।"
+
+#: templates/frontend/add_contact.html:823
+msgid "Contact updated successfully!"
+msgstr "संपर्क सफलतापूर्वक अपडेट किया गया!"
+
+#: templates/frontend/add_contact.html:832
+msgid "An error occurred while updating the contact."
+msgstr "संपर्क अपडेट करते समय त्रुटि हुई।"
+
+#: templates/frontend/add_contact.html:882
+#: templates/frontend/add_contact.html:964
+msgid "Are you sure you want to delete this contact?"
+msgstr "क्या आप लॉगआउट करना चाहते हैं? फिर मिलते हैं!"
+
+#: templates/frontend/add_contact.html:890
+msgid "Are you sure you want to delete both the email and the phone contact?"
+msgstr "क्या आप लॉगआउट करना चाहते हैं? फिर मिलते हैं!"
+
+#: templates/frontend/add_contact.html:894
+msgid "Are you sure you want to delete this email contact?"
+msgstr "क्या आप लॉगआउट करना चाहते हैं? फिर मिलते हैं!"
+
+#: templates/frontend/add_contact.html:898
+msgid "Are you sure you want to delete this phone contact?"
+msgstr "क्या आप लॉगआउट करना चाहते हैं? फिर मिलते हैं!"
+
+#: templates/frontend/add_contact.html:940
+msgid "Successfully deleted the contact"
+msgstr "संपर्क सफलतापूर्वक हटा दिया गया।"
+
+#: templates/frontend/add_contact.html:945
+msgid "Failed to delete the contact."
+msgstr "संपर्क हटाने में विफल।"
+
+#: templates/frontend/add_contact.html:968 templates/frontend/pod.html:107
+#: templates/frontend/profile.html:55
+msgid "Delete"
+msgstr "हटाएं"
+
+#: templates/frontend/add_contact.html:984 templates/frontend/dash.html:91
+#: templates/frontend/evlogs.html:33 templates/frontend/pod.html:79
+#: templates/frontend/pod.html:118 templates/frontend/pod_detail.html:42
+#: templates/frontend/subscription_txn.html:104
+msgid "Status"
+msgstr "स्थिति"
+
+#: templates/frontend/add_contact.html:1088
+msgid "Please provide at least an email or a phone number."
+msgstr "कृपया कम से कम एक ईमेल या फोन नंबर प्रदान करें।"
+
+#: templates/frontend/add_contact.html:1119
+#: templates/frontend/add_contact.html:1121
+msgid "Contact added successfully!"
+msgstr "संपर्क सफलतापूर्वक जोड़ा गया।"
+
+#: templates/frontend/add_contact.html:1332
+msgid "Phone number cannot be more than 15 digits."
+msgstr "फोन नंबर 15 अंकों से अधिक नहीं हो सकता।"
+
+#: templates/frontend/changepass.html:24 templates/frontend/profile.html:24
+#: templates/frontend/profile.html:33 templates/frontend/subscription.html:22
+#: templates/frontend/subscription_txn.html:24
+msgid "Profile"
+msgstr "प्रोफ़ाइल"
+
+#: templates/frontend/changepass.html:25 templates/frontend/changepass.html:31
+#: templates/frontend/profile.html:25 templates/frontend/subscription.html:23
+#: templates/frontend/subscription_txn.html:25
+msgid "Change Password"
+msgstr "पासवर्ड बदलें"
+
+#: templates/frontend/changepass.html:26 templates/frontend/profile.html:26
+#: templates/frontend/subscription.html:24
+#: templates/frontend/subscription_txn.html:26
+msgid "Subscription Plan"
+msgstr "सदस्यता योजनाएं"
+
+#: templates/frontend/changepass.html:27 templates/frontend/profile.html:27
+#: templates/frontend/subscription.html:25
+#: templates/frontend/subscription_txn.html:27
+msgid "Subscription Transactions"
+msgstr "सदस्यता योजनाएं"
+
+#: templates/frontend/changepass.html:32
+msgid "Update your password here"
+msgstr "यहां अपना पासवर्ड अपडेट करें"
+
+#: templates/frontend/changepass.html:42 templates/frontend/changepass.html:45
+msgid "Old Password"
+msgstr "पुराना पासवर्ड"
+
+#: templates/frontend/changepass.html:59
+msgid "New password cannot be the same as the old password."
+msgstr "नया पासवर्ड पुराने पासवर्ड जैसा नहीं हो सकता।"
+
+#: templates/frontend/changepass.html:61
+msgid "Password must be between 8-24 characters."
+msgstr "पासवर्ड 8-24 अक्षरों के बीच होना चाहिए।"
+
+#: templates/frontend/changepass.html:62
+msgid "Must include at least one uppercase letter."
+msgstr "कम से कम एक बड़ा अक्षर शामिल होना चाहिए।"
+
+#: templates/frontend/changepass.html:63
+msgid "Must include at least one lowercase letter."
+msgstr "कम से कम एक छोटा अक्षर शामिल होना चाहिए।"
+
+#: templates/frontend/changepass.html:64
+msgid "Must include at least one number."
+msgstr "कम से कम एक संख्या शामिल होनी चाहिए।"
+
+#: templates/frontend/changepass.html:65
+#, fuzzy, python-format
+#| msgid ""
+#| "Must include at least one special character (@, $, !, %%, *, ?, &, #)."
+msgid "Must include at least one special character (@, $, !, %%, *, ?, &, #)."
+msgstr "कम से कम एक विशेष अक्षर (@, $, !, %, *, ?, &, #) शामिल होना चाहिए।"
+
+#: templates/frontend/changepass.html:72 templates/frontend/changepass.html:76
+msgid "Confirm New Password"
+msgstr "नए पासवर्ड की पुष्टि करें"
+
+#: templates/frontend/changepass.html:79
+msgid "Passwords do not match."
+msgstr "पासवर्ड मेल नहीं खाते।"
+
+#: templates/frontend/changepass.html:86
+msgid "Update Password"
+msgstr "पासवर्ड अपडेट करें"
+
+#: templates/frontend/changepass.html:95
+msgid "Password Changed"
+msgstr "पासवर्ड बदल दिया गया"
+
+#: templates/frontend/changepass.html:98
+msgid "Your password has been successfully updated."
+msgstr "आपका डिवाइस सफलतापूर्वक जोड़ा गया।"
+
+#: templates/frontend/dash.html:20
+msgid "Add New Button"
+msgstr "नया बटन जोड़ें"
+
+#: templates/frontend/dash.html:36
+msgid "Total buttons"
+msgstr "कुल बटन"
+
+#: templates/frontend/dash.html:53
+msgid "SOS Contacts"
+msgstr "आपातकालीन संपर्क"
+
+#: templates/frontend/dash.html:69
+msgid "Total Notifications"
+msgstr "कुल सूचनाएं"
+
+#: templates/frontend/dash.html:89 templates/frontend/dash.html:128
+#: templates/frontend/logs.html:104 templates/frontend/pod.html:77
+#: templates/frontend/pod_detail.html:135
+msgid "Button Name"
+msgstr "बटन का नाम"
+
+#: templates/frontend/dash.html:92 templates/frontend/dash.html:134
+#: templates/frontend/pod.html:81 templates/frontend/pod_detail.html:34
+msgid "MAC Address"
+msgstr "MAC पता"
+
+#: templates/frontend/dash.html:122
+msgid "Link New Button"
+msgstr "नया बटन लिंक करें"
+
+#: templates/frontend/dash.html:123
+msgid "Add Button details"
+msgstr "बटन विवरण जोड़ें"
+
+#: templates/frontend/dash.html:142
+msgid "Alert Message"
+msgstr "चेतावनी संदेश"
+
+#: templates/frontend/dash.html:150
+msgid "Address Description"
+msgstr "पते का विवरण"
+
+#: templates/frontend/dash.html:157
+msgid "Button Status"
+msgstr "बटन की स्थिति"
+
+#: templates/frontend/dash.html:177
+msgid "Device Added"
+msgstr "डिवाइस जोड़ा गया"
+
+#: templates/frontend/dash.html:180
+msgid "Your device has been successfully added."
+msgstr "आपका डिवाइस सफलतापूर्वक जोड़ा गया।"
+
+#: templates/frontend/dash.html:192
+msgid "Invalid MAC Address Format"
+msgstr "अमान्य MAC पते का प्रारूप"
+
+#: templates/frontend/dash.html:195
+msgid "Please use the correct format: xx:xx:xx:xx:xx:xx"
+msgstr "कृपया सही प्रारूप का उपयोग करें: xx:xx:xx:xx:xx:xx"
+
+#: templates/frontend/dash.html:196 templates/frontend/dash.html:211
+#: templates/frontend/dash.html:225 templates/frontend/pod_detail.html:182
+#: templates/frontend/pod_detail.html:199 templates/frontend/profile.html:147
+#: templates/frontend/profile.html:205 templates/frontend/subscription.html:60
+msgid "OK"
+msgstr "ठीक है"
+
+#: templates/frontend/dash.html:207
+msgid "Device Already Registered"
+msgstr "डिवाइस पहले से पंजीकृत है"
+
+#: templates/frontend/dash.html:210
+msgid "This MAC address is already registered."
+msgstr "यह MAC पता पहले से पंजीकृत है।"
+
+#: templates/frontend/dash.html:221
+msgid "Button Limit Exceeded"
+msgstr "बटन सीमा पार हो गई है"
+
+#: templates/frontend/dash.html:224
+msgid "You cannot register more buttons. The limit has been reached."
+msgstr "आप और अधिक बटन पंजीकृत नहीं कर सकते। सीमा पूरी हो गई है।"
+
+#: templates/frontend/dash.html:276
+msgid "No Device Added"
+msgstr "कोई डिवाइस जोड़ा नहीं गया"
+
+#: templates/frontend/dash.html:279
+msgid "All Buttons Activated"
+msgstr "सभी बटन सक्रिय हैं"
+
+#: templates/frontend/dash.html:282
+msgid "Buttons Activated"
+msgstr "बटन सक्रिय"
+
+#: templates/frontend/dash.html:282
+msgid "Buttons Inactive"
+msgstr "बटन निष्क्रिय"
+
+#: templates/frontend/dash.html:294
+msgid "No Updates Available"
+msgstr "कोई अपडेट उपलब्ध नहीं है"
+
+#: templates/frontend/dash.html:304
+msgid "Last Updated on"
+msgstr "संपर्क जोड़ें"
+
+#: templates/frontend/dash.html:314
+msgid "No Notifications Available"
+msgstr "कोई सूचनाएँ उपलब्ध नहीं हैं"
+
+#: templates/frontend/dash.html:403
+msgid "Not Assigned"
+msgstr "निर्धारित नहीं किया गया"
+
+#: templates/frontend/dash.html:476
+msgid "There is no contact added."
+msgstr "कोई संपर्क जोड़ा नहीं गया है।"
+
+#: templates/frontend/evlogs.html:12 templates/frontend/logs.html:17
+#: templates/frontend/nav.html:74
+msgid "Emergency Logs"
+msgstr "आपातकालीन अभिलेख"
+
+#: templates/frontend/evlogs.html:13 templates/frontend/logs.html:363
+msgid "Watch Video"
+msgstr "वीडियो देखें"
+
+#: templates/frontend/evlogs.html:15 templates/frontend/logs.html:19
+msgid "Emergency Logs will be shown here"
+msgstr "आपातकालीन अभिलेख यहां दिखाए जाएंगे"
+
+#: templates/frontend/evlogs.html:19
+msgid "Workshop"
+msgstr "कार्यशाला"
+
+#: templates/frontend/evlogs.html:20
+#, fuzzy
+#| msgid "Event ID"
+msgid "Event ID:"
+msgstr "घटना की पहचान संख्या"
+
+#: templates/frontend/evlogs.html:21
+msgid "Mac Address:"
+msgstr "MAC पता"
+
+#: templates/frontend/evlogs.html:30
+msgid "Log ID"
+msgstr "अभिलेख की पहचान संख्या"
+
+#: templates/frontend/evlogs.html:31
+msgid "Device"
+msgstr "डिवाइस जोड़ा गया"
+
+#: templates/frontend/evlogs.html:32
+msgid "Sent To"
+msgstr "भेजा गया"
+
+#: templates/frontend/evlogs.html:34
+msgid "Call Type"
+msgstr "कॉल प्रकार"
+
+#: templates/frontend/evlogs.html:35 templates/frontend/notifications.html:115
+msgid "Created At"
+msgstr "बनाया गया"
+
+#: templates/frontend/evlogs.html:46
+msgid "No logs available"
+msgstr "कोई अभिलेख उपलब्ध नहीं है"
+
+#: templates/frontend/evlogs.html:62 templates/frontend/logs.html:126
+#: templates/frontend/notifications.html:139
+msgid "Video not found!"
+msgstr "वीडियो नहीं मिला!"
+
+#: templates/frontend/logs.html:31
+msgid "Select Start Date & Time"
+msgstr "प्रारंभ तिथि और समय चुनें"
+
+#: templates/frontend/logs.html:48
+msgid "Select End Date & Time"
+msgstr "समाप्ति तिथि और समय चुनें"
+
+#: templates/frontend/logs.html:69 templates/frontend/notifications.html:72
+#: templates/frontend/pod.html:64 templates/frontend/remote.html:68
+#: templates/frontend/subscription_txn.html:77
+msgid "Reset"
+msgstr "रीसेट करें"
+
+#: templates/frontend/logs.html:77 templates/frontend/notifications.html:80
+#: templates/frontend/pod.html:65 templates/frontend/remote.html:75
+#: templates/frontend/subscription_txn.html:84
+msgid "Apply"
+msgstr "लागू करें"
+
+#: templates/frontend/logs.html:90 templates/frontend/notifications.html:88
+msgid "Download CSV"
+msgstr "CSV डाउनलोड करें"
+
+#: templates/frontend/logs.html:105 templates/frontend/pod_detail.html:67
+msgid "Event ID"
+msgstr "घटना की पहचान संख्या"
+
+#: templates/frontend/logs.html:106 templates/frontend/pod_detail.html:68
+msgid "Time Stamp"
+msgstr "वास्तविक समय स्ट्रीमिंग:"
+
+#: templates/frontend/logs.html:107
+msgid "Videos"
+msgstr "वीडियो"
+
+#: templates/frontend/logs.html:108 templates/frontend/notifications.html:116
+#: templates/frontend/pod.html:83
+msgid "Actions"
+msgstr "गतिविधि अभिलेख"
+
+#: templates/frontend/logs.html:192
+msgid "Nothing to download!"
+msgstr "डाउनलोड करने के लिए कुछ भी नहीं है!"
+
+#: templates/frontend/nav.html:62
+msgid "Remote Monitoring"
+msgstr "वास्तविक रिकॉर्डिंग समय की निगरानी"
+
+#: templates/frontend/nav.html:68 templates/frontend/pod.html:13
+#: templates/frontend/pod_detail.html:16
+msgid "Button Management"
+msgstr "स्थानीय बटन प्रबंधन"
+
+#: templates/frontend/nav.html:80 templates/frontend/notifications.html:32
+msgid "Activity Logs"
+msgstr "गतिविधि अभिलेख"
+
+#: templates/frontend/nav.html:86
+msgid "Wifi Setup"
+msgstr "वाईफाई सेटअप"
+
+#: templates/frontend/nav.html:92
+msgid "Live Stream"
+msgstr "लाइव स्ट्रीमिंग"
+
+#: templates/frontend/nav.html:98
+msgid "Logout"
+msgstr "लॉगआउट"
+
+#: templates/frontend/nav.html:107
+msgid "Base Plan"
+msgstr "Base योजना"
+
+#: templates/frontend/nav.html:108
+msgid ""
+"Upgrade to Pro and enjoy more customization and better features to ensure "
+"utmost satisfaction."
+msgstr "प्रो में अपग्रेड करें और अधिक अनुकूलन और बेहतर सुविधाओं का आनंद लें।"
+
+#: templates/frontend/nav.html:113
+msgid "Upgrade Plan"
+msgstr "योजना अपग्रेड करें"
+
+#: templates/frontend/nav.html:120
+msgid "Pro Plan"
+msgstr "प्रो योजना"
+
+#: templates/frontend/nav.html:121
+msgid "You are on a Pro Plan. You have access to all the Features!"
+msgstr "आप प्रो योजना पर हैं। आपके पास सभी सुविधाओं तक पहुंच है!"
+
+#: templates/frontend/nav.html:162
+msgid "Confirm Logout"
+msgstr "लॉगआउट की पुष्टि करें"
+
+#: templates/frontend/nav.html:165
+msgid "Are you sure you want to log out? See you again soon!"
+msgstr "क्या आप लॉगआउट करना चाहते हैं? फिर मिलते हैं!"
+
+#: templates/frontend/nav.html:170 templates/frontend/remote.html:132
+msgid "Confirm"
+msgstr "पुष्टि करें"
+
+#: templates/frontend/notifications.html:33
+msgid "Yours activity logs should be display below"
+msgstr "आपकी गतिविधि अभिलेख नीचे दिखाए जाएंगे"
+
+#: templates/frontend/notifications.html:44 templates/frontend/pod.html:30
+#: templates/frontend/remote.html:31
+#: templates/frontend/subscription_txn.html:43
+msgid "Start Date & Time"
+msgstr "प्रारंभ तिथि और समय"
+
+#: templates/frontend/notifications.html:57 templates/frontend/pod.html:44
+#: templates/frontend/remote.html:49
+#: templates/frontend/subscription_txn.html:55
+msgid "End Date & Time"
+msgstr "समाप्ति तिथि और समय"
+
+#: templates/frontend/notifications.html:113
+msgid "SR No"
+msgstr "क्रमांक"
+
+#: templates/frontend/notifications.html:114
+msgid "Log Message"
+msgstr "चेतावनी संदेश"
+
+#: templates/frontend/notifications.html:150
+msgid "Log Details"
+msgstr "अभिलेख विवरण"
+
+#: templates/frontend/notifications.html:326
+msgid "No Activities found"
+msgstr "कोई गतिविधियां नहीं मिलीं"
+
+#: templates/frontend/notifications.html:460
+msgid "No logs available to download."
+msgstr "डाउनलोड के लिए कोई अभिलेख उपलब्ध नहीं है।"
+
+#: templates/frontend/pod.html:14
+msgid "Button management description will be written here"
+msgstr "बटन प्रबंधन विवरण यहां लिखा जाएगा"
+
+#: templates/frontend/pod.html:21 templates/frontend/remote.html:22
+msgid "Search by Button Name"
+msgstr "बटन नाम से खोजें"
+
+#: templates/frontend/pod.html:56 templates/frontend/subscription_txn.html:63
+msgid "Status All"
+msgstr "स्थिति"
+
+#: templates/frontend/pod.html:57
+msgid "Active"
+msgstr "लक्ष्य"
+
+#: templates/frontend/pod.html:58
+msgid "Inactive"
+msgstr "निष्क्रिय"
+
+#: templates/frontend/pod.html:80
+msgid "Control"
+msgstr "नियंत्रण"
+
+#: templates/frontend/pod.html:82 templates/frontend/pod_detail.html:50
+msgid "Link Date"
+msgstr "स्थान डेट"
+
+#: templates/frontend/pod.html:100 templates/frontend/remote.html:124
+msgid "Confirm Deletion"
+msgstr "पुष्टि करें"
+
+#: templates/frontend/pod.html:103
+msgid "Are you sure you want to delete this device?"
+msgstr "क्या आप लॉगआउट करना चाहते हैं? फिर मिलते हैं!"
+
+#: templates/frontend/pod.html:343
+msgid "Device deleted successfully!"
+msgstr "आपका डिवाइस सफलतापूर्वक जोड़ा गया।"
+
+#: templates/frontend/pod.html:347
+msgid "There was an error deleting the device."
+msgstr "डिवाइस हटाने में त्रुटि हुई।"
+
+#: templates/frontend/pod.html:417
+msgid "Device status changed to"
+msgstr "डिवाइस की स्थिति बदलकर हो गई"
+
+#: templates/frontend/pod_detail.html:17
+msgid "Button Details"
+msgstr "बटन विवरण जोड़ें"
+
+#: templates/frontend/pod_detail.html:62
+msgid "Emergency Log"
+msgstr "आपातकालीन अभिलेख"
+
+#: templates/frontend/pod_detail.html:69
+msgid "Action"
+msgstr "क्रिया"
+
+#: templates/frontend/pod_detail.html:85 templates/frontend/pod_detail.html:905
+msgid "Assign Contact"
+msgstr "संपर्क जोड़ें"
+
+#: templates/frontend/pod_detail.html:102
+msgid "Emergency Video"
+msgstr "आपातकालीन अभिलेख"
+
+#: templates/frontend/pod_detail.html:119
+msgid "Video not Found!"
+msgstr "वीडियो नहीं मिला!"
+
+#: templates/frontend/pod_detail.html:129
+msgid "Update ICE Button"
+msgstr "आपातकालीन-बटन अपडेट करें।"
+
+#: templates/frontend/pod_detail.html:130
+msgid "Update Button details"
+msgstr "बटन विवरण अपडेट करें।"
+
+#: templates/frontend/pod_detail.html:136
+msgid "Enter device name"
+msgstr "डिवाइस का नाम दर्ज करें"
+
+#: templates/frontend/pod_detail.html:139
+msgid "Description"
+msgstr "पते का विवरण"
+
+#: templates/frontend/pod_detail.html:140
+msgid "Enter description (optional)"
+msgstr "पते विवरण दर्ज करें"
+
+#: templates/frontend/pod_detail.html:144
+#: templates/frontend/pod_detail.html:935 templates/frontend/profile.html:132
+msgid "Update"
+msgstr "अपडेट्स"
+
+#: templates/frontend/pod_detail.html:160
+msgid ""
+"Are you sure you want to delete this device? This action cannot be undone."
+msgstr "क्या आप लॉगआउट करना चाहते हैं? फिर मिलते हैं!"
+
+#: templates/frontend/pod_detail.html:164
+msgid "No"
+msgstr "नहीं"
+
+#: templates/frontend/pod_detail.html:165
+msgid "Yes"
+msgstr "हां"
+
+#: templates/frontend/pod_detail.html:176
+msgid "Device Updated Successfully"
+msgstr "डिवाइस सफलतापूर्वक अपडेट हो गया"
+
+#: templates/frontend/pod_detail.html:179
+msgid "Your device has been updated successfully."
+msgstr "आपका डिवाइस सफलतापूर्वक जोड़ा गया।"
+
+#: templates/frontend/pod_detail.html:193
+msgid "Device Deleted Successfully"
+msgstr "डिवाइस सफलतापूर्वक हटा दिया गया"
+
+#: templates/frontend/pod_detail.html:196
+msgid "The device has been successfully deleted."
+msgstr "आपका डिवाइस सफलतापूर्वक जोड़ा गया।"
+
+#: templates/frontend/pod_detail.html:911 templates/frontend/remote.html:99
+msgid "Device Name"
+msgstr "डिवाइस जोड़ा गया"
+
+#: templates/frontend/pod_detail.html:912
+#, fuzzy
+#| msgid "Enter device name"
+msgid "Enter device ID"
+msgstr "डिवाइस का नाम दर्ज करें"
+
+#: templates/frontend/pod_detail.html:916
+msgid "Select User"
+msgstr "उपयोगकर्ता चुनें"
+
+#: templates/frontend/pod_detail.html:918
+msgid "Select a user"
+msgstr "कोई उपयोगकर्ता चुनें"
+
+#: templates/frontend/pod_detail.html:925
+msgid "No email available"
+msgstr "कोई ईमेल उपलब्ध नहीं है"
+
+#: templates/frontend/pod_detail.html:930
+msgid "No phone available"
+msgstr "कोई फोन उपलब्ध नहीं है"
+
+#: templates/frontend/pod_detail.html:950
+msgid "Select SOS Contact"
+msgstr "संकट संकेत संपर्क चुनें"
+
+#: templates/frontend/profile.html:34
+msgid "Update your photo and personal details here."
+msgstr "अपना फोटो और व्यक्तिगत विवरण यहां अपडेट करें।"
+
+#: templates/frontend/profile.html:44
+msgid "Your photo"
+msgstr "आपका फोटो"
+
+#: templates/frontend/profile.html:45
+msgid "This will be displayed on your profile."
+msgstr "यह आपकी प्रोफ़ाइल पर दिखाया जाएगा।"
+
+#: templates/frontend/profile.html:57
+msgid "Change"
+msgstr "बदलें"
+
+#: templates/frontend/profile.html:74
+msgid "First Name"
+msgstr "पहला नाम"
+
+#: templates/frontend/profile.html:83
+msgid "Last Name"
+msgstr "अंतिम नाम"
+
+#: templates/frontend/profile.html:140 templates/frontend/profile.html:143
+msgid "Profile Updated"
+msgstr "प्रोफ़ाइल अपडेट हो गई"
+
+#: templates/frontend/profile.html:144
+#, fuzzy
+#| msgid "Your plan has been successfully upgraded!"
+msgid "Your profile has been successfully updated!"
+msgstr "आपका डिवाइस सफलतापूर्वक जोड़ा गया।"
+
+#: templates/frontend/profile.html:157 templates/frontend/profile.html:176
+msgid "Form Submission Error"
+msgstr "फ़ॉर्म सबमिशन में त्रुटि"
+
+#: templates/frontend/profile.html:180
+msgid "Please fix the following errors before submitting"
+msgstr "कृपया सबमिट करने से पहले निम्न त्रुटियों को ठीक करें"
+
+#: templates/frontend/profile.html:199
+msgid "Profile Image Deleted"
+msgstr "प्रोफ़ाइल छवि हटा दी गई"
+
+#: templates/frontend/profile.html:202
+msgid "Your profile image has been successfully deleted."
+msgstr "आपका डिवाइस सफलतापूर्वक जोड़ा गया।"
+
+#: templates/frontend/profile.html:216
+msgid "No Image Found"
+msgstr "कोई छवि नहीं मिली।"
+
+#: templates/frontend/profile.html:220
+msgid "There is no profile image to delete."
+msgstr "कोई संपर्क जोड़ा नहीं गया है।"
+
+#: templates/frontend/profile.html:238
+msgid "An error occurred while deleting the profile image. Please try again."
+msgstr "प्रोफ़ाइल छवि को हटाते समय एक त्रुटि हुई। कृपया पुनः प्रयास करें।"
+
+#: templates/frontend/remote.html:15
+msgid "Remote Management"
+msgstr "बटन रिकॉर्डिंग प्रबंधन"
+
+#: templates/frontend/remote.html:16
+msgid "You can watch you Ice Button Video Recording here."
+msgstr "यहाँ आपके बटन का वीडियो रिकॉर्डिंग देखा जा सकता है"
+
+#: templates/frontend/remote.html:100
+msgid "Uploaded At"
+msgstr "अपलोड किया गया समय"
+
+#: templates/frontend/remote.html:128
+msgid "Are you sure you want to delete this recording?"
+msgstr "क्या आप लॉगआउट करना चाहते हैं? फिर मिलते हैं!"
+
+#: templates/frontend/stream.html:35
+msgid "No Video Available. Please try again later."
+msgstr "कोई वीडियो उपलब्ध नहीं है। कृपया बाद में पुनः प्रयास करें।"
+
+#: templates/frontend/stream.html:38
+#, fuzzy
+#| msgid ""
+#| "Error: Unable to connect to the ICE-Button hotspot. Please check your "
+#| "connection."
+msgid ""
+"Error: Unable to connect to the ICE-Button stream. Please check your "
+"connection."
+msgstr "त्रुटि: आपातकालीन-बटन हॉटस्पॉट से कनेक्ट करने में असमर्थ। कृपया अपना कनेक्शन जांचें।"
+
+#: templates/frontend/subscription.html:31 templates/plan_pricing.html:179
+msgid "Monthly"
+msgstr "मासिक"
+
+#: templates/frontend/subscription.html:32 templates/plan_pricing.html:180
+msgid "Annual"
+msgstr "वार्षिक"
+
+#: templates/frontend/subscription.html:57
+msgid "Your plan has been successfully upgraded!"
+msgstr "आपका डिवाइस सफलतापूर्वक जोड़ा गया।"
+
+#: templates/frontend/subscription.html:158 templates/plan_pricing.html:239
+msgid "Live Stream Support"
+msgstr "लाइव स्ट्रीम समर्थन"
+
+#: templates/frontend/subscription.html:158 templates/plan_pricing.html:239
+msgid "No Live Stream Support"
+msgstr "कोई लाइव स्ट्रीम समर्थन नहीं"
+
+#: templates/frontend/subscription.html:180 templates/plan_pricing.html:250
+msgid "Emails"
+msgstr "ईमेल"
+
+#: templates/frontend/subscription.html:181 templates/plan_pricing.html:251
+msgid "Phone Numbers"
+msgstr "फोन नंबर"
+
+#: templates/frontend/subscription.html:182 templates/plan_pricing.html:252
+msgid "Add"
+msgstr "जोड़ें"
+
+#: templates/frontend/subscription.html:182 templates/plan_pricing.html:252
+msgid "Ice Button"
+msgstr "Ice Button"
+
+#: templates/frontend/subscription.html:182 templates/plan_pricing.html:252
+msgid "s"
+msgstr ""
+
+#: templates/frontend/subscription.html:182 templates/plan_pricing.html:252
+msgid "Only"
+msgstr "केवल"
+
+#: templates/frontend/subscription_txn.html:93
+msgid "Download"
+msgstr "डाउनलोड करें"
+
+#: templates/frontend/subscription_txn.html:102
+msgid "Transactions ID"
+msgstr "सदस्यता योजनाएं:"
+
+#: templates/frontend/subscription_txn.html:103
+msgid "Plan Name"
+msgstr "बटन का नाम"
+
+#: templates/frontend/subscription_txn.html:105
+msgid "Transaction Amount"
+msgstr "लेन-देन राशि"
+
+#: templates/frontend/subscription_txn.html:106
+msgid "Date Time"
+msgstr "तिथि समय"
+
+#: templates/frontend/wifi.html:121
+msgid "Open Instructions"
+msgstr "निर्देश खोलें"
+
+#: templates/frontend/wifi.html:126
+msgid "ICE-Button WiFi Interface"
+msgstr "आपातकालीन-बटन वाईफाई इंटरफ़ेस"
+
+#: templates/frontend/wifi.html:140
+msgid "Connecting to the ICE-Button hotspot"
+msgstr "आपातकालीन-बटन हॉटस्पॉट से कनेक्ट हो रहा है"
+
+#: templates/frontend/wifi.html:147
+msgid ""
+"Error: Unable to connect to the ICE-Button hotspot. Please check your "
+"connection."
+msgstr "त्रुटि: आपातकालीन-बटन हॉटस्पॉट से कनेक्ट करने में असमर्थ। कृपया अपना कनेक्शन जांचें।"
+
+#: templates/frontend/wifi.html:158
+msgid "ICE Button Wi-Fi Connection Instructions"
+msgstr "आपातकालीन बटन वाई-फाई कनेक्शन निर्देश"
+
+#: templates/legalinfo.html:30
+msgid "Legal Information"
+msgstr "कानूनी जानकारी"
+
+#: templates/legalinfo.html:31 templates/salesandrefund.html:31
+msgid "Effective Date: 24-Nov-2024"
+msgstr "प्रभावी तारीख: 24-नवम्बर-2024"
+
+#: templates/legalinfo.html:33
+msgid "1. Legal Disclaimer"
+msgstr "1. कानूनी अस्वीकरण"
+
+#: templates/legalinfo.html:34
+msgid ""
+"The ICE-Button system is designed as an aid in emergency situations and does "
+"not guarantee prevention of harm or damage. It is the responsibility of the "
+"user to ensure appropriate use."
+msgstr ""
+"आपातकालीन-बटन सिस्टम आपातकालीन स्थिति में मदद के लिए डिज़ाइन किया गया है, और यह "
+"नुकसान या हानि की रोकथाम की गारंटी नहीं देता है। उचित उपयोग सुनिश्चित करना "
+"उपयोगकर्ता की जिम्मेदारी है।"
+
+#: templates/legalinfo.html:35
+msgid ""
+"While we strive to provide uninterrupted services, we do not warrant or "
+"represent that our products and services will operate without faults or "
+"errors at all times. Mobiloitte Technologies India Private Limited is not "
+"liable for damages or losses resulting from misuse or unauthorized use of "
+"our products, interruptions caused by external factors, including third-"
+"party service providers, network outages, or force majeure events."
+msgstr ""
+"हम लगातार सेवाएं प्रदान करने का प्रयास करते हैं, लेकिन हम यह गारंटी नहीं देते कि हमारे "
+"उत्पाद और सेवाएं हमेशा बिना किसी दोष या गलती के काम करेंगे। Mobiloitte Technologies "
+"India Private Limited किसी भी नुकसान या हानि के लिए जिम्मेदार नहीं है जो हमारे "
+"उत्पादों के गलत उपयोग, अवैध उपयोग या बाहरी कारकों के कारण हुआ हो।"
+
+#: templates/legalinfo.html:37
+msgid "2. Intellectual Property Rights"
+msgstr "2. बौद्धिक संपत्ति अधिकार"
+
+#: templates/legalinfo.html:38
+msgid ""
+"All content, trademarks, logos, and intellectual property displayed on the "
+"ICE-Button platform, hardware, and related services are owned by Mobiloitte "
+"Technologies India Private Limited or its licensors."
+msgstr ""
+"आपातकालीन-बटन प्लेटफार्म, हार्डवेयर और संबंधित सेवाओं पर प्रदर्शित सभी सामग्री, ट्रेडमार्क, "
+"लोगो और बौद्धिक संपत्ति Mobiloitte Technologies India Private Limited या इसके "
+"लाइसेंसधारकों के स्वामित्व में हैं।"
+
+#: templates/legalinfo.html:40
+msgid ""
+"Users are prohibited from copying, reproducing, or redistributing any "
+"material without prior written permission."
+msgstr ""
+"उपयोगकर्ताओं को किसी भी सामग्री की नकल, पुन: उत्पादन या पुनर्वितरण बिना पूर्व लिखित "
+"अनुमति के करने से मना किया गया है।"
+
+#: templates/legalinfo.html:41
+msgid ""
+"Modifying, reverse-engineering, or tampering with the ICE-Button hardware or "
+"software is strictly prohibited."
+msgstr ""
+"आपातकालीन-बटन के हार्डवेयर या सॉफ़्टवेयर में परिवर्तन, रिवर्स-इंजीनियरिंग या छेड़छाड़ करना "
+"सख्त रूप से मना है।"
+
+#: templates/legalinfo.html:44
+msgid "3. Compliance with Laws"
+msgstr "3. क़ानूनों का पालन"
+
+#: templates/legalinfo.html:45
+msgid ""
+"The ICE-Button system complies with applicable laws and regulations, "
+"including but not limited to:"
+msgstr ""
+"आपातकालीन-बटन सिस्टम लागू क़ानूनों और नियमों का पालन करता है, जिसमें शामिल हैं लेकिन "
+"सीमित नहीं हैं:"
+
+#: templates/legalinfo.html:47
+msgid "Data Protection Laws:"
+msgstr "डेटा सुरक्षा कानून:"
+
+#: templates/legalinfo.html:47
+msgid ""
+"General Data Protection Regulation (GDPR) and applicable local data privacy "
+"regulations."
+msgstr ""
+"डेटा सुरक्षा क़ानून: सामान्य डेटा सुरक्षा विनियमन (GDPR) और लागू स्थानीय डेटा गोपनीयता "
+"नियम।"
+
+#: templates/legalinfo.html:48
+msgid "Consumer Protection Laws:"
+msgstr "उपभोक्ता सुरक्षा कानून:"
+
+#: templates/legalinfo.html:48
+msgid ""
+"Adherence to refund, warranty, and sales practices under relevant consumer "
+"protection acts."
+msgstr ""
+"उपभोक्ता संरक्षण क़ानून: उपभोक्ता संरक्षण क़ानूनों के तहत रिफंड, वारंटी, और बिक्री प्रथाओं का "
+"पालन।"
+
+#: templates/legalinfo.html:50
+msgid ""
+"Users are responsible for ensuring that their use of the system does not "
+"violate local laws, including those related to data collection, storage, and "
+"transmission."
+msgstr ""
+"उपयोगकर्ता जिम्मेदार हैं कि वे सुनिश्चित करें कि उनका सिस्टम का उपयोग स्थानीय क़ानूनों का "
+"उल्लंघन न करे, जिसमें डेटा संग्रहण, भंडारण, और प्रसारण से संबंधित क़ानून शामिल हैं।"
+
+#: templates/legalinfo.html:52
+msgid "4. Liability Limitation"
+msgstr "4. जिम्मेदारी की सीमा"
+
+#: templates/legalinfo.html:53
+msgid "Mobiloitte Technologies India Private Limited is not responsible for:"
+msgstr "Mobiloitte Technologies India Private Limited जिम्मेदार नहीं है:"
+
+#: templates/legalinfo.html:55
+msgid "Delays in alert delivery due to network or connectivity issues."
+msgstr "नेटवर्क या कनेक्टिविटी समस्याओं के कारण अलर्ट भेजने में देरी।"
+
+#: templates/legalinfo.html:56
+msgid "Unauthorized use or modification of the ICE-Button device."
+msgstr "आपातकालीन-बटन डिवाइस का अवैध उपयोग या परिवर्तन।"
+
+#: templates/legalinfo.html:57
+msgid "Loss or corruption of data caused by external factors."
+msgstr "बाहरी कारणों से डेटा का हानि या क्षति।"
+
+#: templates/legalinfo.html:59
+msgid ""
+"In no event shall our liability exceed the total fees paid by the user for "
+"the subscription or device in question."
+msgstr ""
+"किसी भी स्थिति में हमारी जिम्मेदारी उस उपयोगकर्ता द्वारा सब्सक्रिप्शन या डिवाइस के लिए "
+"भुगतान की गई कुल फीस से अधिक नहीं होगी।"
+
+#: templates/legalinfo.html:61
+msgid "5. User Agreement"
+msgstr "5. उपयोगकर्ता समझौता"
+
+#: templates/legalinfo.html:62
+msgid "By using our services, users agree to:"
+msgstr "हमारी सेवाओं का उपयोग करके, उपयोगकर्ता सहमत होते हैं:"
+
+#: templates/legalinfo.html:64
+msgid "Abide by all terms outlined in the Terms of Use and this Legal Policy."
+msgstr "उपयोग की शर्तों और इस कानूनी नीति में उल्लिखित सभी शर्तों का पालन करें।"
+
+#: templates/legalinfo.html:65
+msgid ""
+"Not engage in activities that could harm, damage, or compromise the "
+"integrity of the ICE-Button system."
+msgstr ""
+"ऐसी गतिविधियों में संलग्न न हों जो आपातकालीन-बटन सिस्टम की अखंडता को नुकसान पहुंचा सकें।"
+
+#: templates/legalinfo.html:67
+msgid ""
+"Users who violate these terms may have their accounts suspended or "
+"terminated without notice."
+msgstr ""
+"जो उपयोगकर्ता इन शर्तों का उल्लंघन करेंगे, उनके खाते को बिना नोटिस के निलंबित या समाप्त "
+"किया जा सकता है।"
+
+#: templates/legalinfo.html:69
+msgid "6. Legal Jurisdiction"
+msgstr "6. कानूनी क्षेत्राधिकार"
+
+#: templates/legalinfo.html:70
+msgid ""
+"These policies and all related disputes are governed by the laws of India. "
+"Any legal disputes arising from the use of our services shall be resolved in "
+"the courts of New Delhi."
+msgstr ""
+"इन नीतियों और संबंधित विवादों को भारत के क़ानूनों द्वारा शासित किया जाएगा। हमारी सेवाओं "
+"के उपयोग से उत्पन्न होने वाले किसी भी कानूनी विवाद को नई दिल्ली की अदालतों में हल किया "
+"जाएगा।"
+
+#: templates/legalinfo.html:72
+msgid "7. Third-Party Services"
+msgstr "7. तीसरे पक्ष की सेवाएं"
+
+#: templates/legalinfo.html:73
+msgid ""
+"The ICE-Button integrates with third-party services (e.g., Twilio for "
+"messaging and voice calls). These services are governed by their own terms "
+"and policies. Mobiloitte Technologies India Private Limited does not take "
+"responsibility for disruptions caused by third-party providers."
+msgstr ""
+"आपातकालीन-बटन तीसरे पक्ष की सेवाओं (जैसे, Twilio संदेश और वॉयस कॉल्स के लिए) के साथ "
+"एकीकृत होता है। इन सेवाओं को उनके स्वयं के नियम और नीतियाँ शासित करती हैं। Mobiloitte "
+"Technologies India Private Limited तीसरे पक्ष के प्रदाताओं द्वारा उत्पन्न व्यवधानों के "
+"लिए जिम्मेदार नहीं है।"
+
+#: templates/legalinfo.html:75
+msgid "8. Reporting Violations"
+msgstr "8. उल्लंघनों की रिपोर्टिंग"
+
+#: templates/legalinfo.html:76
+msgid ""
+"If you believe there has been a violation of these legal terms or misuse of "
+"the ICE-Button system, please report it immediately to our legal team:"
+msgstr ""
+"अगर आपको लगता है कि इन कानूनी शर्तों का उल्लंघन हुआ है या आपातकालीन-बटन सिस्टम का गलत "
+"उपयोग किया गया है, तो कृपया तुरंत हमारे कानूनी टीम को रिपोर्ट करें:"
+
+#: templates/legalinfo.html:78
+msgid "Email:"
+msgstr "ईमेल"
+
+#: templates/legalinfo.html:79
+msgid "Phone:"
+msgstr "फोन:"
+
+#: templates/legalinfo.html:82
+msgid "9. Updates to Legal Policies"
+msgstr "9. कानूनी नीतियों में अपडेट"
+
+#: templates/legalinfo.html:83
+msgid ""
+"This Legal Policy may be updated periodically to reflect changes in our "
+"practices, services, or legal obligations. Users will be notified of "
+"significant changes, and the updated policy will be posted on this page with "
+"the effective date."
+msgstr ""
+"यह कानूनी नीति समय-समय पर हमारे व्यवहार, सेवाओं या कानूनी जिम्मेदारियों में बदलाव को "
+"दर्शाने के लिए अपडेट की जा सकती है। महत्वपूर्ण बदलावों की सूचना उपयोगकर्ताओं को दी "
+"जाएगी, और अपडेट की गई नीति इस पृष्ठ पर प्रभावी तारीख के साथ पोस्ट की जाएगी।"
+
+#: templates/salesandrefund.html:30
+msgid "Sales and Refunds Policy"
+msgstr "बिक्री और रिफंड नीति"
+
+#: templates/salesandrefund.html:33
+msgid "1. Sales Policy"
+msgstr "1. बिक्री नीति"
+
+#: templates/salesandrefund.html:34
+msgid ""
+"All sales of ICE-Button hardware and subscriptions are subject to acceptance "
+"by Mobiloitte Technologies India Private Limited. Payment must be completed "
+"in full before products are shipped or services are activated."
+msgstr ""
+"आपातकालीन-बटन हार्डवेयर और सब्सक्रिप्शन की सभी बिक्री Mobiloitte Technologies "
+"India Private Limited द्वारा स्वीकृत होने के अधीन हैं। उत्पादों को भेजे जाने या सेवाओं को "
+"सक्रिय किए जाने से पहले भुगतान पूर्ण रूप से किया जाना चाहिए।"
+
+#: templates/salesandrefund.html:36
+msgid "Prices:"
+msgstr "मूल्य:"
+
+#: templates/salesandrefund.html:36
+msgid ""
+"Prices are listed on our website or provided via official quotes and are "
+"subject to change without notice. Taxes, duties, and shipping charges may "
+"apply depending on your location."
+msgstr ""
+"मूल्य हमारी वेबसाइट पर या आधिकारिक उद्धरणों के माध्यम से दिए गए हैं और बिना सूचना के बदले "
+"जा सकते हैं। कर, शुल्क और शिपिंग शुल्क आपके स्थान के आधार पर लागू हो सकते हैं।"
+
+#: templates/salesandrefund.html:37
+msgid "Accepted Payment Methods:"
+msgstr "स्वीकृत भुगतान विधियाँ:"
+
+#: templates/salesandrefund.html:37
+msgid "Credit/Debit Cards, Bank Transfers, UPI Payments (if applicable)."
+msgstr "क्रेडिट/डेबिट कार्ड, बैंक ट्रांसफर, UPI भुगतान (यदि लागू हो)।"
+
+#: templates/salesandrefund.html:40
+msgid "2. Refund Policy"
+msgstr "2. रिफंड नीति"
+
+#: templates/salesandrefund.html:41
+msgid "a. Eligibility for Refunds"
+msgstr "a. रिफंड के लिए पात्रता"
+
+#: templates/salesandrefund.html:43
+msgid "Hardware Refunds:"
+msgstr "हार्डवेयर रिफंड:"
+
+#: templates/salesandrefund.html:43
+msgid ""
+"Eligible for refund if the product is defective or damaged upon delivery. "
+"Refund requests must be made within 14 days of receipt. The product must be "
+"returned in its original condition with all accessories and packaging."
+msgstr ""
+"अगर उत्पाद डिलीवरी के समय दोषपूर्ण या क्षतिग्रस्त है तो रिफंड के लिए पात्र है। रिफंड के "
+"लिए अनुरोध प्राप्ति के 14 दिनों के भीतर करना होगा। उत्पाद को उसके मूल स्थिति में सभी "
+"सहायक सामग्री और पैकेजिंग के साथ लौटाना होगा।"
+
+#: templates/salesandrefund.html:44
+msgid "Subscription Refunds:"
+msgstr "सब्सक्रिप्शन रिफंड:"
+
+#: templates/salesandrefund.html:44
+msgid ""
+"Refunds are only applicable for first-time subscriptions canceled within 7 "
+"days of activation (trial period, if applicable). Partial refunds for unused "
+"subscription periods are not provided unless required by law."
+msgstr ""
+"रिफंड केवल पहले बार के सब्सक्रिप्शन के लिए लागू होते हैं जो सक्रिय होने के 7 दिनों के भीतर "
+"रद्द किए गए हों (यदि ट्रायल अवधि लागू हो)। अप्रयुक्त सब्सक्रिप्शन अवधि के लिए आंशिक रिफंड "
+"नहीं दिए जाते जब तक कि कानून द्वारा आवश्यक न हो।"
+
+#: templates/salesandrefund.html:47
+msgid "b. Non-Refundable Cases"
+msgstr "b. गैर-रिफंडेबल मामलों"
+
+#: templates/salesandrefund.html:49
+msgid "Change of mind after purchase."
+msgstr "खरीदारी के बाद मन बदलना।"
+
+#: templates/salesandrefund.html:50
+msgid "Failure to use the product or service due to user error."
+msgstr "उपयोगकर्ता की गलती के कारण उत्पाद या सेवा का उपयोग न कर पाना।"
+
+#: templates/salesandrefund.html:51
+msgid "Subscription renewals, unless canceled prior to the renewal date."
+msgstr "सब्सक्रिप्शन का नवीनीकरण, जब तक नवीनीकरण तिथि से पहले रद्द न किया गया हो।"
+
+#: templates/salesandrefund.html:54
+msgid "c. How to Request a Refund"
+msgstr "c. रिफंड का अनुरोध कैसे करें"
+
+#: templates/salesandrefund.html:55
+msgid "To initiate a refund, contact our support team at"
+msgstr "रिफंड शुरू करने के लिए, हमारी सहायता टीम से संपर्क करें"
+
+#: templates/salesandrefund.html:55
+msgid "with the following details:"
+msgstr "निम्नलिखित विवरण के साथ:"
+
+#: templates/salesandrefund.html:57
+msgid "Order ID or subscription details."
+msgstr "आदेश आईडी या सदस्यता विवरण।"
+
+#: templates/salesandrefund.html:58
+msgid "Reason for refund request."
+msgstr "रिफंड अनुरोध का कारण।"
+
+#: templates/salesandrefund.html:59
+msgid "Proof of purchase and, if applicable, photos of the defective hardware."
+msgstr "खरीदारी का प्रमाण और, यदि लागू हो, दोषपूर्ण हार्डवेयर की तस्वीरें।"
+
+#: templates/salesandrefund.html:61
+msgid "Refund requests are processed within 14 business days after evaluation."
+msgstr "रिफंड अनुरोधों को मूल्यांकन के बाद 14 कार्य दिवसों के भीतर संसाधित किया जाता है।"
+
+#: templates/salesandrefund.html:63
+msgid "3. Cancellation Policy"
+msgstr "3. रद्दीकरण नीति"
+
+#: templates/salesandrefund.html:65
+msgid "Hardware Orders:"
+msgstr "हार्डवेयर ऑर्डर:"
+
+#: templates/salesandrefund.html:65
+msgid ""
+"Orders can be canceled before shipment. Once shipped, the order cannot be "
+"canceled, but a return may be initiated under the refund policy."
+msgstr ""
+"ऑर्डर को शिपमेंट से पहले रद्द किया जा सकता है। एक बार शिप होने के बाद, ऑर्डर को रद्द "
+"नहीं किया जा सकता, लेकिन रिफंड नीति के तहत वापसी शुरू की जा सकती है।"
+
+#: templates/salesandrefund.html:66
+msgid "Subscriptions:"
+msgstr "सब्सक्रिप्शन:"
+
+#: templates/salesandrefund.html:66
+msgid ""
+"Users can cancel auto-renewal of their subscription at any time. "
+"Cancellation takes effect at the end of the current billing cycle."
+msgstr ""
+"उपयोगकर्ता किसी भी समय अपने सब्सक्रिप्शन का स्वचालित नवीनीकरण रद्द कर सकते हैं। "
+"रद्दीकरण वर्तमान बिलिंग चक्र के अंत में प्रभावी होता है।"
+
+#: templates/salesandrefund.html:69
+msgid "4. Warranty and Support"
+msgstr "4. वारंटी और समर्थन"
+
+#: templates/salesandrefund.html:70
+msgid ""
+"All ICE-Button devices come with a warranty period of 12 months from the "
+"date of purchase, covering manufacturing defects."
+msgstr ""
+"सभी आपातकालीन-बटन उपकरणों के साथ 12 महीने की वारंटी अवधि होती है, जो खरीदारी की "
+"तारीख से शुरू होती है और निर्माण दोषों को कवर करती है।"
+
+#: templates/salesandrefund.html:72
+msgid "Warranty Exclusions:"
+msgstr "वारंटी बहिष्करण:"
+
+#: templates/salesandrefund.html:72
+msgid ""
+"Physical damage caused by misuse, unauthorized modifications, or repairs are "
+"not covered under warranty."
+msgstr ""
+"गलत उपयोग, अनधिकृत संशोधन या मरम्मत के कारण होने वाली शारीरिक क्षति वारंटी में शामिल "
+"नहीं है।"
+
+#: templates/salesandrefund.html:73
+msgid "Technical Support:"
+msgstr "तकनीकी समर्थन:"
+
+#: templates/salesandrefund.html:73
+msgid "For assistance with hardware or software, contact our support team at"
+msgstr "हार्डवेयर या सॉफ़्टवेयर सहायता के लिए, हमारी सहायता टीम से संपर्क करें"
+
+#: templates/salesandrefund.html:76
+msgid "5. Legal Compliance"
+msgstr "5. कानूनी अनुपालन"
+
+#: templates/salesandrefund.html:77
+msgid ""
+"This policy complies with applicable consumer protection laws. If you "
+"believe your rights under the law have been violated, you may contact us or "
+"file a complaint with the relevant authority."
+msgstr ""
+"यह नीति लागू उपभोक्ता सुरक्षा कानूनों के अनुपालन में है। अगर आपको लगता है कि आपके अधिकारों "
+"का उल्लंघन हुआ है, तो आप हमसे संपर्क कर सकते हैं या संबंधित प्राधिकरण में शिकायत दर्ज कर सकते "
+"हैं।"
+
+#: templates/salesandrefund.html:79
+msgid "6. Contact Us"
+msgstr "6. हमसे संपर्क करें"
+
+#: templates/salesandrefund.html:80
+msgid ""
+"For questions or concerns about this Sales and Refunds Policy, reach out to "
+"us at"
+msgstr "इस बिक्री और रिफंड नीति के बारे में प्रश्नों या चिंताओं के लिए, हमसे संपर्क करें"
+
+#: templates/termsOfuse.html:33
+msgid "1. Acceptance of Terms"
+msgstr "1. शर्तों की स्वीकृति"
+
+#: templates/termsOfuse.html:34
+msgid ""
+"By accessing or using our services, you confirm that you have read, "
+"understood, and agree to these Terms of Use."
+msgstr ""
+"हमारी सेवाओं तक पहुंचने या उनका उपयोग करने से आप पुष्टि करते हैं कि आपने इन उपयोग की शर्तों "
+"को पढ़ा, समझा और सहमति दी है।"
+
+#: templates/termsOfuse.html:36
+msgid "2. User Responsibilities"
+msgstr "उपयोगकर्ता की जिम्मेदारी:"
+
+#: templates/termsOfuse.html:38
+msgid ""
+"Provide accurate and complete information when registering for our services."
+msgstr "हमारी सेवाओं के लिए पंजीकरण करते समय सही और पूर्ण जानकारी प्रदान करें।"
+
+#: templates/termsOfuse.html:39
+msgid "Use the system solely for lawful and emergency response purposes."
+msgstr "प्रणाली का उपयोग केवल वैध और आपातकालीन प्रतिक्रिया उद्देश्यों के लिए करें।"
+
+#: templates/termsOfuse.html:40
+msgid ""
+"Not misuse or interfere with the system's functionality, including attempts "
+"to breach security."
+msgstr ""
+"प्रणाली की कार्यक्षमता का दुरुपयोग या हस्तक्षेप न करें, जिसमें सुरक्षा उल्लंघन के प्रयास शामिल "
+"हैं।"
+
+#: templates/termsOfuse.html:41
+msgid ""
+"Regularly update your contact information to ensure reliable emergency "
+"responses."
+msgstr ""
+"आपातकालीन प्रतिक्रियाओं को सुनिश्चित करने के लिए अपनी संपर्क जानकारी को नियमित रूप से "
+"अपडेट करें।"
+
+#: templates/termsOfuse.html:44
+msgid "3. Usage of Services"
+msgstr "3. सेवाओं का उपयोग"
+
+#: templates/termsOfuse.html:46
+msgid "Emergency Alerts:"
+msgstr "आपातकालीन अलर्ट:"
+
+#: templates/termsOfuse.html:46
+msgid ""
+"The ICE-Button system is designed to send notifications to pre-configured "
+"contacts in emergencies. Misuse of this feature is strictly prohibited."
+msgstr ""
+"आपातकालीन-बटन प्रणाली आपातकालीन स्थितियों में पूर्व-निर्धारित संपर्कों को सूचनाएं भेजने के "
+"लिए डिज़ाइन की गई है। इस फीचर का दुरुपयोग सख्ती से मना है।"
+
+#: templates/termsOfuse.html:47
+msgid "Data Sharing:"
+msgstr "डेटा साझा करना:"
+
+#: templates/termsOfuse.html:47
+msgid ""
+"By using the ICE-Button, you consent to sharing necessary data (e.g., "
+"location, video/audio recordings) with emergency contacts and authorized "
+"personnel during alerts."
+msgstr ""
+"आपातकालीन-बटन का उपयोग करके, आप आपातकालीन संपर्कों और अधिकृत कर्मचारियों के साथ "
+"आवश्यक डेटा (जैसे, स्थान, वीडियो/ऑडियो रिकॉर्डिंग्स) साझा करने की सहमति देते हैं।"
+
+#: templates/termsOfuse.html:48
+msgid "Subscription Plans:"
+msgstr "सदस्यता योजनाएं:"
+
+#: templates/termsOfuse.html:48
+msgid ""
+"Your access to features depends on the subscription plan you select. "
+"Additional features may require upgrades."
+msgstr ""
+"आपकी सुविधाओं तक पहुंच उस सदस्यता योजना पर निर्भर करती है जिसे आप चयनित करते हैं। "
+"अतिरिक्त सुविधाओं के लिए उन्नयन की आवश्यकता हो सकती है।"
+
+#: templates/termsOfuse.html:51
+msgid "4. Ownership and Intellectual Property"
+msgstr "4. स्वामित्व और बौद्धिक संपदा"
+
+#: templates/termsOfuse.html:52
+msgid ""
+"The ICE-Button hardware, software, and all associated intellectual property "
+"are owned by Mobiloitte Technologies India Private Limited. You are granted "
+"a non-exclusive, non-transferable, and revocable license to use the services."
+msgstr ""
+"आपातकालीन-बटन हार्डवेयर, सॉफ़्टवेयर और सभी संबंधित बौद्धिक संपदा Mobiloitte "
+"Technologies India Private Limited के स्वामित्व में हैं। आपको सेवाओं का उपयोग करने के "
+"लिए एक गैर-विशिष्ट, गैर-स्थानांतरित करने योग्य और निरस्त करने योग्य लाइसेंस प्रदान किया "
+"जाता है।"
+
+#: templates/termsOfuse.html:54
+msgid "5. Limitation of Liability"
+msgstr "5. देनदारी की सीमा"
+
+#: templates/termsOfuse.html:56
+msgid "Service Availability:"
+msgstr "सेवा उपलब्धता:"
+
+#: templates/termsOfuse.html:56
+msgid ""
+"While we strive to ensure uninterrupted services, we do not guarantee the "
+"system will function without errors or interruptions at all times."
+msgstr ""
+"हालाँकि हम निर्बाध सेवाएं सुनिश्चित करने की कोशिश करते हैं, लेकिन हम यह गारंटी नहीं देते कि "
+"प्रणाली हमेशा बिना त्रुटियों या व्यवधानों के काम करेगी।"
+
+#: templates/termsOfuse.html:57
+msgid "User Responsibility:"
+msgstr "उपयोगकर्ता की जिम्मेदारी:"
+
+#: templates/termsOfuse.html:57
+msgid ""
+"You acknowledge that the ICE-Button is a tool to assist during emergencies "
+"and does not replace professional emergency services."
+msgstr ""
+"आप यह स्वीकार करते हैं कि आपातकालीन-बटन आपातकालीन स्थितियों के दौरान सहायता करने के "
+"लिए एक उपकरण है और यह पेशेवर आपातकालीन सेवाओं का विकल्प नहीं है।"
+
+#: templates/termsOfuse.html:60
+msgid "6. Termination"
+msgstr "6. समाप्ति"
+
+#: templates/termsOfuse.html:61
+msgid ""
+"We reserve the right to suspend or terminate your access if you violate "
+"these Terms of Use."
+msgstr ""
+"यदि आप इन उपयोग की शर्तों का उल्लंघन करते हैं, तो हम आपके एक्सेस को निलंबित या समाप्त "
+"करने का अधिकार सुरक्षित रखते हैं।"
+
+#: templates/termsOfuse.html:63
+msgid "7. Modifications to the Terms"
+msgstr "7. शर्तों में संशोधन"
+
+#: templates/termsOfuse.html:64
+msgid ""
+"We may update these Terms of Use periodically to reflect changes in our "
+"services or policies. Continued use of the system after changes constitutes "
+"acceptance of the new terms."
+msgstr ""
+"हम इन उपयोग की शर्तों को समय-समय पर अपडेट कर सकते हैं ताकि हमारी सेवाओं या नीतियों में "
+"बदलावों को दर्शाया जा सके। बदलावों के बाद प्रणाली का निरंतर उपयोग नए शर्तों की स्वीकृति "
+"है।"
+
+#: templates/termsOfuse.html:66
+msgid "8. Governing Law"
+msgstr "8. लागू कानून"
+
+#: templates/termsOfuse.html:67
+msgid ""
+"These terms are governed by the laws of India, and disputes arising under "
+"these terms will be resolved in the courts of New Delhi."
+msgstr ""
+"यह शर्तें भारत के कानूनों द्वारा शासित हैं, और इन शर्तों के तहत उत्पन्न होने वाले विवादों का "
+"समाधान नई दिल्ली के न्यायालयों में किया जाएगा।"
+
+#: templates/tutorials.html:30
+msgid "Tutorials Videos"
+msgstr "सीखने के वीडियो"
+
+#: templates/tutorials.html:75
+msgid "Unboxing & Setup Guide"
+msgstr "खोलने और स्थापना की मार्गदर्शिका"
+
+#: templates/tutorials.html:80
+msgid "Step 1: Open the Box"
+msgstr "चरण 1: डिब्बा खोलें"
+
+#: templates/tutorials.html:81
+msgid "Carefully unbox the hardware and locate all the components."
+msgstr "सावधानी से डिब्बा खोलें और सभी भागों को पहचानें।"
+
+#: templates/tutorials.html:86
+msgid "Step 2: Assemble Components"
+msgstr "चरण 2: भागों को जोड़ें"
+
+#: templates/tutorials.html:87
+msgid "Attach the necessary parts as per the instructions provided in the box."
+msgstr "डिब्बे में दिए गए निर्देशों के अनुसार आवश्यक भाग जोड़ें।"
+
+#: templates/tutorials.html:92
+msgid "Step 3: Connect to Power"
+msgstr "चरण 3: बिजली से जोड़ें"
+
+#: templates/tutorials.html:93
+msgid "Plug in the device and ensure the power light is on."
+msgstr "साधन को बिजली से जोड़ें और देखें कि बिजली की बत्ती जल रही है।"
+
+#: templates/tutorials.html:97
+msgid "Step 4"
+msgstr "चरण 4"
+
+#: templates/tutorials.html:98
+msgid "Step 4: Setup Configuration"
+msgstr "चरण 4: सेटअप तैयार करें"
+
+#: templates/tutorials.html:99
+msgid "Follow the configuration steps on the screen or in the manual."
+msgstr "स्क्रीन या पुस्तिका में दिए गए चरणों का पालन करें।"
+
+#~ msgctxt "mobile"
+#~ msgid "Dashboard"
+#~ msgstr "डैशबोर्ड"
+
+#~ msgid "Stream Setup"
+#~ msgstr "स्ट्रीम सेटअप"
+
+#~ msgid "How It Works: ICE Button"
+#~ msgstr "कैसे काम करता है: आपातकालीन बटन"
+
+#~ msgid "Seamless Emergency Communication"
+#~ msgstr "सुगम आपातकालीन संचार"
+
+#~ msgid ""
+#~ "The ICE (In Case of Emergency) Button is a reliable emergency "
+#~ "communication system that integrates advanced technology to ensure rapid "
+#~ "and effective response in critical situations."
+#~ msgstr ""
+#~ "आपातकालीन बटन एक भरोसेमंद आपातकालीन संचार प्रणाली है जो तकनीक का उपयोग करके "
+#~ "आपात स्थिति में तेज़ और प्रभावी प्रतिक्रिया सुनिश्चित करता है।"
+
+#~ msgid "Step 1: Set Up Your ICE Button"
+#~ msgstr "चरण 1: अपना आपातकालीन बटन सेट करें"
+
+#~ msgid "Device Registration:"
+#~ msgstr "डिवाइस पंजीकरण:"
+
+#~ msgid ""
+#~ "Register your ICE Button using its unique MAC address. Assign a device "
+#~ "name and description for easy identification."
+#~ msgstr ""
+#~ "अपने आपातकालीन बटन को इसके MAC पते से पंजीकृत करें। इसे पहचानने के लिए एक नाम और "
+#~ "विवरण डालें।"
+
+#~ msgid "Add Trusted SOS Contacts:"
+#~ msgstr "विश्वसनीय SOS संपर्क जोड़ें:"
+
+#~ msgid ""
+#~ "Add phone numbers and email addresses of your SOS contacts. Contacts must "
+#~ "verify their email or phone numbers through secure links sent to them."
+#~ msgstr ""
+#~ "अपने SOS संपर्कों के फोन नंबर और ईमेल पते जोड़ें। संपर्कों को उनके ईमेल या फोन नंबर की "
+#~ "पुष्टि करना होगा।"
+
+#~ msgid "Assign Contacts to ICE Button:"
+#~ msgstr "संपर्कों को आपातकालीन बटन से जोड़ें:"
+
+#~ msgid ""
+#~ "Assign verified contacts to the ICE Button to ensure alerts are sent to "
+#~ "appropriate recipients during an emergency."
+#~ msgstr ""
+#~ "सत्यापित संपर्कों को आपातकालीन बटन से जोड़ें ताकि आपातकाल के दौरान सही व्यक्ति को "
+#~ "अलर्ट भेजा जा सके।"
+
+#~ msgid "Step 2: Trigger an Emergency Alert"
+#~ msgstr "चरण 2: आपातकालीन अलर्ट भेजें"
+
+#~ msgid "Press the ICE Button:"
+#~ msgstr "आपातकालीन बटन दबाएं:"
+
+#~ msgid ""
+#~ "Activates the emergency alert system, sending notifications to assigned "
+#~ "SOS contacts."
+#~ msgstr ""
+#~ "यह आपातकालीन अलर्ट सिस्टम को सक्रिय करता है, और SOS संपर्कों को सूचनाएं भेजता है।"
+
+#~ msgid "Real-Time Streaming:"
+#~ msgstr "वास्तविक समय स्ट्रीमिंग:"
+
+#~ msgid ""
+#~ "Starts streaming live video and audio from the device, sharing a secure "
+#~ "link via WhatsApp and SMS."
+#~ msgstr ""
+#~ "यह डिवाइस से लाइव वीडियो और ऑडियो स्ट्रीम करना शुरू करता है और सुरक्षित लिंक को "
+#~ "व्हाट्सएप और SMS के माध्यम से साझा करता है।"
+
+#~ msgid "Recorded Video Backup:"
+#~ msgstr "रिकॉर्डेड वीडियो बैकअप:"
+
+#~ msgid ""
+#~ "The Raspberry Pi records video locally and sends it to SOS contacts via "
+#~ "email post-emergency."
+#~ msgstr ""
+#~ "रास्पबेरी पाई वीडियो को लोकल रूप से रिकॉर्ड करता है और आपातकाल के बाद उसे SOS "
+#~ "संपर्कों को ईमेल द्वारा भेजता है।"
+
+#~ msgid "Step 3: Notification Delivery"
+#~ msgstr "चरण 3: सूचना भेजना"
+
+#~ msgid "WhatsApp and SMS Alerts:"
+#~ msgstr "व्हाट्सएप और SMS अलर्ट्स:"
+
+#~ msgid "Secure links to the live stream are sent via WhatsApp and SMS."
+#~ msgstr "लाइव स्ट्रीम के सुरक्षित लिंक व्हाट्सएप और SMS के माध्यम से भेजे जाते हैं।"
+
+#~ msgid "Automated Voice Call:"
+#~ msgstr "स्वचालित आवाज़ कॉल:"
+
+#~ msgid ""
+#~ "A pre-recorded message is delivered to contacts through an automated "
+#~ "voice call."
+#~ msgstr "एक पूर्व-रिकॉर्डेड संदेश स्वचालित आवाज़ कॉल के माध्यम से संपर्कों को भेजा जाता है।"
+
+#~ msgid "Email Notification:"
+#~ msgstr "ईमेल सूचना:"
+
+#~ msgid ""
+#~ "Emails include the recorded video file and additional emergency details."
+#~ msgstr "ईमेल में रिकॉर्ड किया गया वीडियो और अन्य आपातकालीन जानकारी शामिल होती है।"
+
+#~ msgid "Multi-Channel Redundancy:"
+#~ msgstr "मल्टी-चैनल बैकअप:"
+
+#~ msgid ""
+#~ "Alerts are sent through multiple channels to ensure timely delivery even "
+#~ "if one method fails."
+#~ msgstr ""
+#~ "अलर्ट्स कई तरीकों से भेजे जाते हैं ताकि समय पर सूचना पहुंचे, भले ही कोई एक तरीका काम न "
+#~ "करे।"
+
+#~ msgid "Step 4: Response from SOS Contacts"
+#~ msgstr "चरण 4: SOS संपर्कों से प्रतिक्रिया"
+
+#~ msgid "Access Emergency Details:"
+#~ msgstr "आपातकालीन जानकारी देखें:"
+
+#~ msgid ""
+#~ "SOS contacts view the live stream and recorded videos to assess the "
+#~ "situation."
+#~ msgstr ""
+#~ "SOS संपर्क लाइव स्ट्रीम और रिकॉर्ड किए गए वीडियो देखकर स्थिति का मूल्यांकन करते हैं।"
+
+#~ msgid "Take Immediate Action:"
+#~ msgstr "तत्काल कार्रवाई करें:"
+
+#~ msgid ""
+#~ "Contacts can call emergency services, contact the user directly, or use "
+#~ "recorded videos for post-emergency review and evidence."
+#~ msgstr ""
+#~ "संपर्क आपातकालीन सेवाओं को कॉल कर सकते हैं, उपयोगकर्ता से संपर्क कर सकते हैं, या "
+#~ "आपातकाल के बाद समीक्षा और सबूत के लिए रिकॉर्ड किए गए वीडियो का उपयोग कर सकते हैं।"
+
+#~ msgid "Step 5: System Maintenance and Updates"
+#~ msgstr "चरण 5: सिस्टम रखरखाव और अपडेट"
+
+#~ msgid "Assign New Contacts as Needed:"
+#~ msgstr "आवश्यकतानुसार नए संपर्क जोड़ें:"
+
+#~ msgid "Update or reassign SOS contacts as situations change."
+#~ msgstr "स्थिति बदलने पर SOS संपर्कों को अपडेट या पुनः असाइन करें।"
+
+#~ msgid "Local Storage Management:"
+#~ msgstr "स्थानीय संग्रहण प्रबंधन:"
+
+#~ msgid ""
+#~ "Manage recorded videos on the Raspberry Pi by downloading or deleting "
+#~ "older files."
+#~ msgstr ""
+#~ "रास्पबेरी पाई पर रिकॉर्ड किए गए वीडियो को डाउनलोड या पुरानी फाइलों को हटाकर "
+#~ "प्रबंधित करें।"
+
+#~ msgid "Super-Admin Dashboard:"
+#~ msgstr "सुपर-एडमिन डैशबोर्ड:"
+
+#~ msgid "Monitor device activity, contact assignments, and notification logs."
+#~ msgstr "डिवाइस गतिविधियों, संपर्क असाइनमेंट और सूचनाओं का रिकॉर्ड देखें।"
+
+#~ msgid "OTA Updates:"
+#~ msgstr "ओटीए अपडेट्स:"
+
+#~ msgid ""
+#~ "Keep the system updated with the latest features via over-the-air updates."
+#~ msgstr "ओटीए अपडेट्स के माध्यम से सिस्टम को नवीनतम सुविधाओं के साथ अपडेट रखें।"
+
+#~ msgctxt "center"
+#~ msgid "Dashboard"
+#~ msgstr "डैशबोर्ड"
+
+#~ msgid "Email: legal@mobiloitte.com"
+#~ msgstr "ईमेल: legal@mobiloitte.com"
+
+#~ msgid "Phone: +91 9999525801, +91 11 46499900"
+#~ msgstr "फोन: +91 9999525801, +91 11 46499900"
+
+#~ msgid "To meet legal requirements and follow regulations."
+#~ msgstr "कानूनी आवश्यकताओं को पूरा करने और नियमों का पालन करने के लिए।"
+
+#~ msgid "When needed to follow laws."
+#~ msgstr "जब कानून का पालन करने की आवश्यकता हो।"
+
+#~ msgid "For questions, contact us at privacy@mobiloitte.com."
+#~ msgstr "सवालों के लिए, हमें privacy@mobiloitte.com पर संपर्क करें।"

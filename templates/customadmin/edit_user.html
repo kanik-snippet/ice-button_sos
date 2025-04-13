@@ -1,0 +1,101 @@
+{% extends 'customadmin/nav.html' %}
+{% load static %}
+{% block title %}Edit User{% endblock %}
+{% block body %}
+<div class="container mt-1">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+            <!-- Success or Error Messages -->
+            {% if messages %}
+            <div class="mt-4">
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <div class="card shadow-lg border-0 mt-5">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4" style="color: #f04438;">Edit User</h3>
+
+                    <!-- Form -->
+                    <form id="editUserForm" method="POST" action="{% url 'customadmin:edit_user' user.uuid %}">
+                        {% csrf_token %}
+                        
+                        <!-- Username Field -->
+                        <div class="form-group mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control {% if form.username.errors %}is-invalid{% endif %}" id="username" 
+                                   value="{{ form.username.value }}" required pattern="^\w+$" minlength="3">
+                            {% for error in form.username.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="email" 
+                                   value="{{ form.email.value }}" required>
+                            {% for error in form.email.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Phone Number Field with Country Code -->
+                        <div class="form-group mb-3">
+                            <label for="phone_number" class="form-label">Phone Number</label>
+                            {% comment %} <div class="input-group">
+                                <!-- Country Code Dropdown -->
+                                <select name="country_code" class="form-select col-md-3" id="country_code" required>
+                                    <option value="+91">+91 (IN)</option>
+                                    <option value="+61">+61 (AU)</option>
+                                    <option value="+81">+81 (JP)</option>
+                                    <option value="+49">+49 (DE)</option>
+                                    <option value="+33">+33 (FR)</option>
+                                    <option value="+39">+39 (IT)</option>
+                                    <option value="+55">+55 (BR)</option>
+                                    <option value="+86">+86 (CN)</option>
+                                    <option value="+34">+34 (ES)</option>
+                                    <option value="+7">+7 (RU)</option>
+                                    <option value="+82">+82 (KR)</option>
+                                    <option value="+27">+27 (ZA)</option>
+                                    <option value="+971">+971 (AE)</option>
+                                    <option value="+64">+64 (NZ)</option>
+                                    <option value="+52">+52 (MX)</option>
+                                    <option value="+41">+41 (CH)</option>
+                                    <option value="+46">+46 (SE)</option>
+                                    <option value="+31">+31 (NL)</option>
+                                </select> {% endcomment %}
+                                <!-- Phone Number Input -->
+                                <input type="text" name="phone_number" class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}" id="phone_number"
+                                       value="{{ form.phone_number.value }}" placeholder="Phone Number">
+                            </div>
+                            {% for error in form.phone_number.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                            {% for error in form.country_code.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                            <div class="justify-content-between">
+                                <!-- Back Button -->
+                                <a href="{% url 'customadmin:user-management' %}" class="btn " style="background-color: #f04438; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
+                                    <i class="fas fa-arrow-left" ></i> Back
+                                </a>
+    
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn " style="background-color: #f04438; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
+                                    <i class="fas fa-save"></i> Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

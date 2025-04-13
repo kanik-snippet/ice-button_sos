@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS Contact Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 16px;
+            color: #555;
+        }
+        ul {
+            line-height: 1.6;
+            font-size: 16px;
+            color: #555;
+            padding-left: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #1f4a75;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+            text-align: center;
+        }
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dear {{ name }},</h1>
+        <p>{{ user.first_name }} has added you as an SOS contact in their ICE-Button System account. This means {{ user.first_name }} trusts you to be notified and assist in case of an emergency.</p>
+        <p>To confirm your role and activate this connection, please verify your email by clicking the button below:</p>
+        
+        <a href="{{ verification_link }}" class="button" style="color:white">Verify Email</a>
+        
+        <h2>What Happens After Verification?</h2>
+        <ul>
+            <li>You will start receiving emergency alerts whenever {{ user.first_name }} triggers the ICE-Button System.</li>
+            <li>Your prompt response could be vital in ensuring {{ user.first_name }}’s safety during emergencies.</li>
+        </ul>
+        
+        <p>By verifying, you agree to receive these emergency notifications. If you have any concerns or did not expect this email, please contact us immediately.</p>
+        
+        <h2>Need Assistance?</h2>
+        <p>For any questions, reach out to us at:</p>
+        <ul>
+            <li>Email: <a href="mailto:support@ICE-Button.com">support@ICE-Button.com</a></li>
+            <li>Phone: +91-9999525801</li>
+        </ul>
+
+        <p>Thank you for supporting safety through the ICE-Button System – empowering trusted connections for urgent help with just one press.</p>
+
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><img src="https://via.placeholder.com/24?text=FB" alt="Facebook"></a>
+            <a href="https://twitter.com" target="_blank"><img src="https://via.placeholder.com/24?text=TW" alt="Twitter"></a>
+            <a href="https://instagram.com" target="_blank"><img src="https://via.placeholder.com/24?text=IG" alt="Instagram"></a>
+            <a href="https://linkedin.com" target="_blank"><img src="https://via.placeholder.com/24?text=IN" alt="LinkedIn"></a>
+        </div>
+        
+        <div class="footer">
+            <p>Best Regards,<br>The ICE-Button Team<br><a href="mailto:support@ICE-Button.com">support@ICE-Button.com</a> | +91-9999525801</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,291 @@
+{% load static %}
+{% load i18n %}
+
+  <header class="bg-white shadow fixed top-0 w-full z-50" data-aos="fade-down" data-aos-duration="1000">
+        <div class="containers flex items-center justify-between  px-4 sm:px-6">
+            <!-- Left Section: Logo -->
+            <div class="flex items-center">
+                <a href="{% url 'home' %}" class="flex items-center">
+                    {% if request.COOKIES.django_language == 'en' %}
+                            <img src="{% static 'images/newlogo.png' %}" alt="English Logo" class='weblogo'>
+                        {% elif request.COOKIES.django_language == 'hi' %}
+                            <img src="{% static 'images/hindi_ice.png' %}" alt="Hindi Logo" class='weblogo'>
+                        {% else %}
+                            <img src="{% static 'images/newlogo.png' %}" alt="Default Logo" class='weblogo'>
+                        {% endif %}
+                </a>
+              
+
+                <!-- Hamburger Button for Mobile -->
+               
+            </div>
+    
+            <!-- Center Section: Navigation -->
+            <nav class="hidden lg:flex flex-grow justify-center gap-6">
+                <a href="{% url 'home' %}" class="nav-link text-gray-600">{% trans "Home" %}</a>
+                <a href="{% url 'blogs:blogGrid' %}" class="nav-link text-gray-600">{% trans "Blogs" %}</a>
+                <a href="{% url 'tutorials' %}" class="nav-link text-gray-600">{% trans "Tutorials" %}</a>
+                <a href="/#features" class="nav-link text-gray-600">{% trans "Features" %}</a>
+                <a href="{% url 'plan_pricing' %}" class="nav-link text-gray-600">{% trans "Plan & Pricing" %}</a>
+                <a href="/#FAQ" class="nav-link text-gray-600">{% trans "FAQs" %}</a>
+                <a href="{% url 'ordernow' %}" class="nav-link text-gray-600">{% trans "Order Now" %}</a>
+            </nav>
+            <div id="selectedLanguage"></div>  <!-- This will display the selected language -->
+<div class='d-flex mx-5 lang' style='flex-direction:columns; display:flex'> 
+  <select name="language" id="languageSwitcher" onchange="switchLanguage(this.value)" style="font-weight: 600px; color: black;">
+    <option value="">Select Language</option>
+    <option value="hi" {% if LANGUAGE_CODE == 'hi' %}selected{% endif %}>हिन्दी</option>
+    <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+
+</select>
+ <button id="hamburger-btn" class="text-gray-600 focus:outline-none md:hidden ml-6 " onclick="toggleMenu()" style="width: fit-content;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-14 h-14">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                
+<!-- Right Section: Log In, Sign Up, or Dashboard -->
+<div id="right-section" class="flex items-center space-x-4 w-100">
+    <div id="login-signup-buttons">
+        <a href="{% url 'login' %}" class="text-gray-600 font-medium">{% trans "Log in" %}</a>
+        <a href="{% url 'register' %}" class="bg-red-500 text-white px-4 py-2 rounded-lg" style="padding: 8px 16px; font-weight: 600px;">{% trans "Sign up" %}</a>
+    </div>
+    <div id="dashboard-button" class="hidden">
+        <a href="{% url 'dashboard' %}" class="bg-red-500 text-white px-4 py-2 rounded-md">{% trans "Dashboard"%}</a>
+    </div>
+</div>
+</div>
+<!-- Mobile Navigation Menu -->
+
+
+    </header>
+    <div id="mobile-menu" class="lg:hidden hidden bg-white px-4 shadow-md absolute right-0 top-5">
+    <nav class="flex flex-col space-y-4 p-4">
+        <a href="/#home" class="text-gray-600">{% trans "Home" %}</a>
+        <a href="{% url 'blogs:blogGrid' %}" class="{% if request.resolver_match.url_name == 'blogGrid' %}text-gray-800 border-b-2 border-[#f04438]{% else %}text-gray-600 hover:text-gray-800{% endif %}">{% trans "Blogs" %}</a>
+        <a href="{% url 'tutorials' %}" class="text-gray-600">{% trans "Tutorials" %}</a>
+        <a href="/#features" class="text-gray-600">{% trans "Features" %}</a>
+        <a href="{% url 'plan_pricing' %}" class="text-gray-600">{% trans "Plan & Pricing" %}</a>
+        <a href="/#FAQ" class="text-gray-600">{% trans "FAQs" %}</a>
+        <a href="{% url 'ordernow' %}" class="text-[#f04438]">{% trans "Order Now" %}</a>
+        <div class="flex items-center">
+            <div id="mobile-login-signup-buttons" class="block">
+                <a href="{% url 'login' %}" class="text-gray-600 font-medium">{% trans "Log in" %}</a>
+                <a href="{% url 'register' %}" class="bg-red-500 text-white px-4 py-2 rounded-md">{% trans "Sign up" %}</a>
+            </div>
+            <div id="mobile-dashboard-button" class="hidden">
+                <a href="{% url 'dashboard' %}" class="bg-red-500 text-white px-4 py-2 rounded-md">{% trans "Dashboard"%}</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const dashboardButton = document.getElementById('dashboard-button');
+            const loginSignupButtons = document.getElementById('login-signup-buttons');
+            const dashboardButtonMobile = document.getElementById('dashboard-button-mobile');
+            const loginSignupButtonsMobile = document.getElementById('login-signup-buttons-mobile');
+    
+            // Toggle mobile menu visibility
+            mobileMenu.classList.toggle('hidden');
+    
+            // Toggle dashboard visibility in mobile menu and show login/signup
+            if (mobileMenu.classList.contains('hidden')) {
+                dashboardButtonMobile.classList.add('hidden');
+                loginSignupButtonsMobile.classList.remove('hidden');
+            } else {
+                dashboardButtonMobile.classList.remove('hidden');
+                loginSignupButtonsMobile.classList.add('hidden');
+            }
+    
+            // Desktop: Show/Hide Dashboard button based on menu state
+            if (mobileMenu.classList.contains('hidden')) {
+                dashboardButton.classList.remove('hidden');
+                loginSignupButtons.classList.add('hidden');
+            } else {
+                dashboardButton.classList.add('hidden');
+                loginSignupButtons.classList.remove('hidden');
+            }
+        }
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dashboardButton = document.getElementById('dashboard-button');
+            const loginSignupButtons = document.getElementById('login-signup-buttons');
+            
+            // Get access_token from localStorage
+            const accessToken = localStorage.getItem('access_token');
+
+
+            if (accessToken) {
+                // If access_token exists, assume user is logged in
+                const userInfo = JSON.parse(localStorage.getItem('user_info')); // Fetch user info if available
+        
+                // If user is a superuser, redirect to admin dashboard, else to regular dashboard
+                if (userInfo && userInfo.is_superuser) {
+                    dashboardButton.innerHTML = `
+                        <a href="{% url 'customadmin:admin_dashboard' %}" class="bg-red-500 text-white px-4 py-2 rounded-md">{% trans 'Dashboard' %}</a>
+                    `;
+                } else {
+                    dashboardButton.innerHTML = `
+                        <a href="/dashboard/" class="bg-red-500 text-white px-4 py-2 rounded-md">{% trans 'Dashboard' %}</a>
+                    `;
+                }
+        
+                dashboardButton.style.display = 'block'; // Show Dashboard button
+                loginSignupButtons.style.display = 'none'; // Hide Login/Sign Up buttons
+            } else {
+                // If no access_token, assume user is not logged in
+                dashboardButton.style.display = 'none'; // Hide Dashboard button
+                loginSignupButtons.style.display = 'block'; // Show Login/Sign Up buttons
+            }
+        });
+
+
+function getLanguageFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'django_language') {
+            return decodeURIComponent(value);
+        }
+    }
+    return 'en'; // Default to English if cookie not found
+}
+        document.addEventListener("DOMContentLoaded", function() {
+    // Set the initial language selection (on page load)
+    const initialLang = getLanguageFromCookie(); // Force read from cookie  // Default to 'en' if no lang is set
+    displaySelectedLanguage(initialLang);   // Set the selected language on page load
+
+    // Function to switch the language
+    function switchLanguage(langCode) {
+        const url = "{% url 'set_language' %}";
+        const formData = new FormData();
+        formData.append('language', langCode);
+        formData.append('next', window.location.pathname); // Keep user on the current page
+        formData.append('csrfmiddlewaretoken', '{{ csrf_token }}'); // CSRF token for POST requests
+
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log(`Language switched to: ${langCode}`);
+                window.location.href = window.location.href; // Forces a full page reload to reflect language change
+            } else {
+                console.error('Failed to switch language:', response.statusText);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    // Ensure language switcher works on page load
+    const languageSelect = document.querySelector('[name="language"]');
+    if (languageSelect) {
+        languageSelect.addEventListener('change', function() {
+            const langCode = this.value;
+            displaySelectedLanguage(langCode); // Display selected language on dropdown
+            switchLanguage(langCode); // Trigger language switch
+        });
+    }
+
+    // Function to display the selected language
+    function displaySelectedLanguage(langCode) {
+        // Sync the language dropdown with the selected language
+        const languageSelect = document.querySelector('[name="language"]');
+        if (languageSelect) {
+            languageSelect.value = langCode;  // Set the dropdown value to the selected language
+        }
+    }
+});   
+    </script>
+
+<!-- Add this CSS for responsive visibility between 1024px and 768px -->
+
+<style>
+   body::-webkit-scrollbar{
+       display: none;
+    }
+    #languageSwitcher{
+    width: 120px !important;
+}
+     .containers {
+        width: 100% !important;
+        
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    padding: 0 20px !important; /* Adjust padding for better responsiveness */
+        
+    }
+
+    nav a {
+        transition: color 0.3s ease !important;
+    }
+
+    nav a:hover {
+        color: #f04438 !important;
+    }
+    #mobile-menu{
+            position:absolute !important;
+            top:60px !important;
+            right:0;
+            z-index:1000 !important;
+        }
+    /* For screens between 1024px and 768px */
+    @media (max-width: 1023px){
+
+        
+    
+        #right-section {
+            display: none /* Hide desktop buttons */
+        }
+
+       
+
+        #hamburger-btn {
+            display: block !important; /* Show hamburger button */
+        }
+    }
+    @media (min-width: 450px){
+        .weblogo{
+            width:170px !important;
+            margin:10px !important;
+        }
+        
+    }
+    @media (max-width: 450px){
+ .containers{
+            padding:10px !important;
+        }
+        .weblogo{
+            width:120px !important;
+            margin:10px !important;
+        }
+        button, input, optgroup, select, textarea{
+            font-size: 70% !important; 
+        }
+
+
+    }
+    @media (max-width: 1150px){
+        .gap-6{
+            gap: .7rem;
+            font-size: 14px;
+        }
+        .lang{
+            font-size: 14px;
+        }
+
+    }
+    
+</style>
+

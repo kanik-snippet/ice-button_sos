@@ -1,0 +1,91 @@
+<!-- Privacy Policy Template -->
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Mobiloitte Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    {% include "header.html" %}
+       <main class="mt-24">
+    <section class="container mx-auto px-6 py-16 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-duration="1500">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800">{% trans "Privacy Policy" %}</h1>
+            <p class="text-gray-600">{% trans "Effective Date: 29-Nov-2024" %}</p>
+        </header>
+        <p class="text-gray-600">{% trans "At Mobiloitte Technologies India Private Limited, your privacy is of utmost importance to us. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you use our services, including the ICE-Button system, our website, and any related applications. By accessing or using our services, you agree to the terms of this Privacy Policy." %}</p>
+        
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "1. Information We Collect" %}</h2>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li><strong>{% trans "Personal Information:" %}</strong> {% trans "Name, email address, phone number, and emergency contact details." %}</li>
+            <li><strong>{% trans "Device Information:" %}</strong> {% trans "Hardware and software details, device identifiers such as MAC and IP addresses." %}</li>
+            <li><strong>{% trans "Usage Information:" %}</strong> {% trans "Logs related to alerts, including timestamps and notification history." %}</li>
+            <li><strong>{% trans "Location Data:" %}</strong> {% trans "Real-time location during alerts (with consent)." %}</li>
+            <li><strong>{% trans "Communication Data:" %}</strong> {% trans "Messages sent through SMS, WhatsApp, email, and voice call functionality." %}</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "2. How We Use Your Information" %}</h2>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li>{% trans "To provide services and facilitate emergency alerts." %}</li>
+            <li>{% trans "To improve system functionality and user experience." %}</li>
+            <li>{% trans "To ensure security and protect against unauthorized access." %}</li>
+            <li>{% trans "To comply with legal obligations and fulfill regulatory requirements." %}</li>
+            <li>{% trans "To communicate updates, service changes, or customer support." %}</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "3. Information Sharing" %}</h2>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li><strong>{% trans "Emergency Contacts:" %}</strong> {% trans "During alert activation for rapid response." %}</li>
+            <li><strong>{% trans "Third-Party Service Providers:" %}</strong> {% trans "For messaging, voice calls, and hosting services." %}</li>
+            <li><strong>{% trans "Legal Compliance:" %}</strong> {% trans "When required to comply with applicable laws." %}</li>
+            <li><strong>{% trans "With Consent:" %}</strong> {% trans "Sharing beyond the above scenarios only with explicit consent." %}</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "4. Data Retention" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "Personal data and alert logs are retained for a specified period in line with operational and legal requirements." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "5. Security Measures" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "We employ end-to-end encryption, role-based access control, and conduct regular security audits to safeguard your data against unauthorized access." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "6. Your Rights" %}</h2>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li>{% trans "Access, update, or delete your information." %}</li>
+            <li>{% trans "Withdraw consent for data processing." %}</li>
+            <li>{% trans "Lodge a complaint with data protection authorities if your rights are violated." %}</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "7. Cookies and Tracking" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "Our website uses cookies to enhance your browsing experience. You can manage cookie preferences through your browser settings." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "8. Updates to this Policy" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "We may update this Privacy Policy periodically to reflect changes in practices or legal obligations. Updates will be posted on our website with the effective date." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "9. Contact Us" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "For questions, please reach out to us at" %} <a href="mailto:privacy@mobiloitte.com" class="text-red-500 hover:underline">privacy@mobiloitte.com</a>.</p>
+    </section>
+</main>
+
+    {% include "footer.html" %}
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

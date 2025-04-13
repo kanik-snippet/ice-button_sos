@@ -1,0 +1,195 @@
+{% extends 'customadmin/nav.html' %}
+{% load static %}
+{% block title %}Create New User{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <a href="javascript:history.back()" style="background-color: #f04438; border-color: #f04438; color:white" class="btn col-md-2">
+        <i class="fa fa-arrow-left" style="color:white"></i> Back
+    </a>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+            <!-- Success or Error Messages -->
+            {% if messages %}
+                <div class="mt-4">
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Display form errors -->
+            {% if errors %}
+                <div class="mt-4">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <ul>
+                            {% for field, error_list in errors.items %}
+                                {% for error in error_list %}
+                                    <li>{{ field|capfirst }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="card shadow-lg border-0 mt-5">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Create New User</h3>
+                    <form id="createUserForm" method="POST" action="{% url 'customadmin:create_user' %}">
+                        {% csrf_token %}
+
+                        <!-- Username Field -->
+                        <div class="form-group mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control" id="username" 
+                                   placeholder="Enter username" required pattern="^\w+$" minlength="3" maxlength="20">
+                            <div class="invalid-feedback">
+                                Username must be at least 3 characters long and can only contain letters, numbers, and underscores.
+                            </div>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="email" 
+                                   placeholder="Enter email" required maxlength="50">
+                            <div class="invalid-feedback">
+                                Please enter a valid email address.
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <!-- Country Code Field -->
+                            <div class="form-group col-md-3 mb-3">
+                                <label for="country_code" class="form-label">Country Code</label>
+                                <select name="country_code" class="form-select" id="country_code" required >
+                                    <option value="+91">+91 (IN)</option>
+                                    <option value="+1">+1 (US)</option>
+                                    <option value="+44">+44 (UK)</option>
+                                    <option value="+61">+61 (AU)</option>
+                                    <option value="+81">+81 (JP)</option>
+                                    <option value="+49">+49 (DE)</option>
+                                    <option value="+33">+33 (FR)</option>
+                                    <option value="+39">+39 (IT)</option>
+                                    <option value="+55">+55 (BR)</option>
+                                    <option value="+86">+86 (CN)</option>
+                                    <option value="+34">+34 (ES)</option>
+                                    <option value="+7">+7 (RU)</option>
+                                    <option value="+82">+82 (KR)</option>
+                                    <option value="+27">+27 (ZA)</option>
+                                    <option value="+971">+971 (AE)</option>
+                                    <option value="+64">+64 (NZ)</option>
+                                    <option value="+52">+52 (MX)</option>
+                                    <option value="+41">+41 (CH)</option>
+                                    <option value="+46">+46 (SE)</option>
+                                    <option value="+31">+31 (NL)</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a valid country code.
+                                </div>
+                            </div>
+                            
+                            <!-- Phone Number Field -->
+                            <div class="form-group col-md-9 mb-3">
+                                <label for="p_number" class="form-label">Phone Number</label>
+                                <input type="text" name="p_number" class="form-control" id="p_number" 
+                                       placeholder="Enter phone number" required maxlength="12"
+                                       oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                <div class="invalid-feedback">
+                                    Please enter a valid phone number (numbers only, max 12 digits).
+                                </div>
+                            </div>
+
+                            <!-- Hidden Field to Store Full Phone Number -->
+                            <input type="hidden" id="phone_number" name="phone_number">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d_grid">                            
+                            <button type="submit" class="btn text-white btn-block" id="createButton"
+                                    style="background-color: #f04438; border-color: #f04438;">
+                                <i class="fas fa-user-plus"></i> Create User
+                                <span id="loader" class="spinner-border spinner-border-sm text-light d-none" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const form = document.getElementById('createUserForm');
+        const createButton = document.getElementById('createButton');
+        const loader = document.getElementById('loader');
+
+        function validateUsername() {
+            const usernamePattern = /^\w+$/;
+            if (!usernamePattern.test(usernameInput.value) || usernameInput.value.length < 3) {
+                usernameInput.classList.add('is-invalid');
+                return false;
+            } else {
+                usernameInput.classList.remove('is-invalid');
+                return true;
+            }
+        }
+
+        function validateEmail() {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailValue = emailInput.value;
+            if (!emailPattern.test(emailValue)) {
+                emailInput.classList.add('is-invalid');
+                return false;
+            } else {
+                emailInput.classList.remove('is-invalid');
+                return true;
+            }
+        }
+
+        usernameInput.addEventListener('input', validateUsername);
+        emailInput.addEventListener('input', validateEmail);
+
+        form.addEventListener('submit', function(event) {
+            const isUsernameValid = validateUsername();
+            const isEmailValid = validateEmail();
+
+            if (!isUsernameValid || !isEmailValid) {
+                event.preventDefault(); // Prevent form submission
+                // Display feedback for invalid fields
+                if (!isUsernameValid) {
+                    usernameInput.classList.add('is-invalid');
+                }
+                if (!isEmailValid) {
+                    emailInput.classList.add('is-invalid');
+                }
+            } else {
+                // Show loader and disable submit button
+                createButton.disabled = true;
+                loader.classList.remove('d-none');
+            }
+        });
+
+        const phoneInput = document.getElementById('p_number');
+        const countryCodeSelect = document.getElementById('country_code');
+        const fullPhoneInput = document.getElementById('phone_number');
+
+        phoneInput.addEventListener('input', function() {
+            fullPhoneInput.value = countryCodeSelect.value + phoneInput.value;
+        });
+
+        countryCodeSelect.addEventListener('change', function() {
+            fullPhoneInput.value = countryCodeSelect.value + phoneInput.value;
+        });
+    });
+</script>
+{% endblock %}

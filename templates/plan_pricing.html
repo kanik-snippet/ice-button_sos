@@ -1,0 +1,284 @@
+<!-- Legal Information Template -->
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Information - ICE-Button</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: rgb(249, 250, 251);
+            color: #333;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+ 
+        /* Toggle Button Styles */
+        .toggle-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .toggle-button {
+            border: none;
+            background-color: #ffffff;
+            border-radius: 25px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 0 10px;
+            color: #f04438;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .toggle-button.active {
+            background-color: #f04438;
+            color: #ffffff;
+        }
+
+        .pricing-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        /* Individual Card Styles */
+        .card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 30px 20px;
+            width: 320px;
+            height: 450px;
+            text-align: center;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 2.8em;
+            margin: 5px 0;
+            color: #444;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .card ul li {
+            margin: 12px 0;
+            font-size: 1.1em;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        .card ul li:before {
+            content: "✔";
+            color: green;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .card ul li.unavailable {
+            color: #bbb;
+        }
+
+        .card ul li.unavailable:before {
+            content: "✖";
+            color: red;
+        }
+
+        /* Order Button Styles */
+        .order-button {
+            background-color: #f04438;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .order-button:hover {
+            background-color: #f04438;
+            transform: scale(1.05);
+        }
+
+        /* Card-Specific Styles */
+        .basic {
+            border-top: 8px solid #f04438;
+        }
+
+        .standard {
+            border-top: 8px solid #f04438;
+        }
+
+        .premium {
+            border-top: 8px solid #f04438;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .pricing-cards {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+        </style>
+</head>
+<body class="bg-gray-50">
+    {% include "header.html" %}
+    
+    <main class="mt-36 mb-24">           
+
+        <div class="toggle-container">
+            <button id="monthly-btn" class="toggle-button active" onclick="togglePlan('monthly')">{% trans 'Monthly' %}</button>
+            <button id="annual-btn" class="toggle-button" onclick="togglePlan('annual')">{% trans 'Annual' %}</button>
+        </div>
+
+        
+        <div class="pricing-cards">
+            <!-- Cards will be dynamically populated here -->
+        </div>
+        
+    </section>
+</main>
+
+      
+    {% include "footer.html" %}
+    
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        let fetchedPlans = []; // Store fetched plans globally for toggling between monthly and annual
+
+        async function fetchPlansForPricingPage() {
+            try {
+                const response = await fetch("/api/plans/", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+        
+                if (response.ok) {
+                    const data = await response.json(); // API response
+                    console.log("API Response Payload:", data);
+        
+                    fetchedPlans = data.plans; // Save plans for toggling
+                    fetchedPlans.sort((a, b) => parseFloat(a.cost) - parseFloat(b.cost)); // Sort by price
+                    renderPricingCards(fetchedPlans, "monthly"); // Render monthly pricing by default
+                } else {
+                    console.error("Failed to fetch plans.");
+                }
+            } catch (error) {
+                console.error("Error fetching plans:", error);
+            }
+        }
+        
+        function renderPricingCards(plans, billingCycle) {
+    const container = document.querySelector(".pricing-cards");
+    container.innerHTML = ""; // Clear existing cards
+
+    // Filter plans based on the selected billing cycle
+    const filteredPlans = plans.filter(plan => plan.subscription_type === billingCycle);
+
+    filteredPlans.forEach(plan => {
+        const cardClass = plan.name === "Standard"
+            ? "basic"
+            : plan.name === "Basic"
+                ? "Standard"
+                : "Pro";
+
+        const liveStreamStatus = plan.stream ? "{% trans 'Live Stream Support' %}" : "{% trans 'No Live Stream Support' %}";
+        const streamClass = plan.stream ? "" : "unavailable";
+
+        // Calculate cost based on billing cycle
+        const cost = parseFloat(plan.cost); // The cost is the same for both monthly and yearly
+
+        const cardHTML = `
+            <div class="card ${cardClass}">
+                <h3>${plan.name}</h3>
+                <h2>₹${cost.toFixed(2)}</h2>
+                <ul>
+                    <li>${plan.max_emails} {% trans 'Emails' %}</li>
+                    <li>${plan.max_phone_numbers} {% trans 'Phone Numbers' %}</li>
+                    <li>{% trans 'Add' %} ${plan.max_button} {% trans 'Ice Button' %}${plan.max_button > 1 ? "{% trans 's' %}" : " {% trans 'Only' %}"}</li>
+                    <li class="${streamClass}">${liveStreamStatus}</li>
+                </ul>
+                <button class="order-button" onclick="window.location.href='/order-now/';">{% trans 'Order Now' %}</button>
+            </div>
+        `;
+
+        container.innerHTML += cardHTML;
+    });
+}
+
+        // Toggle between monthly and annual pricing
+        function togglePlan(plan) {
+            const monthlyButton = document.getElementById('monthly-btn');
+            const annualButton = document.getElementById('annual-btn');
+        
+            if (plan === "monthly") {
+                monthlyButton.classList.add("active");
+                annualButton.classList.remove("active");
+                renderPricingCards(fetchedPlans, "monthly"); // Render monthly pricing
+            } else {
+                annualButton.classList.add("active");
+                monthlyButton.classList.remove("active");
+                renderPricingCards(fetchedPlans, "yearly"); // Render annual pricing
+            }
+        }
+        
+        // Call the fetch function when the page loads
+        document.addEventListener("DOMContentLoaded", fetchPlansForPricingPage);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+    {% extends 'frontend/nav.html' %}
+    {% load static %}
+    {% load i18n %}
+
+    {% block title %}Emergency Logs{% endblock %}
+    {% block body %}
+    <!-- Include Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/logs.css' %}" />
+
+    <div class="container-fluid px-4 mt-4">
+        <div class="row">
+
+            <div class="col-12 mb-4 d-flex justify-content-between align-items-center">
+                <h1 class="fs-3 fw-bold text-dark" style="margin-top: 12px;">{% trans 'Emergency Logs'%}</h1>
+            </div>
+            <p class="fs-6 text-muted">{% trans 'Emergency Logs will be shown here'%}</p>
+            
+            
+       <div class="col-12 mb-4 mt-3">
+    <form id="filterForm" class="row g-3 bg-white border border-1 rounded align-items-center" style="padding-bottom:12px">
+        <!-- Start DateTime -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="input-container position-relative">
+                <input
+                    type="text"
+                    id="startDateTime"
+                    class="form-control border-0"
+                    data-placeholder="{% trans 'Select Start Date & Time' %}"
+                />
+                <i class="fa-solid fa-calendar-days position-absolute top-50 end-0 translate-middle-y pe-3"
+                   style="color: grey; cursor: pointer; transition: color 0.3s ease;"
+                   onmouseover="this.style.color='#555';"
+                   onmouseout="this.style.color='grey';" 
+                   data-target="startDateTime"></i>
+            </div>
+        </div>
+
+        <!-- End DateTime -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="input-container position-relative">
+                <input
+                    type="text"
+                    id="endDateTime"
+                    class="form-control border-0"
+                    data-placeholder="{% trans 'Select End Date & Time' %}"
+                />
+                <i class="fa-solid fa-calendar-days position-absolute top-50 end-0 translate-middle-y pe-3"
+                   style="color: grey; cursor: pointer; transition: color 0.3s ease;"
+                   onmouseover="this.style.color='#555';"
+                   onmouseout="this.style.color='grey';" 
+                   data-target="endDateTime"></i>
+            </div>
+        </div>
+
+        <!-- Buttons Group -->
+        <div class="col-12 col-md-12 col-lg-4">
+    <div class="row g-2 align-items-center">
+        <!-- Filter Buttons -->
+        <div class="col-7 col-md-7">
+            <div class="d-flex gap-2">
+                <button
+                    type="button"
+                    id="resetFilterBtn"
+                    class="btn btn-outline-secondary flex-grow-1 text-truncate"
+                >
+                    {% trans 'Reset'%}
+                </button>
+                <button
+                    type="button"
+                    id="applyFilterBtn"
+                    class="btn flex-grow-1 text-white text-truncate"
+                    style="background-color:#f04438"
+                >
+                    {% trans 'Apply'%}
+                </button>
+            </div>
+        </div>
+        
+        <!-- Download Button -->
+        <div class="col-5 col-md-5">
+            <button 
+                type="button" 
+                id="downloadCsvBtn" 
+                class="btn w-100 text-white text-truncate"
+                style="background-color: #f04438"
+            >
+                {% trans 'Download CSV'%}
+            </button>
+        </div>
+    </div>
+</div>
+    </form>
+</div>
+        
+        <div class="col-12 bg-white rounded mt-4 ">
+            <div class="border rounded">
+                <div class="table-responsive" style="overflow-x: auto; white-space: nowrap;">
+                    <table class="table">
+                        <thead class="table-header">
+                            <tr>
+                                <th >{% trans 'Button Name'%}</th>
+                                <th >{% trans 'Event ID'%}</th>
+                                <th >{% trans 'Time Stamp'%}</th>
+                                <th >{% trans 'Videos'%}</th>
+                                <th >{% trans 'Actions'%}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logsTableBody" style="color: #475467;">
+                            <!-- Rows will be inserted here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="d-flex justify-content-center mt-3"></div>
+        
+        <!-- Toast Notification -->
+        <div class="toast-container position-fixed bottom-90 end-0 p-3">
+            <div id="videoToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">{% trans 'Video not found!'%}</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+    // Define global variables
+    let logsArray = []; // Holds all logs data
+    const rowsPerPage = 15; // Number of rows per page
+    let currentPage = 1;    // Current page number
+
+    // Fetch logs data and populate the table
+    fetch("/api/event-logs/", {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("access_token")}`,
+            "Content-Type": "application/json",
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            logsArray = data.data || []; // Ensure data is an array
+            displayTableRows(logsArray, currentPage);
+            setupPagination(logsArray);
+        })
+        .catch(error => console.error("Error fetching logs:", error));
+
+    // Download CSV button event listener
+    document.getElementById("downloadCsvBtn").addEventListener("click", () => {
+        const logsTableBody = document.getElementById("logsTableBody");
+        if (logsTableBody.innerHTML.trim() === "") {
+            showToast("Nothing to download!");
+            return;
+        }
+
+        let dataToDownload = [];
+        const start = (currentPage - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+
+        if (currentPage === 1 && !document.getElementById("startDateTime").value && !document.getElementById("endDateTime").value) {
+            // No filter, full data
+            dataToDownload = logsArray;
+        } else if (document.getElementById("startDateTime").value || document.getElementById("endDateTime").value) {
+            // Filter applied
+            const startDateTime = document.getElementById("startDateTime").value;
+            const endDateTime = document.getElementById("endDateTime").value;
+
+            dataToDownload = logsArray.filter(log => {
+                const logDateTime = new Date(log.created_at);
+                const startFilter = startDateTime ? new Date(startDateTime) : null;
+                const endFilter = endDateTime ? new Date(endDateTime) : null;
+
+                return (!startFilter || logDateTime >= startFilter) &&
+                    (!endFilter || logDateTime <= endFilter);
+            });
+        } else {
+            // Paginated data
+            dataToDownload = logsArray.slice(start, end);
+        }
+
+        if (dataToDownload.length === 0) {
+            showToast("{% trans 'Nothing to download!'%}");
+            return;
+        }
+
+        downloadCsv(dataToDownload);
+    });
+
+    function downloadCsv(data) {
+        const headers = ["Button Name", "Event ID", "Time Stamp"];
+        const rows = data.map(log => [
+            log.device_name,
+            `${log.event_id.substring(0, 6)}...${log.event_id.slice(-6)}`,
+            new Date(log.created_at).toLocaleString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: false
+            })
+        ]);
+
+        let csvContent = "data:text/csv;charset=utf-8," + [headers, ...rows].map(e => e.join(",")).join("\n");
+
+        // Get current date and time for the file name
+        const now = new Date();
+        const formattedDate = now.toISOString().slice(0, 10); // YYYY-MM-DD
+        const formattedTime = now.toTimeString().slice(0, 8).replace(/:/g, "-"); // HH-MM-SS
+
+        const fileName = `emergency_logs_${formattedDate}_${formattedTime}.csv`;
+
+        // Create and trigger the download
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", fileName);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+
+    // Toast notification function
+    function showToast(message) {
+        const toastElement = new bootstrap.Toast(document.getElementById("videoToast"));
+        document.querySelector("#videoToast .toast-body").textContent = message;
+        toastElement.show();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // Define global variables
+        const rowsPerPage = 15;
+        let currentPage = 1;
+        let logsArray = [];
+        
+        // Ensure the Bearer token is available
+        const token = localStorage.getItem("access_token");
+        if (!token) {
+            console.error("Bearer token not found.");
+            return;
+        }
+
+        // Initialize Flatpickr instances
+       const initializeFlatpickr = () => {
+    const mobileConfig = {
+        disableMobile: true, // Crucial for mobile placeholder consistency
+        placeholder: "", // Use empty placeholder to prevent default
+        onReady: function(selectedDates, dateStr, instance) {
+            const placeholder = instance.element.dataset.placeholder;
+            instance.element.setAttribute('placeholder', placeholder);
+            instance.element.style.setProperty('color', '#6b7280', 'important');
+        }
+    };
+
+    const startPicker = flatpickr("#startDateTime", {
+        ...mobileConfig,
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+
+    const endPicker = flatpickr("#endDateTime", {
+        ...mobileConfig,
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+
+    // Mobile fallback
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        setTimeout(() => {
+            document.querySelectorAll('.flatpickr-input').forEach(input => {
+                if(!input.value) {
+                    input.setAttribute('placeholder', input.dataset.placeholder);
+                    input.style.color = '#6b7280';
+                }
+            });
+        }, 500);
+    }
+};
+
+// Initialize after full page load
+window.addEventListener('load', initializeFlatpickr);
+
+
+        // Add event listener for icons to open the picker
+        document.querySelectorAll(".fa-calendar-days").forEach(icon => {
+            icon.addEventListener("click", () => {
+                const targetId = icon.getAttribute("data-target");
+                if (targetId === "startDateTime") {
+                    startPicker.open(); // Open the Start DateTime picker
+                } else if (targetId === "endDateTime") {
+                    endPicker.open(); // Open the End DateTime picker
+                }
+            });
+        });
+
+        // Fetch logs data
+        fetch("/api/event-logs/", {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+        })
+            .then(response => response.json())
+            .then(data => {
+                logsArray = data.data || []; // Ensure data structure consistency
+                displayTableRows(logsArray, currentPage);
+                setupPagination(logsArray);
+            })
+            .catch(error => console.error("Error fetching logs:", error));
+
+        // Display Table Rows
+        function displayTableRows(data, page) {
+            const logsTableBody = document.getElementById("logsTableBody");
+            logsTableBody.innerHTML = "";
+
+            if (data.length === 0) {
+                logsTableBody.innerHTML = `
+                    <tr><td colspan="5" class="text-center">
+                        <img src="{% static 'images/no_data.jpg' %}" alt="No Data Found" style="width: 30%;">
+                                            <p class="fs-5 text-muted">No logs found</p>
+
+                    </td></tr>`;
+                return;
+            }
+
+            const start = (page - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            const paginatedData = data.slice(start, end);
+
+            paginatedData.forEach(log => {
+                const formattedDate = new Date(log.created_at).toLocaleString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: false
+                });
+
+                logsTableBody.innerHTML += `
+                    <tr>
+                        <td>${log.device_name}</td>
+                        <td>${log.event_id.substring(0, 6)}...${log.event_id.slice(-6)}</td>
+                        <td>${formattedDate}</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-primary watch-video-btn" data-video-url="${log.video_url || ''}">
+                                <i class="bi bi-camera-video"></i> {% trans 'Watch Video'%}
+                            </button>
+                        </td>
+                        <td>
+                            <a href="/evlogs/${log.id}/" class="view-btn">
+                                <i class="bi bi-box-arrow-up-right" style="color: #343a40;"></i>
+                            </a>
+                        </td>
+                    </tr>`;
+            });
+
+            // Add event listener for "Watch Video" buttons
+            document.querySelectorAll(".watch-video-btn").forEach(button => {
+                button.addEventListener("click", () => {
+                    const videoUrl = button.getAttribute("data-video-url");
+                    if (videoUrl) {
+                        window.open(videoUrl, "_blank");
+                    } else {
+                        showToast("Video not found!");
+                    }
+                });
+            });
+        }
+
+        // Setup Pagination
+        function setupPagination(data) {
+            const pagination = document.getElementById("pagination");
+            pagination.innerHTML = "";
+            const pageCount = Math.ceil(data.length / rowsPerPage);
+
+            for (let i = 1; i <= pageCount; i++) {
+                const button = document.createElement("button");
+                button.textContent = i;
+                button.className = `btn btn-sm mx-1 page-btn ${i === currentPage ? "active" : ""}`;
+                button.addEventListener("click", () => {
+                    currentPage = i;
+                    displayTableRows(data, currentPage);
+                });
+                pagination.appendChild(button);
+            }
+        }
+
+        // Apply Filter Logic
+        document.getElementById("applyFilterBtn").addEventListener("click", () => {
+            const startDateTime = document.getElementById("startDateTime").value;
+            const endDateTime = document.getElementById("endDateTime").value;
+
+            const filteredLogs = logsArray.filter(log => {
+                const logDateTime = new Date(log.created_at);
+                const startFilter = startDateTime ? new Date(startDateTime) : null;
+                const endFilter = endDateTime ? new Date(endDateTime) : null;
+
+                return (!startFilter || logDateTime >= startFilter) &&
+                    (!endFilter || logDateTime <= endFilter);
+            });
+
+            currentPage = 1;
+            displayTableRows(filteredLogs, currentPage);
+            setupPagination(filteredLogs);
+        });
+
+        // Reset Filters
+        document.getElementById("resetFilterBtn").addEventListener("click", () => {
+            document.getElementById("startDateTime").value = "";
+            document.getElementById("endDateTime").value = "";
+            currentPage = 1;
+            displayTableRows(logsArray, currentPage);
+            setupPagination(logsArray);
+        });
+
+        // Toast Notification
+        function showToast(message) {
+            const toastElement = new bootstrap.Toast(document.getElementById("videoToast"));
+            document.querySelector("#videoToast .toast-body").textContent = message;
+            toastElement.show();
+        }
+    });
+
+    </script>
+    {% endblock %}

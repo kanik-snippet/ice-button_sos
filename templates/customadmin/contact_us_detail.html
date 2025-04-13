@@ -1,0 +1,78 @@
+{% extends 'customadmin/nav.html' %}
+{% load static %}
+{% block title %}Contact Us Detail{% endblock %}
+{% block body %}
+
+<!-- Header Section -->
+<div class="my-5 d-flex flex-column col-sm-10 flex-md-row justify-content-between" id="header">
+    <h1>Contact Us Details</h1>
+    <a href="{% url 'customadmin:contact_us_list' %}" class="btn d-flex col-sm-5 col-md-4 col-xl-2 col-lg-2 align-items-center" style="background-color: #f04438; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
+        <span style="margin-right: 5px;">&laquo;</span>
+        <span>Back to List</span>
+    </a>
+</div>
+
+<!-- Contact Us Details Section -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-light">
+                <!-- Card Header -->
+                <div class="card-header text-white" style="background-color: #f04438;">
+                    <h4 class="mb-0">Contact Information</h4>
+                </div>
+
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-4"><strong>Full Name:</strong></div>
+                        <div class="col-md-8">{{ contact_us_entry.name }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4"><strong>Organization:</strong></div>
+                        <div class="col-md-8">{{ contact_us_entry.organization }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4"><strong>Email Address:</strong></div>
+                        <div class="col-md-8">{{ contact_us_entry.email }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4"><strong>Phone Number:</strong></div>
+                        <div class="col-md-8">{{ contact_us_entry.phone }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4"><strong>ICE Button Quantity:</strong></div>
+                        <div class="col-md-8">{{ contact_us_entry.ice_quantity }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4"><strong>Installation Date:</strong></div>
+                        <div class="col-md-8">{{ contact_us_entry.installation_date }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4"><strong>City:</strong></div>
+                        <div class="col-md-8">{{ contact_us_entry.city }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4"><strong>Subject:</strong></div>
+                        <div class="col-md-8">{{ contact_us_entry.subject }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4"><strong>Message:</strong></div>
+                        <div class="col-md-8">{{ contact_us_entry.message }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4"><strong>Date Submitted:</strong></div>
+                        <div class="col-md-8">{{ contact_us_entry.created_at }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4"><strong>Last Updated:</strong></div>
+                        <div class="col-md-8">{{ contact_us_entry.updated_at }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

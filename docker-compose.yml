@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: ["bash", "entrypoint.sh"]
+    ports:
+      - "8058:8058"
+    volumes:
+      - .:/app
+    depends_on:
+      - mysql
+    environment:
+      - DJANGO_SETTINGS_MODULE=panic_button.settings
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Snippet@1
+      MYSQL_DATABASE: newdb_sos
+      MYSQL_USER: kanik-snippet
+      MYSQL_PASSWORD: Snippet@1
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

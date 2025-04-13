@@ -1,0 +1,93 @@
+<!-- Legal Information Template -->
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Information - ICE-Button</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    {% include "header.html" %}
+    <main class="mt-24">
+    <section class="container mx-auto px-6 py-16 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-duration="1500">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800">{% trans "Legal Information" %}</h1>
+            <p class="text-gray-600">{% trans "Effective Date: 24-Nov-2024" %}</p>
+        </header>
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "1. Legal Disclaimer" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "The ICE-Button system is designed as an aid in emergency situations and does not guarantee prevention of harm or damage. It is the responsibility of the user to ensure appropriate use." %}</p>
+        <p class="text-gray-700 mt-4">{% trans "While we strive to provide uninterrupted services, we do not warrant or represent that our products and services will operate without faults or errors at all times. Mobiloitte Technologies India Private Limited is not liable for damages or losses resulting from misuse or unauthorized use of our products, interruptions caused by external factors, including third-party service providers, network outages, or force majeure events." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "2. Intellectual Property Rights" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "All content, trademarks, logos, and intellectual property displayed on the ICE-Button platform, hardware, and related services are owned by Mobiloitte Technologies India Private Limited or its licensors." %}</p>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li>{% trans "Users are prohibited from copying, reproducing, or redistributing any material without prior written permission." %}</li>
+            <li>{% trans "Modifying, reverse-engineering, or tampering with the ICE-Button hardware or software is strictly prohibited." %}</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "3. Compliance with Laws" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "The ICE-Button system complies with applicable laws and regulations, including but not limited to:" %}</p>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li><strong>{% trans "Data Protection Laws:" %}</strong> {% trans "General Data Protection Regulation (GDPR) and applicable local data privacy regulations." %}</li>
+            <li><strong>{% trans "Consumer Protection Laws:" %}</strong> {% trans "Adherence to refund, warranty, and sales practices under relevant consumer protection acts." %}</li>
+        </ul>
+        <p class="text-gray-700 mt-4">{% trans "Users are responsible for ensuring that their use of the system does not violate local laws, including those related to data collection, storage, and transmission." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "4. Liability Limitation" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "Mobiloitte Technologies India Private Limited is not responsible for:" %}</p>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li>{% trans "Delays in alert delivery due to network or connectivity issues." %}</li>
+            <li>{% trans "Unauthorized use or modification of the ICE-Button device." %}</li>
+            <li>{% trans "Loss or corruption of data caused by external factors." %}</li>
+        </ul>
+        <p class="text-gray-700 mt-4">{% trans "In no event shall our liability exceed the total fees paid by the user for the subscription or device in question." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "5. User Agreement" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "By using our services, users agree to:" %}</p>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li>{% trans "Abide by all terms outlined in the Terms of Use and this Legal Policy." %}</li>
+            <li>{% trans "Not engage in activities that could harm, damage, or compromise the integrity of the ICE-Button system." %}</li>
+        </ul>
+        <p class="text-gray-700 mt-4">{% trans "Users who violate these terms may have their accounts suspended or terminated without notice." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "6. Legal Jurisdiction" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "These policies and all related disputes are governed by the laws of India. Any legal disputes arising from the use of our services shall be resolved in the courts of New Delhi." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "7. Third-Party Services" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "The ICE-Button integrates with third-party services (e.g., Twilio for messaging and voice calls). These services are governed by their own terms and policies. Mobiloitte Technologies India Private Limited does not take responsibility for disruptions caused by third-party providers." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "8. Reporting Violations" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "If you believe there has been a violation of these legal terms or misuse of the ICE-Button system, please report it immediately to our legal team:" %}</p>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li>{% trans "Email:" %} <a href="mailto:legal@mobiloitte.com" class="text-red-500 hover:underline"> legal@mobiloitte.com</a></li>
+            <li>{% trans "Phone:" %} +91 9999525801, +91 11 46499900</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "9. Updates to Legal Policies" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "This Legal Policy may be updated periodically to reflect changes in our practices, services, or legal obligations. Users will be notified of significant changes, and the updated policy will be posted on this page with the effective date." %}</p>
+    </section>
+</main>
+
+    {% include "footer.html" %}
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!-- Privacy Policy Template -->
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ content.title }} - Mobiloitte Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    {% include "header.html" %}
+        <main class="mt-24">
+            <section class="container mx-auto px-6 py-16 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-duration="1500">
+                <header class="text-center mb-8">
+                    <h1 class="text-4xl font-bold text-gray-800">{{ content.title }}</h1>
+                    <p class="text-gray-600">Effective Date: {{ content.created_at|date:"d-M-Y" }}</p>
+                </header>
+                <div class="text-gray-600">
+                    {{ translated_body|safe }} 
+                </div>
+            </section>
+            
+    </main>
+    {% include "footer.html" %}
+
+
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

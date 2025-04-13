@@ -1,0 +1,359 @@
+{% load static %}
+{% load i18n %}
+
+<footer class="bg-gray-900 text-gray-300 py-12 mt-24 relative overflow-hidden mx-auto px-6 justify-between">
+    <!-- Diagonal Gray Background -->
+    <div class="absolute inset-0 bg-gray-800 clip-path-diagonal"></div>
+
+    <!-- Current Layout (Above 700px) -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 hidden md:grid">
+        <!-- First Column -->
+        <div class="md:col-span-1 text-center md:text-left mb-8 md:mb-0 lg:-ml-8">
+            <div class="flex justify-center md:justify-start items-center mb-4">
+                {% if request.COOKIES.django_language == 'en' %}
+                            <img src="{% static 'images/ice_new.png' %}" alt="English Logo" class="h-14">
+                        {% elif request.COOKIES.django_language == 'hi' %}
+                            <img src="{% static 'images/hindi_white_ice.png' %}" alt="Hindi Logo" class="h-14">
+                        {% else %}
+                            <img src="{% static 'images/ice_new.png' %}" alt="Default Logo" class="h-14">
+                {% endif %}            </div>
+            <p class="text-sm leading-relaxed">
+                {% trans 'Empowering safety with innovation. ICE-Button ensures help is just a press away.'%}
+            </p>
+            <button onclick="window.location.href='{% url 'login' %}';"
+                class="mt-8 bg-white text-gray-900 text-sm font-semibold py-2 px-6 border-gray-900 hover:bg-gray-200 transition duration-300"
+                style="width:250px;">
+                {% trans 'Get started'%}
+            </button>
+        </div>
+
+        <!-- Help & Support -->
+        <div class="text-center md:text-left sm:ml-0 md:ml-24 lg:w-2/3 xl:w-2/3">
+            <h4 class="text-white font-semibold text-base mb-4">{% trans 'Help & Support'%}</h4>
+            <ul class="space-y-2 text-sm">
+                <li><a href="{% url 'case_study'%}" class="hover:text-gray-200 transition">{% trans 'Case Study'%}</a></li>
+                <li><a href="/how-it-works/" class="hover:text-gray-200 transition">{% trans 'How It Works'%}</a></li>
+                <li><a href="/#FAQ" class="hover:text-gray-200 transition">{% trans 'FAQs'%}</a></li>
+                <li><a href="/#contact" class="hover:text-gray-200 transition">{% trans 'Contact Us'%}</a></li>
+            </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="text-center md:text-left sm:ml-0 md:ml-24">
+            <h4 class="text-white font-semibold text-base mb-4">{% trans 'Quick Links'%}</h4>
+            <ul class="space-y-2 text-sm">
+                <li><a href="/#home" class="hover:text-gray-200 transition">{% trans 'Home'%}</a></li>
+                <li><a href="/#features" class="hover:text-gray-200 transition">{% trans 'Features'%}</a></li>
+                <li><a href="{% url 'ordernow'%}" class="hover:text-gray-200 transition">{% trans 'Order Now'%}</a></li>
+                <li><a href="{% url 'tutorials'%}" class="hover:text-gray-200 transition">{% trans 'Tutorials'%}</a></li>
+            </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="text-center md:text-left sm:ml-0 md:ml-24">
+            <h4 class="text-white font-semibold text-base mb-4">{% trans 'Social Media'%}</h4>
+            <ul class="space-y-3 text-sm">
+                <li class="flex justify-center md:justify-start items-center space-x-2">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <a href="https://www.facebook.com/people/ICE-Button/61569722721471/" class="hover:text-gray-200 transition" target="_blank">{% trans 'Facebook'%}</a>
+                </li>
+                <li class="flex justify-center md:justify-start items-center space-x-2">
+                    <i class="fa-brands fa-telegram"></i>
+                    <a href="https://t.me/Mobiloitte" class="hover:text-gray-200 transition" target="_blank">{% trans 'Telegram'%}</a>
+                </li>
+                <li class="flex justify-center md:justify-start items-center space-x-2">
+                    <i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com/ice.button/" class="hover:text-gray-200 transition" target="_blank">{% trans 'Instagram'%}</a>
+                </li>
+                <li class="flex justify-center md:justify-start items-center space-x-2">
+                    <i class="fa-brands fa-pinterest"></i>
+                    <a href="https://www.pinterest.com/ICEButton" class="hover:text-gray-200 transition" target="_blank">{% trans 'Pinterest'%}</a>
+                </li>
+                <li class="flex justify-center md:justify-start items-center space-x-2">
+                    <i class="fab fa-twitter"></i>
+                    <a href="https://x.com/ICE_Button_" class="hover:text-gray-200 transition" target="_blank">{% trans 'Twitter X'%}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="md:col-span-1 text-center md:text-left mb-8 md:mb-0 lg:ml-16 lg:w-80 lg:max-w-full">
+            <h4 class="text-white font-semibold text-base mb-4 whitespace-nowrap">
+                {% trans 'Subscribe to Our Newsletter'%}
+            </h4>
+            <p class="text-sm leading-relaxed mb-4">
+                {% trans 'Stay updated with the latest news and updates from ICE-Button.'%}
+            </p>
+            <form id="newsletterFormLarge"  class="space-y-4">
+                
+                <input
+                    type="email"
+                    name="email"
+                    id="emailInputLarge"
+                    placeholder="{% trans 'Enter your email'%}"
+                    required
+                    class="w-full px-4 py-2 text-gray-900 rounded focus:outline-none focus:ring focus:ring-gray-500"
+                />
+                <button
+                    type="submit"
+                    class="bg-[#f04438] text-white text-sm font-semibold py-2 px-6 rounded hover:bg-red-600 transition duration-300"
+                    style="width: 100%;"
+                >
+                    {% trans 'Subscribe'%}
+                </button>
+            </form>
+        </div>
+        
+        
+    </div>
+
+    <!-- Dropdown Layout (Below 700px) -->
+    <div class="relative block md:hidden text-center mb-4">
+        <div>
+            <button class="text-white font-semibold text-base w-full text-center" onclick="toggleDropdown('helpSupportDropdown')">
+                {% trans 'Help & Support'%} <span>+</span>
+            </button>
+            <ul id="helpSupportDropdown" class="hidden space-y-2 text-sm">
+                <li><a href="{% url 'case_study'%}" class="hover:text-gray-200 transition block">{% trans 'Case Study'%}</a></li>
+                <li><a href="/how-it-works/" class="hover:text-gray-200 transition block">{% trans 'How It Works'%}</a></li>
+                <li><a href="/#FAQ" class="hover:text-gray-200 transition block">{% trans 'FAQs'%}</a></li>
+                <li><a href="/#contact" class="hover:text-gray-200 transition block">{% trans 'Contact Us'%}</a></li>
+            </ul>
+        </div>
+    
+        <div class="mt-0">
+            <button class="text-white font-semibold text-base w-full text-center" onclick="toggleDropdown('quickLinksDropdown')">
+                {% trans 'Quick Links'%} <span>+</span>
+            </button>
+            <ul id="quickLinksDropdown" class="hidden space-y-2 text-sm">
+                <li><a href="/#home" class="hover:text-gray-200 transition block">{% trans 'Home'%}</a></li>
+                <li><a href="/#features" class="hover:text-gray-200 transition block">{% trans 'Features'%}</a></li>
+                <li><a href="{% url 'ordernow'%}" class="hover:text-gray-200 transition block">{% trans 'Order Now'%}</a></li>
+                <li><a href="{% url 'tutorials'%}" class="hover:text-gray-200 transition block">{% trans 'Tutorials'%}</a></li>
+            </ul>
+        </div>
+    
+        <div class="mt-0">
+            <button class="text-white font-semibold text-base w-full text-center " onclick="toggleDropdown('socialMediaDropdown')">
+                {% trans 'Social Media'%} <span>+</span>
+            </button>
+            <ul id="socialMediaDropdown" class="hidden space-y-2 text-sm">
+                <li class="flex justify-center items-center space-x-2">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <a href="https://www.facebook.com/people/ICE-Button/61569722721471/" class="hover:text-gray-200 transition" target="_blank">{% trans 'Facebook'%}</a>
+                </li>
+                <li class="flex justify-center items-center space-x-2">
+                    <i class="fa-brands fa-telegram"></i>
+                    <a href="https://t.me/Mobiloitte" class="hover:text-gray-200 transition" target="_blank">{% trans 'Telegram'%}</a>
+                </li>
+                <li class="flex justify-center items-center space-x-2">
+                    <i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com/ice.button/" class="hover:text-gray-200 transition" target="_blank">{% trans 'Instagram'%}</a>
+                </li>
+                <li class="flex justify-center items-center space-x-2">
+                    <i class="fa-brands fa-pinterest"></i>
+                    <a href="https://www.pinterest.com/ICEButton" class="hover:text-gray-200 transition" target="_blank">{% trans 'Pinterest'%}</a>
+                </li>
+                <li class="flex justify-center items-center space-x-2">
+                    <i class="fab fa-twitter"></i>  
+                    <a href="https://x.com/ICE_Button_" class="hover:text-gray-200 transition" target="_blank">{% trans 'Twitter X'%}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="md:col-span-1 text-center md:text-left mb-8 md:mb-0 lg:-ml-8 mt-4">
+            <h4 class="text-white font-semibold text-base mb-4">{% trans 'Subscribe to Our Newsletter'%}</h4>
+            <p class="text-sm leading-relaxed mb-4">
+                {% trans 'Stay updated with the latest news and updates from ICE-Button.'%}
+            </p>
+            <form id="newsletterFormSmall" class="space-y-4">
+                <input
+                    type="email"
+                    id="emailInputSmall"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                    class="w-full px-4 py-2 text-gray-900 rounded focus:outline-none focus:ring focus:ring-gray-500"
+                />
+                <button
+                    type="submit"
+                    class="bg-[#f04438] text-white text-sm font-semibold py-2 px-6 rounded hover:bg-red-600 transition duration-300"
+                    style="width: 100%;"
+                >
+                    {% trans 'Subscribe'%}
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="relative mt-12 border-t border-gray-700 pt-6 text-sm">
+        <div class="max-w-7xl mx-auto flex flex-col items-center md:items-start space-y-4 text-center md:text-left">
+            <p class="text-gray-400">&copy; {% trans '2024 ICE-Button. All rights reserved'%}</p>
+            <ul class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-gray-400">
+                <li><a href="/privacy-policy/" class="hover:text-white transition">{% trans 'Privacy Policy'%}</a></li>
+                <li><a href="/terms-of-use/" class="hover:text-white transition">{% trans 'Terms of Use'%}</a></li>
+                <li><a href="/sales-and-refund-policy/" class="hover:text-white transition">{% trans 'Sales and Refunds'%}</a></li>
+                <li><a href="/legal-information/" class="hover:text-white transition">{% trans 'Legal'%}</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function toggleDropdown(id) {
+        const dropdown = document.getElementById(id);
+        dropdown.classList.toggle('hidden');
+    }
+</script>
+
+<!-- Toast Container -->
+<div id="toastContainer" class="toast-container"></div>
+
+<script>
+    // Function to show toast message
+    function showToast(message, type = 'success') {
+        const toastContainer = document.getElementById('toastContainer');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.textContent = message;
+
+        // Append toast to the container
+        toastContainer.appendChild(toast);
+
+        // Automatically remove the toast after 3 seconds
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
+    }
+
+    // Handle form submissions for Large Form
+      document.getElementById("newsletterFormLarge").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const email = document.getElementById("emailInputLarge").value;
+        const button = event.target.querySelector('button[type="submit"]');
+        
+        // Show loader
+        button.disabled = true;
+        button.innerHTML = `
+            <span class="loader"></span> {% trans 'Subscribing...' %}
+        `;
+
+        fetch("/api/subscribe/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email: email }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            showToast(data.message, 'success');
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            showToast("{% trans 'Error subscribing. Please try again.' %}", 'error');
+        })
+        .finally(() => {
+            // Restore button state
+            button.disabled = false;
+            button.innerHTML = "{% trans 'Subscribe' %}";
+        });
+    });
+
+    // Handle form submissions for Small Form
+    document.getElementById("newsletterFormSmall").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const email = document.getElementById("emailInputSmall").value;
+        const button = event.target.querySelector('button[type="submit"]');
+        
+        // Show loader
+        button.disabled = true;
+        button.innerHTML = `
+            <span class="loader"></span> {% trans 'Subscribing...' %}
+        `;
+
+        fetch("/api/subscribe/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email: email }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            showToast(data.message, 'success');
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            showToast("{% trans 'Error subscribing. Please try again.' %}", 'error');
+        })
+        .finally(() => {
+            // Restore button state
+            button.disabled = false;
+            button.innerHTML = "{% trans 'Subscribe' %}";
+        });
+    });
+</script>
+
+
+
+<style>
+    /* Toast container styles */
+    .toast-container {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Toast message styles */
+    .toast {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        color: #fff;
+        animation: fadeInOut 3s ease-in-out;
+    }
+
+    .toast.success {
+        background-color: #f04438; /* Green */
+    }
+
+    .toast.error {
+        background-color: #e53e3e; /* Red */
+    }
+
+    /* Toast fade animation */
+    @keyframes fadeInOut {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        10% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+    }
+    .loader {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 0.8s linear infinite;
+        margin-right: 0.5rem;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>

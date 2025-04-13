@@ -1,0 +1,33 @@
+<!-- templates/order_form_submission_user.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ICE-Button Confirmation of Your Order Form Submission</title>
+</head>
+<body>
+    <h2>ICE-Button Confirmation of Your Order Form Submission</h2>
+    <p>Dear {{ name }},</p>
+    <p>Thank you for placing your order with us! We have successfully received your details and are currently processing your request. Below are the details you provided:</p>
+    
+    <h3>Order Details:</h3>
+    <ul>
+        <li><strong>Full Name:</strong> {{ name }}</li>
+        <li><strong>Organization Name:</strong> {{ organization }}</li>
+        <li><strong>Email Address:</strong> {{ email }}</li>
+        <li><strong>Phone Number:</strong> {{ phone }}</li>
+        <li><strong>ICE Button Quantity:</strong> {{ ice_quantity }}</li>
+        <li><strong>City:</strong> {{ city }}</li>
+        <li><strong>Message:</strong> {{ message }}</li>
+    </ul>
+
+    <p>Our team will review your submission and get in touch with you shortly to discuss the next steps. If you have any questions or need further assistance, feel Free to reach out to us.</p>
+
+    <p><strong>Contact Us:</strong><br>
+       Email: support@ICE-Button.com<br>
+       Phone: +91-9999525801</p>
+
+    <p>We appreciate your trust in us and look forward to serving you.</p>
+
+    <p>Best regards,<br> Mobioitte</p>
+</body>
+</html>

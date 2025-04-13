@@ -1,0 +1,90 @@
+<!-- Sales and Refunds Policy Template -->
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales and Refunds Policy - ICE-Button</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    {% include "header.html" %}
+    <main class="mt-24">
+    <section class="container mx-auto px-6 py-16 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-duration="1500">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800">{% trans "Sales and Refunds Policy" %}</h1>
+            <p class="text-gray-600">{% trans "Effective Date: 24-Nov-2024" %}</p>
+        </header>
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "1. Sales Policy" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "All sales of ICE-Button hardware and subscriptions are subject to acceptance by Mobiloitte Technologies India Private Limited. Payment must be completed in full before products are shipped or services are activated." %}</p>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li><strong>{% trans "Prices:" %}</strong> {% trans "Prices are listed on our website or provided via official quotes and are subject to change without notice. Taxes, duties, and shipping charges may apply depending on your location." %}</li>
+            <li><strong>{% trans "Accepted Payment Methods:" %}</strong> {% trans "Credit/Debit Cards, Bank Transfers, UPI Payments (if applicable)." %}</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "2. Refund Policy" %}</h2>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6">{% trans "a. Eligibility for Refunds" %}</h3>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li><strong>{% trans "Hardware Refunds:" %}</strong> {% trans "Eligible for refund if the product is defective or damaged upon delivery. Refund requests must be made within 14 days of receipt. The product must be returned in its original condition with all accessories and packaging." %}</li>
+            <li><strong>{% trans "Subscription Refunds:" %}</strong> {% trans "Refunds are only applicable for first-time subscriptions canceled within 7 days of activation (trial period, if applicable). Partial refunds for unused subscription periods are not provided unless required by law." %}</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6">{% trans "b. Non-Refundable Cases" %}</h3>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li>{% trans "Change of mind after purchase." %}</li>
+            <li>{% trans "Failure to use the product or service due to user error." %}</li>
+            <li>{% trans "Subscription renewals, unless canceled prior to the renewal date." %}</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6">{% trans "c. How to Request a Refund" %}</h3>
+        <p class="text-gray-700 mt-4">{% trans "To initiate a refund, contact our support team at" %} <a href="mailto:support@ICE-Button.com" class="text-red-500 hover:underline">support@ICE-Button.com</a> {% trans "with the following details:" %}</p>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li>{% trans "Order ID or subscription details." %}</li>
+            <li>{% trans "Reason for refund request." %}</li>
+            <li>{% trans "Proof of purchase and, if applicable, photos of the defective hardware." %}</li>
+        </ul>
+        <p class="text-gray-700 mt-4">{% trans "Refund requests are processed within 14 business days after evaluation." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "3. Cancellation Policy" %}</h2>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li><strong>{% trans "Hardware Orders:" %}</strong> {% trans "Orders can be canceled before shipment. Once shipped, the order cannot be canceled, but a return may be initiated under the refund policy." %}</li>
+            <li><strong>{% trans "Subscriptions:" %}</strong> {% trans "Users can cancel auto-renewal of their subscription at any time. Cancellation takes effect at the end of the current billing cycle." %}</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "4. Warranty and Support" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "All ICE-Button devices come with a warranty period of 12 months from the date of purchase, covering manufacturing defects." %}</p>
+        <ul class="list-disc pl-6 mt-4 text-gray-700">
+            <li><strong>{% trans "Warranty Exclusions:" %}</strong> {% trans "Physical damage caused by misuse, unauthorized modifications, or repairs are not covered under warranty." %}</li>
+            <li><strong>{% trans "Technical Support:" %}</strong> {% trans "For assistance with hardware or software, contact our support team at" %} <a href="mailto:support@ICE-Button.com" class="text-red-500 hover:underline">support@ICE-Button.com</a>.</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "5. Legal Compliance" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "This policy complies with applicable consumer protection laws. If you believe your rights under the law have been violated, you may contact us or file a complaint with the relevant authority." %}</p>
+
+        <h2 class="text-2xl font-semibold text-gray-800 mt-10">{% trans "6. Contact Us" %}</h2>
+        <p class="text-gray-700 mt-4">{% trans "For questions or concerns about this Sales and Refunds Policy, reach out to us at" %} <a href="mailto:support@ICE-Button.com" class="text-red-500 hover:underline">support@ICE-Button.com</a>.</p>
+    </section>
+</main>
+
+    {% include "footer.html" %}
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

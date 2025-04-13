@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static  %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Invoice_{{ transaction.payment_id }}_ICE-Button_{{ transaction.created_at|date:"Y-m-d_H-i-s" }}
+    </title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .btn-primary {
+            background-color: #f04438;
+            margin-left: 10px;
+            color: white;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg mt-8 mb-16 p-6">
+        <!-- Header Section -->
+        <div class="flex justify-between items-center border-b border-gray-200 pb-6">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-800">Invoice</h1>
+                <p class="text-sm text-gray-500">Subscription Purchase</p>
+            </div>
+            <div class="flex items-center">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/ice.png' %}" alt="ICE-Button Logo" class="h-16">
+                </a>
+                <div class="ml-3">
+                    <a href="{% url 'home' %}">
+                        <span class="text-2xl font-bold text-red-600">ICE BUTTON</span>
+                    </a>
+                    <span class="text-lg text-gray-600 block">In-case of Emergency</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Company and Client Information -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div>
+                <h3 class="text-lg font-semibold text-gray-700">From:</h3>
+                <p class="text-sm text-gray-500">Mobiloitte Technologies India Pvt. Ltd.</p>
+                <p class="text-sm text-gray-500">D-115, Pocket D, Okhla Phase I,</p>
+                <p class="text-sm text-gray-500">New Delhi, Delhi 110020</p>
+                <p class="text-sm text-gray-500">Email: support@ice-button.com</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-gray-700">To:</h3>
+                <p class="text-sm text-gray-500">{{ request.user.full_name }}</p>
+                <p class="text-sm text-gray-500">Email: {{ transaction.user.email }}</p>
+            </div>
+        </div>
+
+        <!-- Invoice Details -->
+        <div class="mt-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-sm text-gray-500">Invoice Number:</p>
+                    <p class="text-lg font-semibold text-gray-700">{{ transaction.payment_id}}</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500">Invoice Date:</p>
+                    <p class="text-lg font-semibold text-gray-700">{{ transaction.created_at|date:"M d, Y H:i" }}</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500">Processed At:</p>
+                    <p class="text-lg font-semibold text-gray-700">{{ transaction.updated_at|date:"M d, Y H:i" }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Details -->
+        <div class="mt-8 border-t border-gray-200 pt-6">
+            <table class="w-full text-left text-sm">
+                <thead>
+                    <tr class="text-gray-600 border-b">
+                        <th class="py-3">Plan Name</th>
+                        <th class="py-3 text-center">Quantity</th>
+                        <th class="py-3 text-right">Price &#8377;</th>
+                        <th class="py-3 text-right">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="py-3">{{ transaction.plan_name }}</td>
+                        <td class="py-3 text-center">1</td>
+                        <td class="py-3 text-right">&#8377;{{ transaction.amount }}</td>
+                        <td class="py-3 text-right">&#8377;{{ transaction.amount }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="mt-8 text-sm text-gray-500 border-t border-gray-200 pt-6">
+            <p>Thank you for your purchase! If you have any questions, please contact support@ice-button.com.</p>
+        </div>
+
+        <!-- Download Button -->
+        <div class="mt-6 flex justify-end no-print">
+            <button onclick="window.history.back()" 
+                    style="background-color: white; color: #f04438; padding: 10px 20px; border-radius: 5px; ">
+                Cancel
+            </button>
+            <button onclick="window.print()" class="btn-primary text-white px-6 py-2 rounded-md transition no-print"> 
+                Download Invoice
+            </button>
+        </div>
+        
+        
+        
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const transactionData = JSON.parse(sessionStorage.getItem('transactionData'));
+            console.log("Transaction Data on Invoice Page:", transactionData);
+    
+            if (transactionData) {
+                document.getElementById('invoice-container').innerHTML = `
+                    <div>
+                        <h1>Invoice Number: ${transactionData.transaction_id}</h1>
+                        <p>Plan Name: ${transactionData.plan_name}</p>
+                        <p>Amount: ₹${transactionData.transaction_amount}</p>
+                        <p>Date: ${transactionData.date}</p>
+                    </div>
+                `;
+            } else {
+                console.error("No transaction data found in sessionStorage.");
+            }
+        });
+    </script>
+    
+    
+</body>
+</html>

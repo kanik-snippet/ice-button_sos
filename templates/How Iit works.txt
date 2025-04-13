@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works: ICE Button</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fafc;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 42px;
+            color: #2c3e50;
+        }
+        .header p {
+            font-size: 18px;
+            color: #7f8c8d;
+        }
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .section.reverse {
+            flex-direction: row-reverse;
+        }
+        .section img {
+            width: 45%;
+            height: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #eaeaea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #aaa;
+            text-align: center;
+        }
+        .section-content {
+            width: 50%;
+            padding: 20px;
+        }
+        .section-content h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .section-content ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .section-content ul li {
+            display: flex;
+            align-items: flex-start;
+            font-size: 16px;
+            margin: 10px 0;
+            color: #555;
+        }
+        .section-content ul li::before {
+            content: '✔';
+            color: #3498db;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .highlight {
+            color: #3498db;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>How It Works: <span class="highlight">ICE Button</span></h1>
+            <p>Seamless Emergency Communication</p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="section">
+            <div class="section-content">
+                <h2>Step 1: Set Up Your ICE Button</h2>
+                <ul>
+                    <li>Device Registration: Register your ICE Button using its unique MAC address.</li>
+                    <li>Add Trusted SOS Contacts: Add phone numbers and email addresses of your SOS contacts.</li>
+                    <li>Assign Contacts to ICE Button: Assign verified contacts to ensure alerts are sent to appropriate recipients during an emergency.</li>
+                </ul>
+            </div>
+            <div class="image-placeholder">
+                <img src="#" alt="Placeholder for Step 1">
+                <p style="text-align: center; color: #aaa;">Image Placeholder</p>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="section reverse">
+            <div class="section-content">
+                <h2>Step 2: Trigger an Emergency Alert</h2>
+                <ul>
+                    <li>Press the ICE Button: Activates the emergency alert system, sending notifications to assigned SOS contacts.</li>
+                    <li>Real-Time Streaming: Starts streaming live video and audio from the device via WhatsApp and SMS.</li>
+                    <li>Recorded Video Backup: The Raspberry Pi records video locally and sends it to SOS contacts via email post-emergency.</li>
+                </ul>
+            </div>
+            <div class="image-placeholder">
+                <img src="#" alt="Placeholder for Step 2">
+                <p style="text-align: center; color: #aaa;">Image Placeholder</p>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="section">
+            <div class="section-content">
+                <h2>Step 3: Notification Delivery</h2>
+                <ul>
+                    <li>WhatsApp and SMS Alerts: Secure links to the live stream are sent via WhatsApp and SMS.</li>
+                    <li>Automated Voice Call: A pre-recorded message is delivered to contacts through an automated voice call.</li>
+                    <li>Email Notification: Emails include the recorded video file and additional emergency details.</li>
+                    <li>Multi-Channel Redundancy: Alerts are sent through multiple channels to ensure timely delivery.</li>
+                </ul>
+            </div>
+            <div class="image-placeholder">
+                <img src="#" alt="Placeholder for Step 3">
+                <p style="text-align: center; color: #aaa;">Image Placeholder</p>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="section reverse">
+            <div class="section-content">
+                <h2>Step 4: Response from SOS Contacts</h2>
+                <ul>
+                    <li>Access Emergency Details: SOS contacts view the live stream and recorded videos to assess the situation.</li>
+                    <li>Take Immediate Action: Contacts can call emergency services or take action directly.</li>
+                </ul>
+            </div>
+            <div class="image-placeholder">
+                <img src="#" alt="Placeholder for Step 4">
+                <p style="text-align: center; color: #aaa;">Image Placeholder</p>
+            </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="section">
+            <div class="section-content">
+                <h2>Step 5: System Maintenance and Updates</h2>
+                <ul>
+                    <li>Assign New Contacts as Needed: Update or reassign SOS contacts as situations change.</li>
+                    <li>Local Storage Management: Manage recorded videos on the Raspberry Pi by downloading or deleting older files.</li>
+                    <li>Super-Admin Dashboard: Monitor device activity, contact assignments, and notification logs.</li>
+                    <li>OTA Updates: Keep the system updated with the latest features via over-the-air updates.</li>
+                </ul>
+            </div>
+            <div class="image-placeholder">
+                <img src="#" alt="Placeholder for Step 5">
+                <p style="text-align: center; color: #aaa;">Image Placeholder</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 ICE Button Technology. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

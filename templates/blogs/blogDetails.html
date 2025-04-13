@@ -1,0 +1,370 @@
+<!-- Legal Information Template -->
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Information - ICE-Button</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="stylesheet" href="/static/css/plugins/swiper.min.css">
+<link rel="stylesheet" href="/static/css/plugins/fontawesome-5.css">
+<link rel="stylesheet" href="/static/css/plugins/animate.min.css">
+<link rel="stylesheet" href="/static/css/plugins/unicons.css">
+<link rel="stylesheet" href="/static/css/vendor/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/style.css">
+    <style>
+       /* Toast container styles */
+    .toast-container {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Toast message styles */
+    .toast {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        color: #fff;
+        animation: fadeInOut 3s ease-in-out;
+    }
+
+    .toast.success {
+        background-color: #f04438; /* Green */
+    }
+
+    .toast.error {
+        background-color: #e53e3e; /* Red */
+    }
+
+    /* Toast fade animation */
+    @keyframes fadeInOut {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        10% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+    }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+            .containers {
+        width: 100%;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 50px;
+        
+    }
+
+    nav a {
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: #f04438;
+    }
+    /* For screens between 1024px and 768px */
+    @media (max-width: 1024px) and (min-width: 768px) {
+        #hamburger-btn {
+            display: none; /* Hide hamburger button */
+        }
+
+        #right-section {
+            display: block !important; /* Only show desktop buttons */
+        }
+
+        #mobile-menu {
+            display: none  /* Hide mobile menu */
+        }
+    }
+
+    /* For mobile screens below 768px */
+    @media (max-width: 768px) {
+        #right-section {
+            display: none /* Hide desktop buttons */
+        }
+
+       
+
+        #hamburger-btn {
+            display: block !important; /* Show hamburger button */
+        }
+    }
+    </style>
+</head>
+<body class="bg-gray-50">
+    {% include "blogheader.html" %}
+    <main class="mt-20">
+    <div class="rts-blog-list-area rts-section-gap">
+        <div class="container">
+            <div class="row g-5">
+                <!-- rts blo post area -->
+                <div class="col-xl-8 col-md-12 col-sm-12 col-12">
+                    <br><br>
+                    <!-- single post -->
+                   
+                    <div class="blog-single-post-listing details mb--0">
+                        <div class="thumbnail">
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                        </div>
+                        <div class="blog-listing-content">
+                            <div class="user-info">
+                                <!-- single info -->
+                                <div class="single">
+                                    <i class="far fa-user-circle"></i>
+                                    <span>{% if language == 'hi' %}
+                                            <span>{{ post.created_by.name |default:"ICE बटन टीम"  }} के द्वारा</span>
+                                        {% else %}
+                                            <span>{% trans 'By' %} {{ post.created_by.name|default:"ICE Button Team" }}</span>
+                                        {% endif %}</span>
+                                </div>
+                                <!-- single infoe end -->
+                                <!-- single info -->
+                                <div class="single">
+                                    <i class="far fa-clock"></i>
+                                    <span>{{post.created_at}}</span>
+                                </div>
+                                <!-- single infoe end -->
+                                <!-- single info -->
+                                <div class="single">
+                                    <i class="far fa-tags"></i>
+                                    <span>{{ post.category }}</span>  <!-- This will display the human-readable category -->
+                                </div>
+                                <!-- single infoe end -->
+                            </div>
+                            <h3 class="title">{{ post.title }}</h3>
+                            <p class="disc para-1">
+                                    {{ post.description|safe }}
+                                </p>
+                                <p class="disc">
+                                    {{ post.content|safe }}
+                                </p>
+
+                            <!-- quote area start -->
+                            {% if post.quote_text %}
+                            <div class="rts-quote-area text-center">
+                                <h5 class="title">“{{ post.quote_text }}”</h5>
+                                <a href="#" class="name">{{ post.quote_author.name }}</a>
+                                <span>Author</span>
+                            </div>
+                            {% endif %}
+                            <!-- quote area end -->
+
+                            
+
+                            <div class="row g-5">
+                                {% for image in post.extra_images.all %}
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="thumbnail details">
+                                        {% comment %} <img src="{{ image.image.url }}" alt="{{ image.description }}"> {% endcomment %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                            <h4 class="title mt--40 mt_sm--20"></h4>
+                            
+                            <div class="row align-items-center">
+                                <div class="col-lg-5">
+                                    <div class="thumbnail details mb_sm--15"> 
+                                        {% for point in post.bulleted_points.all %}
+                                            {% if point.image %}
+                                                {% comment %} <img src="{{ point.image.url }}" alt="{{ point.text }}"> {% endcomment %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="check-area-details">
+                                        <!-- single check -->
+                                        {% for point in post.bulleted_points.all %}
+                                        <div class="single-check">
+                                            <i class="far fa-check-circle"></i>
+                                            <span>{{ point.text }}</span>
+                                        </div>
+                                        {% endfor %}
+                                       
+                                        
+                                        <!-- single check End -->
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="disc mt--30">
+                                {{ post.extra_content }}
+                            </p>
+                            <div class="row  align-items-center">
+                                <div class="col-lg-6 col-md-12">
+                                    <!-- tags details -->
+                                    <div class="details-tag">
+                                        <h6>{% trans 'Tags'%}:</h6>
+                                        {% for tag in post.tags.all %}
+                                        <button>{{ tag.name }}</button>
+                                        {% endfor %}
+                                        
+                                    </div>
+                                    <!-- tags details End -->
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="details-share">
+                                        <h6>{% trans 'Share'%}:</h6>
+                                        {% if follow_us %}
+                                            {% if follow_us.facebook %}
+                                                <a href="{{ follow_us.facebook }}" target="_blank"><button><i class="fab fa-facebook-f"></i></button></a>
+                                            {% endif %}
+                                            {% if follow_us.twitter %}
+                                                <a href="{{ follow_us.twitter }}" target="_blank"><button><i class="fab fa-twitter"></i></button></a>
+                                            {% endif %}
+                                            {% if follow_us.instagram %}
+                                                <a href="{{ follow_us.instagram }}" target="_blank"><button><i class="fab fa-instagram"></i></button></a>
+                                            {% endif %}
+                                            {% if follow_us.telegram %}
+                                                <a href="{{ follow_us.telegram }}" target="_blank">
+                                                    <button><i class="fab fa-telegram-plane"></i></button>
+                                                </a>
+                                            {% endif %}
+                                            {% if follow_us.pinterest %}
+                                                <a href="{{ follow_us.pinterest }}" target="_blank">
+                                                    <button><i class="fab fa-pinterest-p"></i></button>
+                                                </a>
+                                            {% endif %}
+
+                                        {% else %}
+                                            <p>No social media links available.</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <!-- start client feedback section -->
+                              <!-- testimonials area start -->
+    
+                            <!-- end client feedback section -->
+                        
+                            
+                        </div> 
+                    </div>
+                    <!-- single post End-->
+                </div>
+            
+            
+                <!-- rts-blog post end area -->
+                <!--rts blog wizered area -->
+                <div class="col-xl-4 col-md-12 col-sm-12 col-12">
+                    <!-- single wizered start -->
+
+
+                    <!-- single wizered End -->
+                    <!-- single wizered start -->
+                    <div class="rts-single-wized Categories">
+                        <div class="wized-header">
+                            <h5 class="title">{% trans 'Categories'%}</h5>
+                        </div>
+                        <div class="wized-body">
+                            <ul class="single-categories">
+                                <li><a href="{% url 'blogs:blogGridCategory' 'tech' %}">{% trans 'Technology & Innovation'%}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            <ul class="single-categories">
+                                <li><a href="{% url 'blogs:blogGridCategory' 'cyber' %}">{% trans 'Cybersecurity'%}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            <ul class="single-categories">
+                                <li><a href="{% url 'blogs:blogGridCategory' 'disaster' %}">{% trans 'Disaster Preparedness'%}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            <ul class="single-categories">
+                                <li><a href="{% url 'blogs:blogGridCategory' 'business' %}">{% trans 'Business & Entrepreneurship'%}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            <ul class="single-categories">
+                                <li><a href="{% url 'blogs:blogGridCategory' 'safety' %}">{% trans 'Personal Safety & Security'%}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            <ul class="single-categories">
+                                <li><a href="{% url 'blogs:blogGridCategory' 'health' %}">{% trans 'Health & Wellness'%}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            <ul class="single-categories">
+                                <li><a href="{% url 'blogs:blogGridCategory' 'lifestyle' %}">{% trans 'Lifestyle & Productivity'%}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            <ul class="single-categories">
+                                <li><a href="{% url 'blogs:blogGridCategory' 'community' %}">{% trans 'Community Engagement & Social Impact'%}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            <ul class="single-categories">
+                                <li><a href="{% url 'blogs:blogGridCategory' 'tutorials' %}">{% trans 'Tech Reviews & Tutorials'%}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            <ul class="single-categories">
+                                <li><a href="{% url 'blogs:blogGridCategory' 'environmental' %}">{% trans 'Environmental Sustainability'%}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- single wizered End -->
+                    <!-- single wizered start -->
+                    
+                    <!-- single wizered End -->
+                    <!-- single wizered start -->
+                    <div class="rts-single-wized contact">
+                        <div class="wized-header">
+                            <a href="#"><img src="/static/images/ice_new.png" alt="Business_logo"></a>
+                        </div>
+                        <div class="wized-body">
+                            <h5 class="title">Need Help? We Are Here To Help You</h5>
+                            <a class="rts-btn btn-primary" href="{% url 'ordernow' %}">Get Demo Now</a>
+                        </div>
+                    </div>
+                    <!-- single wizered End -->
+
+                   
+                    <!-- start client review area start -->
+                    <div class="rts-client-review-two rts-section-gap bg-client-r-h2">
+                        <div class="container">
+                            <div class="row mt--30">
+                                <div class="title-area left-right testimonial-h2">
+                                    <div class="title-left">
+                                        <span>Our Testimonial</span>
+                                        <h2 class="title mt--15">
+                                            Our Client Reviews
+                                        </h2>
+                                    </div>
+                                    <!-- Optional: You can add a button or link here if needed -->
+                                </div>
+                            </div>
+
+                            <!-- First comment (static, not part of the swiper) -->
+                           
+                        </div>
+                    </div>
+                    <!-- start client review area end -->
+                </div>
+                <!-- rts- blog wizered end area -->
+            </div>
+
+        </div>
+    </div>
+ 
+</main>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

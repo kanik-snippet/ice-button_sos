@@ -1,0 +1,93 @@
+{% extends 'frontend/nav.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Live Stream Dashboard{% endblock %}
+
+{% block head %}
+    <title>Live Stream</title>
+    <link href="https://vjs.zencdn.net/7.21.1/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.21.1/video.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<h2 id="status">Checking stream status...</h2>
+
+<video
+    id="my-video"
+    class="video-js vjs-default-skin"
+    controls
+    autoplay
+    style="width: 640px; height: 360px; display: none;">
+    <source id="stream-src" src="" type="application/x-mpegURL">
+</video>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> <!-- HLS.js Library -->
+
+<script>
+    let isLiveChecked = false; // Track whether the stream has been confirmed live
+
+    async function checkStream() {
+        const token = localStorage.getItem("access_token");
+
+        try {
+            const response = await fetch('/api/check-stream/', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const data = await response.json();
+
+            const status = document.getElementById("status");
+            const videoEl = document.getElementById("my-video");
+            const sourceEl = document.getElementById("stream-src");
+
+            if (data.live && data.allowed) {
+                if (!isLiveChecked) {
+                    console.log("Stream is live. Stopping further checks.");
+                    const rtmpUrl = `rtmp://192.168.31.164:1935/live/${data.stream_key}`;
+                    const hlsUrl = `http://192.168.31.164:8080/hls/${data.stream_key}.m3u8`;  // HLS URL
+                    console.log(hlsUrl);
+
+                    // Check if HLS.js is supported (HTML5 browser)
+                    if (Hls.isSupported()) {
+                        const hls = new Hls();
+                        hls.loadSource(hlsUrl);
+                        hls.attachMedia(videoEl);
+                        videoEl.style.display = "block";
+                        status.innerText = "🔴 Live Stream is ON";
+                    } else {
+                        status.innerText = "⚠️ HLS is not supported in this browser.";
+                        videoEl.style.display = "none";
+                    }
+                    isLiveChecked = true; // Mark that we've confirmed the stream is live
+                }
+            } else if (!data.allowed) {
+                status.innerText = "⚠️ You are not authorized to view this stream.";
+                videoEl.style.display = "none";
+            } else {
+                if (isLiveChecked) {
+                    // If the stream was checked and is now offline, reset
+                    console.log("Stream is offline. Checking again in 10 seconds...");
+                    isLiveChecked = false;
+                }
+                status.innerText = "🔘 Stream is currently offline.";
+                videoEl.style.display = "none";
+            }
+        } catch (err) {
+            document.getElementById("status").innerText = "❌ Error checking stream.";
+            console.error(err);
+        }
+    }
+
+    setInterval(() => {
+        if (!isLiveChecked) {
+            checkStream(); // Only check if not live
+        }
+    }, 10000);  // Check every 10 seconds if the stream is offline
+
+    checkStream();  // Check once on load
+</script>
+{% endblock %}

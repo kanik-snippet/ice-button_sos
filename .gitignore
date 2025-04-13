@@ -1,0 +1,28 @@
+venv/
+env/
+.venv/
+
+# Ignore specific media files
+media/
+
+# macOS
+.DS_Store
+
+
+# Django-specific
+db.sqlite3
+db.sqlite3-journal
+
+# Environment variables
+.env
+*.env
+
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.log
+*.pot
+*.mo

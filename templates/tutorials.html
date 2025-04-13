@@ -1,0 +1,116 @@
+<!-- Legal Information Template -->
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorials - ICE-Button</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    {% include "header.html" %}
+    <main class="my-32">
+        <div class="container mx-auto px-4 py-2">
+            <section class="section my-12">
+                <h2 class="text-3xl font-semibold text-center text-gray-800 mb-8">{% trans 'Tutorials Videos'%}</h2>
+                <div class="flex flex-col md:flex-row justify-center gap-4"> <!-- Ensure they stay in one row with small gap -->
+                    <!-- Hindi Tutorial Video -->
+                    <div class="video max-w-lg">
+                        <h3 class="text-xl font-semibold text-center text-gray-800 mb-4">हिंदी शिक्षण</h3>
+                        <div class="aspect-video w-full rounded-lg shadow-md overflow-hidden">
+                            <video controls class="w-full h-full object-cover">
+                                <source src="https://res.cloudinary.com/dw8khjs5s/video/upload/v1734687248/Ice_Button_Hindi_vkwpur.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- English Tutorial Video -->
+                    <div class="video max-w-lg">
+                        <h3 class="text-xl font-semibold text-center text-gray-800 mb-4">English Tutorial</h3>
+                        <div class="aspect-video w-full rounded-lg shadow-md overflow-hidden">
+                            <video controls class="w-full h-full object-cover">
+                                <source src="https://res.cloudinary.com/dw8khjs5s/video/upload/v1734687222/Ice_Button_English_xzjril.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Third Tutorial Video -->
+                    <div class="video max-w-lg">
+                        <h3 class="text-xl font-semibold text-center text-gray-800 mb-4">Clinic Doctors</h3>
+                        <div class="aspect-video w-full rounded-lg shadow-md overflow-hidden">
+                            <video controls class="w-full h-full object-cover">
+                                <source src="https://res.cloudinary.com/dw8khjs5s/video/upload/v1734687213/Ice-Button_Doctor_Video_airlpc.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+
+            
+            
+            
+        
+            <!-- Setup Section -->
+           <section class="section">
+    <h2 class="text-3xl font-semibold text-center text-gray-800 my-24">{% trans "Unboxing & Setup Guide" %}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="step bg-white p-6 rounded-lg shadow-lg text-center">
+            <img src="{% static 'images/incase1.jpg' %}" alt="{% trans 'Step 1' %}" class="w-full h-40 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold text-gray-700 mb-2">{% trans "Step 1: Open the Box" %}</h3>
+            <p class="text-sm text-gray-600">{% trans "Carefully unbox the hardware and locate all the components." %}</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="step bg-white p-6 rounded-lg shadow-lg text-center">
+            <img src="{% static 'images/incase1.jpg' %}" alt="{% trans 'Step 2' %}" class="w-full h-40 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold text-gray-700 mb-2">{% trans "Step 2: Assemble Components" %}</h3>
+            <p class="text-sm text-gray-600">{% trans "Attach the necessary parts as per the instructions provided in the box." %}</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="step bg-white p-6 rounded-lg shadow-lg text-center">
+            <img src="{% static 'images/incase1.jpg' %}" alt="{% trans 'Step 3' %}" class="w-full h-40 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold text-gray-700 mb-2">{% trans "Step 3: Connect to Power" %}</h3>
+            <p class="text-sm text-gray-600">{% trans "Plug in the device and ensure the power light is on." %}</p>
+        </div>
+        <!-- Step 4 -->
+        <div class="step bg-white p-6 rounded-lg shadow-lg text-center">
+            <img src="{% static 'images/incase1.jpg' %}" alt="{% trans 'Step 4' %}" class="w-full h-40 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold text-gray-700 mb-2">{% trans "Step 4: Setup Configuration" %}</h3>
+            <p class="text-sm text-gray-600">{% trans "Follow the configuration steps on the screen or in the manual." %}</p>
+        </div>
+    </div>
+</section>
+
+        </div>
+        
+    </main>
+
+      
+    {% include "footer.html" %}
+    
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

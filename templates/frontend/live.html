@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HLS Video Player</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- hls.js for HLS video playback -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background-color: #000;
+            margin-bottom: 20px;
+        }
+        
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+        }
+        
+        .controls {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-video {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+        
+        .btn-video:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .progress {
+            height: 6px;
+            border-radius: 3px;
+            margin: 10px 0;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+        }
+        
+        .volume-control {
+            width: 100px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .controls .btn {
+                margin-bottom: 10px;
+            }
+            
+            .volume-control {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="text-center mb-4"><i class="fas fa-play-circle me-2" style="color:#f04438"></i>ICE BUTTON LIVE VIDEO</h2>
+                
+                <!-- Video Player -->
+                <div class="video-container">
+                    <video id="hls-video" controls autoplay></video>
+                </div>
+                
+                <!-- Controls -->
+                <div class="controls">
+                    <div class="progress">
+                        <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%"></div>
+                    </div>
+                    <div class="d-flex flex-wrap align-items-center">
+                        <button class="btn-video" id="play-pause-btn"><i class="fas fa-pause"></i> Pause</button>
+                        <button class="btn-video" id="rewind-btn"><i class="fas fa-step-backward"></i> 10s</button>
+                        <button class="btn-video" id="forward-btn"><i class="fas fa-step-forward"></i> 10s</button>
+                        <div class="ms-auto d-flex align-items-center">
+                            <i class="fas fa-volume-up me-2"></i>
+                            <input type="range" class="form-range volume-control" id="volume-slider" min="0" max="1" step="0.1" value="1">
+                        </div>
+                        <button class="btn-video ms-2" id="fullscreen-btn"><i class="fas fa-expand"></i> Fullscreen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hls-video');
+            const cleanMac = "{{ clean_mac }}"; 
+            const videoSrc = 'http://192.168.31.164:8080/hls/{{ clean_mac }}.m3u8'; // Replace with your HLS stream URL
+            
+            // Check if HLS is supported
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    video.play().catch(e => {
+                        console.log("Autoplay was prevented. Please interact with the page to start playback.");
+                    });
+                });
+            }
+            // Fallback for native HLS support
+            else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = videoSrc;
+                video.addEventListener('loadedmetadata', function() {
+                    video.play().catch(e => {
+                        console.log("Autoplay was prevented. Please interact with the page to start playback.");
+                    });
+                });
+            }
+            
+            // Control buttons functionality
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const rewindBtn = document.getElementById('rewind-btn');
+            const forwardBtn = document.getElementById('forward-btn');
+            const volumeSlider = document.getElementById('volume-slider');
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const progressBar = document.getElementById('progress-bar');
+            
+            // Play/Pause toggle
+            playPauseBtn.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+                } else {
+                    video.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i> Play';
+                }
+            });
+            
+            // Rewind 10 seconds
+            rewindBtn.addEventListener('click', function() {
+                video.currentTime = Math.max(0, video.currentTime - 10);
+            });
+            
+            // Forward 10 seconds
+            forwardBtn.addEventListener('click', function() {
+                video.currentTime = Math.min(video.duration, video.currentTime + 10);
+            });
+            
+            // Volume control
+            volumeSlider.addEventListener('input', function() {
+                video.volume = this.value;
+                if (video.volume > 0.5) {
+                    volumeSlider.previousElementSibling.className = 'fas fa-volume-up me-2';
+                } else if (video.volume > 0) {
+                    volumeSlider.previousElementSibling.className = 'fas fa-volume-down me-2';
+                } else {
+                    volumeSlider.previousElementSibling.className = 'fas fa-volume-off me-2';
+                }
+            });
+            
+            // Fullscreen toggle
+            fullscreenBtn.addEventListener('click', function() {
+                if (!document.fullscreenElement) {
+                    video.requestFullscreen().catch(err => {
+                        console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                    });
+                } else {
+                    document.exitFullscreen();
+                }
+            });
+            
+            // Update progress bar
+            video.addEventListener('timeupdate', function() {
+                const progress = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = progress + '%';
+            });
+            
+            // Click on progress bar to seek
+            progressBar.parentElement.addEventListener('click', function(e) {
+                const percent = e.offsetX / this.offsetWidth;
+                video.currentTime = percent * video.duration;
+            });
+            
+            // Handle autoplay restrictions
+            document.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play().then(() => {
+                        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+                    }).catch(e => {
+                        console.log("Playback failed:", e);
+                    });
+                }
+            }, { once: true });
+        });
+    </script>
+</body>
+</html>

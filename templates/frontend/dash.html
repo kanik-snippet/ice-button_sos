@@ -1,0 +1,713 @@
+{% extends 'frontend/nav.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}User Dashboard{% endblock %}
+{% block body %}
+<link href="{% static 'css/dashStyle.css' %}" rel="stylesheet" />
+
+
+
+<div class="container-fluid px-4 mt-4" id="dashboard-container">
+  <!-- Header Section -->
+  <div class="row align-items-center justify-content-between mb-4">
+    <div class="col-md-8 mb-3">
+      <h3 class="name" style="margin-top: 12px;">{% trans 'Welcome'%}, <span class="nameDisplay">Name will be displayed here</span></h2>
+      <p class="emailDisplay">Email will be displayed here</p>
+    </div>
+    <div class="col-md-4 d-flex align-items-left justify-content-end">
+      <button class="btn" id="addNewPodButton" data-bs-toggle="modal" data-bs-target="#linkNewPodModal">
+        <i class="fa fa-plus"></i> {% trans 'Add New Button'%}
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="row">
+    <!-- Left Section -->
+    <div class="col-lg-9">
+      <!-- Cards -->
+      <div class="row mb-4 g-3">
+        <div class="col-lg-4">
+          <div class="card custom-card">
+            <a href="{% url 'pod' %}" style="text-decoration: none; color: inherit;">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title">{% trans 'Total buttons'%}</h5>
+                <div class="icon1">
+                  <img src="{% static 'images/ice.png' %}" alt="" class="img-fluid" />
+                </div>
+              </div>
+              <h1 id="total-pods" class="counts">Loading...</h1>
+              <h6 id="pods-status" class="updates">Loading...</h6>
+
+            </div>
+          </a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card custom-card">
+            <a href="{% url 'add_contact' %}" style="text-decoration: none; color: inherit;">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title">{% trans 'SOS Contacts'%}</h5>
+                <div class="icon2">
+                  <i class="bi bi-people"></i>
+                </div>
+              </div>
+              <h6 id="total-sos-contacts" class="counts">Loading...</h6>
+                  <h6 id="sos-updated" class="updates">Loading...</h6>
+            </div>
+          </a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card custom-card">
+            <a href="{% url 'log' %}" style="text-decoration: none; color: inherit;">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title">{% trans 'Total Notifications'%}</h5>
+                <div class="icon3">
+                  <i class="far fa-bell"></i>
+                </div>
+              </div>
+              <h1 id="total-notifications" class="counts">Loading...</h1>
+              <h6 id="notifications-updated" class="updates">Loading...</h6>
+            </div>
+          </a>
+          </div>
+        </div>
+      </div>
+
+
+     
+          <!-- Table Section -->
+          <div class='datatable'>
+            <table class="table custom-table" > 
+                <thead>
+                    <tr>
+                        <th>{% trans 'Button Name'%}</th>
+                        <th>{% trans 'Contacts'%}</th>
+                        <th>{% trans 'Status'%}</th>
+                        <th>{% trans 'MAC Address'%}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="device-tbody">
+                    <!-- Dynamic rows will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <!-- Right Section -->
+    <div class="col-lg-3 h-100 contectsec ">
+      <div class="contacts-sidebar">
+        <h5>{% trans 'Contacts'%} (<span id="contact-count">0</span>)</h5>
+        <div class="contacts" id="contact-list">
+          <!-- Dynamic contacts will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="linkNewPodModal" tabindex="-1" aria-labelledby="linkNewPodModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content p-4">
+      <div class="modal-header border-0 text-center flex-column">
+        <h5 class="modal-title fw-bold" id="linkNewPodModalLabel">{% trans 'Link New Button'%}</h5>
+        <p class="modal-subtitle text-muted mb-0">{% trans 'Add Button details'%}</p>
+      </div>
+      <div class="modal-body">
+        <form id="linkNewPodForm">
+          <div class="mb-3">
+            <label for="pod-name" class="form-label">{% trans 'Button Name'%}</label>
+            <input type="text" id="pod-name" class="form-control" placeholder="Enter name" maxlength="30" required />
+          </div>
+          
+          <div class="mb-3">
+            <label for="mac-address" class="form-label">
+              {% trans 'MAC Address'%}
+              <button type="button" class="i-button" data-bs-toggle="tooltip" data-bs-placement="right" title="You can find the MAC address on the back of your ICE Button or its box.">(i)  </button>
+            </label>
+            <input type="text" id="mac-address" class="form-control" placeholder="Ex: 69:26:9b:6e:69" maxlength="17" required />
+          </div>
+          
+          <div class="mb-3">
+            <label for="alert-message" class="form-label">
+              {% trans 'Alert Message'%}
+              <button type="button" class="i-button" data-bs-toggle="tooltip" data-bs-placement="right" title="Enter the alert message you want to send via SMS, WhatsApp, and email. This message will notify the concerned authorities in case of an emergency.">(i)</button>
+            </label>
+            <input type="text" id="alert-message" class="form-control" placeholder="Ex: Help, please report to police" maxlength="50" required />
+          </div>
+          
+          <div class="mb-3">
+            <label for="description" class="form-label">
+              {% trans 'Address Description'%}
+              <button type="button" class="i-button" data-bs-toggle="tooltip" data-bs-placement="right" title="Provide a detailed address here to help identify the location of this panic button. This information will be sent along with the alert message.">(i)</button>
+            </label>
+            <textarea id="description" class="form-control" rows="3" placeholder="Enter additional details or description here" maxlength="80" required></textarea>
+          </div>
+          
+          <div class="mb-3 d-flex align-items-center justify-content-start">
+            <label class="form-label mb-0 me-3" for="button-status">{% trans 'Button Status'%}</label>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="button-status" checked />
+            </div>
+          </div>
+          
+          <div class="d-flex justify-content-between mt-4">
+            <button type="button" class="btn btn-secondary btn-lg px-4" data-bs-dismiss="modal">{% trans 'Cancel'%}</button>
+            <button type="button" id="submit-button" class="btn btn-danger btn-lg px-4">{% trans 'Submit'%}</button>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content p-4">
+      <div class="modal-header border-0 text-center flex-column">
+        <h5 class="modal-title fw-bold" id="successModalLabel">{% trans 'Device Added'%}</h5>
+      </div>
+      <div class="modal-body text-center">
+        <p>{% trans 'Your device has been successfully added.'%}</p>
+        <button type="button" class="btn btn-danger btn-lg px-4" id="closeModalBtn" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Invalid MAC Address Format Error -->
+<div class="modal fade" id="macAddressFormatErrorModal" tabindex="-1" aria-labelledby="macAddressFormatErrorModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content p-4">
+      <div class="modal-header border-0 text-center flex-column">
+        <h5 class="modal-title fw-bold" id="macAddressFormatErrorModalLabel">{% trans 'Invalid MAC Address Format'%}</h5>
+      </div>
+      <div class="modal-body text-center">
+        <p id="macAddressFormatErrorMessage">{% trans 'Please use the correct format: xx:xx:xx:xx:xx:xx'%}</p>
+        <button type="button" class="btn btn-danger btn-lg px-4" id="macAddressFormatErrorCloseBtn" data-bs-dismiss="modal">{% trans 'OK'%}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for MAC Address Already Exists Error -->
+<div class="modal fade" id="macAddressExistErrorModal" tabindex="-1" aria-labelledby="macAddressExistErrorModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content p-4">
+      <div class="modal-header border-0 text-center flex-column">
+        <h5 class="modal-title fw-bold" id="macAddressExistErrorModalLabel">{% trans 'Device Already Registered'%}</h5>
+      </div>
+      <div class="modal-body text-center">
+        <p id="macAddressExistErrorMessage">{% trans 'This MAC address is already registered.'%}</p>
+        <button type="button" class="btn btn-danger btn-lg px-4" id="macAddressExistErrorCloseBtn" data-bs-dismiss="modal">{% trans 'OK'%}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal for Button Limit Exceeded Error -->
+<div class="modal fade" id="buttonLimitExceededErrorModal" tabindex="-1" aria-labelledby="buttonLimitExceededErrorModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content p-4">
+      <div class="modal-header border-0 text-center flex-column">
+        <h5 class="modal-title fw-bold" id="buttonLimitExceededErrorModalLabel">{% trans 'Button Limit Exceeded'%}</h5>
+      </div>
+      <div class="modal-body text-center">
+        <p id="buttonLimitExceededErrorMessage">{% trans 'You cannot register more buttons. The limit has been reached.'%}</p>
+        <button type="button" class="btn btn-danger btn-lg px-4" id="buttonLimitExceededErrorCloseBtn" data-bs-dismiss="modal">{% trans 'OK'%}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRgfz54V4H1oXKv2v3hx6rjGz7l5Rz82H+5Q1P+SYy" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-kerOj+QvKL7UrRlWXxRe7Y5U4xCUwNCgshw6NjAdBvgFjhK8jd4mn6zt6u9a8zVp" crossorigin="anonymous"></script>
+<script src="{% static 'djangojs.js' %}"></script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const apiUrl = "/api/dashboard/";
+    const accessToken = localStorage.getItem('access_token');
+
+    // Check if access token is present
+    if (!accessToken) {
+        console.error('No access token found! Please log in first.');
+        return;
+    }
+
+    // Helper function to fetch dashboard data
+    async function fetchDashboardData() {
+        try {
+            console.log('Sending request to API:', apiUrl);
+
+            const response = await fetch(apiUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`Failed to fetch data: ${response.status} - ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            console.log('Fetched Data:', data);
+
+            // 1. Log and Update Total Pods, Total SOS Contacts, and Total Notifications
+            console.log('Total Buttons:', data.total_devices);
+            console.log('Total SOS Contacts:', data.total_soscontacts);
+            console.log('Total Notifications:', data.total_notifications);
+
+            document.getElementById('total-pods').innerText = data.total_devices;
+
+if (data.total_devices === 0) {
+    // If no devices are added
+    document.getElementById('pods-status').innerText = `{% trans 'No Device Added' %}`;
+} else if (data.inactive_devices === 0) {
+    // If all devices are active
+    document.getElementById('pods-status').innerText = `{% trans 'All Buttons Activated'%} `;
+} else {
+    // If there are both active and inactive devices
+    document.getElementById('pods-status').innerText = `{% trans 'Buttons Activated'%} ${data.activated_devices}, {% trans 'Buttons Inactive'%} ${data.inactive_devices}`;
+}
+
+          
+            
+            document.getElementById('total-sos-contacts').innerText = data.total_soscontacts;
+            const sosUpdatedElement = document.getElementById('sos-updated');
+
+            // Assuming `data.latest_contact` contains the timestamp
+            const latestContactTime = data.latest_contact;
+            
+            if (latestContactTime === null) {
+                sosUpdatedElement.innerText = "{% trans 'No Updates Available'%}";
+            } else {
+                const formattedDate = new Date(latestContactTime).toLocaleString('en-GB', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                }).replace(',', ''); // Remove any comma if present
+                sosUpdatedElement.innerText = `{% trans 'Last Updated on'%} ${formattedDate}`;
+            }
+                        
+            document.getElementById('total-notifications').innerText = data.total_notifications;
+            const notificationsUpdatedElement = document.getElementById('notifications-updated');
+
+// Assuming `data.latest_notification_time` contains the timestamp
+const latestNotificationTime = data.latest_notification_time;
+
+if (latestNotificationTime === null) {
+    notificationsUpdatedElement.innerText = "{% trans 'No Notifications Available'%}";
+} else {
+    const formattedDate = new Date(latestNotificationTime).toLocaleString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+    }).replace(',', ''); // Remove any comma if present
+    notificationsUpdatedElement.innerText = `Last Updated on ${formattedDate}`;
+}
+
+            
+            document.getElementById('contact-count').innerText = data.total_soscontacts;
+            new Date().toLocaleString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+            });
+
+            // 2. Populate the Devices Table
+            const deviceTbody = document.getElementById('device-tbody');
+            deviceTbody.innerHTML = '';  // Clear existing data
+            if((data.devices.length!=0)){
+            data.devices.forEach(device => {
+                console.log('Device:', device);
+
+                const row = document.createElement('tr');
+
+                // Map through contacts and get initials
+                const contacts = device.contacts.map(contact => {
+                    const initials = contact.name.split(' ').map(word => word[0].toUpperCase()).join('');
+                    const fixedColor = getFixedColor(contact.name);
+                    return { initials, fixedColor };
+                });
+
+                // Show first 4 initials
+                const firstFourContacts = contacts.slice(0, 4);
+                const remainingContactsCount = contacts.length - 4;
+
+                // Function to group contacts by name
+function groupContactsByName(contacts) {
+  const groupedContacts = {};
+
+  contacts.forEach(contact => {
+      const name = contact.name;
+      if (!groupedContacts[name]) {
+          groupedContacts[name] = {
+              name: name,
+              contactTypes: [] // Store all contact types for this name
+          };
+      }
+      groupedContacts[name].contactTypes.push(contact.contact_type);
+  });
+
+  return Object.values(groupedContacts); // Return grouped data as an array
+}
+
+// Map through grouped contacts and render initials
+const groupedContacts = groupContactsByName(device.contacts);
+
+                // Generate contact initials HTML for the first 4 contacts
+                const contactsHtml = groupedContacts.slice(0, 4).map(contactGroup => {
+                  const initials = contactGroup.name.split(' ').map(word => word[0].toUpperCase()).join('');
+                  const fixedColor = getFixedColor(contactGroup.name);
+                  return `
+                      <div class="contact-initials" style="background-color: ${fixedColor}">
+                          ${initials}
+                      </div>
+                  `;
+              }).join('');
+                // If there are more than 4 contacts, add a grey card with the count of remaining contacts
+                const remainingContactsHtml = remainingContactsCount > 0 ? `
+                    <div class="contact-initials remaining" style="background-color: #ccc;">
+                        +${remainingContactsCount}
+                    </div>
+                ` : '';
+
+                const finalContactsHtml = contacts.length > 0 
+                ? `
+                    <div class="contact-row d-flex flex-row">
+                        ${contactsHtml}
+                        ${remainingContactsHtml}
+                    </div>
+                  `
+                : '<span class="not-assigned">{% trans 'Not Assigned'%}</span>';
+            
+                row.innerHTML = `
+                <td>
+                    <div class="pod-info d-flex flex-row">
+                        <img src="{% static 'images/ice.png' %}" alt="${device.device_name || 'Unknown Button'}" width="50" height="50">
+                        <div class="ml-2">
+                            ${device.device_name || 'Unknown Button'}<br>
+                            <small title="${device.description || 'No description available'}">
+                                ${device.description.length > 70 
+                                    ? device.description.substring(0, 70) + '...' 
+                                    : device.description}
+                            </small>
+                        </div>
+                    </div>
+                </td>
+                <td>${finalContactsHtml}</td>
+                <td>
+                    <span class="status ${device.device_status.toLowerCase() === 'active' ? 'status-active' : 'status-danger'}">
+                      ●${device.device_status}
+                    </span>
+                </td>
+                <td class="macAddress">${device.mac_address || 'N/A'}</td>
+                <td>
+                    <a href="/ice_detail/${device.id}/" class="view-btn">
+                        <i class="bi bi-box-arrow-up-right" style="color: #343a40;"></i>
+                    </a>
+                </td>
+            `;
+            
+            
+                deviceTbody.appendChild(row);
+            });
+          }
+          else {
+            const row = document.createElement('tr');  // Create a new table row
+        
+            const td = document.createElement('td');
+            td.colSpan = 4;
+            td.classList.add("text-center");
+        
+            // Create an image element
+            const img = document.createElement('img');
+            img.src = '{% static "images/no_data.jpg" %}'; // Replace with your image source
+            img.alt = 'No Data Found'; // Optional alt text for the image
+            img.style.width = '30%'; // Adjust the width of the image
+        
+            // Create a paragraph element for the text
+            const text = document.createElement('p');
+            text.innerText = "No device data found";
+            text.classList.add("text-muted", "mt-3"); // Optional: Add muted text style and margin
+        
+            // Append the image and text to the td
+            td.appendChild(img);
+            td.appendChild(text);
+        
+            // Append the td to the row
+            row.appendChild(td);
+        
+            // Append the row to the tbody with id 'device-tbody'
+            document.getElementById('device-tbody').appendChild(row);
+        }
+        
+            
+
+            // 3. Populate the SOS Contacts Sidebar (email + phone number)
+            // Populate the SOS Contacts Sidebar (email + phone number)
+const contactList = document.getElementById('contact-list');
+contactList.innerHTML = ''; // Clear existing contacts
+
+if (data.sos_contacts.length === 0) {
+    // No contacts: show a message and an Add Contact button
+    contactList.innerHTML = `<br><br>
+        <p class="text-muted text-center">{% trans 'There is no contact added.'%}</p>
+        <div class="text-center mt-3">
+            <a href="{% url 'add_contact' %}" class="btn btn-sm" style="background-color:#f04438; color:white;">{% trans 'Add Contact'%}</a>
+        </div>
+    `;
+} else {
+    // Group contacts by name
+    const groupedContacts = {};
+
+    data.sos_contacts.forEach(contact => {
+        const name = contact.name;
+        if (!groupedContacts[name]) {
+            groupedContacts[name] = [];
+        }
+        groupedContacts[name].push(contact);
+    });
+
+    // Render each contact
+    Object.keys(groupedContacts).forEach(name => {
+        const contacts = groupedContacts[name];
+        const contactItem = document.createElement('div');
+        contactItem.classList.add('contact-item', 'd-flex', 'flex-wrap', 'align-items-center', 'mb-3', 'p-2');
+
+        const initials = name.split(' ').map(word => word[0].toUpperCase()).join('');
+        const fixedColor = getFixedColor(name);
+
+        // Extract unique relations
+        const relations = [...new Set(contacts.map(contact => contact.relation || 'N/A'))];
+
+        let contactInfoHtml = '';
+       contacts.forEach(contact => {
+            const isVerified = contact.is_verified;
+            const tooltipText = isVerified
+                ? (contact.contact_type === 'Email' ? 'Email is Verified' : 'Phone is Verified')
+                : (contact.contact_type === 'Email' ? 'Email is Not Verified' : 'Phone is Not Verified');
+
+            // Trim email if it exceeds 40 characters
+            const contactInfoTrimmed = 
+                contact.contact_type === 'Email' && contact.contact_info.length > 40
+                ? `${contact.contact_info.slice(0, 40)}...`
+                : contact.contact_info;
+
+// Inside the contactInfoHtml generation
+contactInfoHtml += `
+<div class="d-flex align-items-center mb-1" style="min-width: 0;"> <!-- Add min-width: 0 to prevent flex overflow -->
+    <i class="${isVerified 
+        ? (contact.contact_type === 'Email' ? 'bi bi-envelope-check-fill' : 'bi bi-telephone-fill')
+        : (contact.contact_type === 'Email' ? 'bi bi-envelope-x-fill' : 'bi bi-telephone-x-fill')} 
+        me-2 flex-shrink-0" 
+        style="color: ${isVerified ? 'var(--bs-success)' : '#F04438'}; 
+        font-size: 1rem;"
+        title="${tooltipText}">
+    </i>
+    <span style="font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+        ${contactInfoTrimmed}
+    </span>
+</div>`;
+        });
+
+        const relationText = relations.length === 1 
+            ? `<small class="text-muted">Relation: ${relations[0]}</small>`
+            : `<small class="text-muted">Relations: ${relations.join(', ')}</small>`;
+
+        contactItem.innerHTML = `
+<div class="d-flex w-100">
+    <div class="contact-initials flex-shrink-0" style="background-color: ${fixedColor}; width: 40px; height: 40px;">
+        ${initials}
+    </div>
+    
+    <div class="contact-details ms-3 flex-grow-1">
+        <div class="d-flex flex-column">
+            <h6 class="h6-responsive mb-1">${name}</h6>
+            ${relationText}
+            
+            <div class="contact-info mt-2">
+                ${contactInfoHtml}
+            </div>
+        </div>
+    </div>
+</div>`;
+        contactList.appendChild(contactItem);
+    });
+}
+
+          
+          
+          
+
+        } catch (error) {
+            console.error('Error fetching dashboard data:', error);
+        }
+    }
+
+    fetchDashboardData();
+// Update the total contacts count
+document.getElementById('contact-count').innerText = data.total_soscontacts;
+
+
+
+
+
+    function getFixedColor(contactName) {
+        const colors = ['#F04438', '#F06D48', '#F04255', '#F05A3D'];
+
+        // Hash the name to determine an index for the color
+        const hash = hashString(contactName);
+        const colorIndex = Math.abs(hash) % colors.length;
+
+        return colors[colorIndex];
+    }
+
+    function hashString(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = (hash << 5) - hash + char; // hash * 31 + char
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash;
+    }
+});
+document.getElementById('submit-button').addEventListener('click', async function () {
+  const token = localStorage.getItem('access_token');
+
+  if (!token) {
+    return;
+  }
+
+  const deviceName = document.getElementById('pod-name').value;
+  const macAddress = document.getElementById('mac-address').value;
+  const message = document.getElementById('alert-message').value;
+  const description = document.getElementById('description').value;
+  const deviceStatus = document.getElementById('button-status').checked ? "Active" : "Inactive";
+
+  // MAC address validation
+  const macAddressRegex = /^([0-9A-Fa-f]{2}[:]){5}[0-9A-Fa-f]{2}$/;
+  
+  if (!macAddressRegex.test(macAddress)) {
+    // If the MAC address format is invalid
+    showMacAddressFormatError("Invalid MAC address format. Please use xx:xx:xx:xx:xx:xx.");
+    return;
+  }
+
+  if (macAddress.length !== 17) {
+    // If the MAC address length is not exactly 17 characters
+    showMacAddressFormatError("MAC address cannot exceed 17 characters.");
+    return;
+  }
+
+  const data = {
+    device_name: deviceName,
+    mac_address: macAddress,
+    message: message,
+    description: description,
+    device_status: deviceStatus
+  };
+
+  try {
+    const response = await fetch("/api/register-device/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      // Hide the Add New Pod Modal
+      const addPodModal = bootstrap.Modal.getInstance(document.getElementById('linkNewPodModal'));
+      addPodModal.hide();
+
+      // Show the Success Modal
+      const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+      successModal.show();
+
+      // Clear the form
+      document.getElementById('linkNewPodForm').reset();
+
+      // Add event listener to refresh the page when the modal is closed
+      document.getElementById('closeModalBtn').addEventListener('click', () => {
+        location.reload(); // Refresh the page
+      });
+
+      document.querySelector('.btn-close').addEventListener('click', () => {
+        location.reload(); // Refresh the page
+      });
+
+    } else {
+      const errorData = await response.json();
+
+      // Check if the error is related to the MAC address already existing
+      if (errorData.mac_address && errorData.mac_address.includes("device with this mac address already exists.")) {
+        // Show the MAC address already exists error modal
+        showMacAddressExistError("This MAC address is already registered.");
+      }else if (errorData.detail && errorData.detail === "Button limit exceeded. You cannot register more buttons.") {
+        // Show the button limit exceeded error modal
+        showButtonLimitExceededError("You’ve hit your button registration limit. No further buttons can be added.");
+      } else {
+        alert(`Failed to register device: ${errorData.message || response.statusText}`);
+      }
+    }
+  } catch (error) {
+    console.error("Error:", error);
+
+  }
+});
+// Show Button Limit Exceeded Error Modal
+function showButtonLimitExceededError(message) {
+  const limitErrorModal = new bootstrap.Modal(document.getElementById('buttonLimitExceededErrorModal'));
+  const limitErrorMessage = document.getElementById('buttonLimitExceededErrorMessage');
+  limitErrorMessage.innerText = message;
+  limitErrorModal.show();
+
+  // Add event listener to reload the page when the modal's "OK" button is clicked
+  document.getElementById('buttonLimitExceededErrorCloseBtn').addEventListener('click', () => {
+    location.reload(); // Reload the page
+  });
+}
+// Show MAC Address Format Error Modal
+function showMacAddressFormatError(message) {
+  const formatErrorModal = new bootstrap.Modal(document.getElementById('macAddressFormatErrorModal'));
+  const formatErrorMessage = document.getElementById('macAddressFormatErrorMessage');
+  formatErrorMessage.innerText = message;
+  formatErrorModal.show();
+}
+
+// Show MAC Address Already Exists Error Modal
+function showMacAddressExistError(message) {
+  const existErrorModal = new bootstrap.Modal(document.getElementById('macAddressExistErrorModal'));
+  const existErrorMessage = document.getElementById('macAddressExistErrorMessage');
+  existErrorMessage.innerText = message;
+  existErrorModal.show();
+}
+
+
+</script>
+{% endblock %}

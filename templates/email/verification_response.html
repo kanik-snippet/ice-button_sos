@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        :root {
+            --success-primary: #77dd77;
+            --success-secondary: #2E7D32;
+            --error-primary: #f04438;
+            --error-secondary: #2C3E50;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, 
+                {% if status == 'success' %}var(--success-primary){% else %}var(--error-primary){% endif %}, 
+                {% if status == 'success' %}var(--success-secondary){% else %}var(--error-secondary){% endif %}
+            );
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            animation: gradientPulse 12s infinite alternate;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 480px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.98);
+            animation: cardEntrance 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .status-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-icon {
+            font-size: 2.8rem;
+            animation: iconFloat 2s ease-in-out infinite;
+        }
+
+        .status-icon i {
+            color: {% if status == 'success' %}var(--success-secondary){% else %}var(--error-primary){% endif %};
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .container h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: {% if status == 'success' %}var(--success-secondary){% else %}var(--error-primary){% endif %};
+            position: relative;
+            animation: textSlide 0.6s ease-out;
+        }
+
+        .container p {
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            color: #444;
+            animation: fadeUp 0.6s ease-out;
+            line-height: 1.6;
+        }
+
+        .container a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            padding: 1rem 2rem;
+            background: {% if status == 'success' %}var(--success-secondary){% else %}var(--error-primary){% endif %};
+            color: white;
+            text-decoration: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: buttonEntrance 0.6s ease-out;
+        }
+
+        .container a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .container a svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .container a:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* Animations */
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes textSlide {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes buttonEntrance {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes gradientPulse {
+            0% { background-size: 100% 100%; }
+            100% { background-size: 110% 110%; }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+            .status-row {
+                gap: 1rem;
+            }
+            .status-icon {
+                font-size: 2rem;
+            }
+            .container h1 {
+                font-size: 1.5rem;
+            }
+            .container p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="status-row">
+            <div class="status-icon">
+                {% if status == 'success' %}
+                    <i class="fas fa-check-circle"></i>
+                {% else %}
+                    <i class="fas fa-exclamation-triangle"></i>
+                {% endif %}
+            </div>
+            <h1>{{ title }}</h1>
+        </div>
+        <p>{{ message }}</p>
+        <a href="{{ url }}">
+            Continue to ICE-Button
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!-- Legal Information Template -->
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now - ICE-Button</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <style>
+.loader {
+    position: absolute;
+    top: 50;
+    left: 50;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.3s ease;
+}
+
+/* Active state */
+.loader.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Spinner element */
+.loader-spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Keyframes */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Required button styling */
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+.button-text {
+    transition: opacity 0.3s ease;
+    position: relative; /* Ensure text stays above loader */
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+    </style>
+</head>
+<body class="bg-white  ">
+    {% include "header.html" %}
+        <main class="mt-32 mb-20 bg-white ">
+        <section id="contact" class="text-gray-800 py-6 bg-white  flex items-center justify-center w-full">
+            <div class="flex items-center justify-center w-full">
+                <div class="flex flex-col md:flex-row w-full items-center justify-center gap-16"> <!-- Removed max-w-4xl -->
+                    
+                    <!-- Image Div -->
+                    <div class="w-full md:w-2/4 h-auto flex-shrink-0 mb-4 md:mb-0">
+                        <img src="{% static 'images/order.jpg' %}" alt="Contact Us"
+                            class=" w-full h-full object-cover rounded-lg ">
+                    </div>
+                    
+                    <!-- Form Div -->
+                    <div class="w-full md:w-1/3 h-auto bg-white px-8 py-8 border rounded-lg shadow-md flex flex-col justify-start">
+                        <h2 class="text-2xl  font-bold text-gray-800 text-center mb-4">{% trans 'Order Now' %}</h2>
+                        <p class="text-center text-gray-700 mb-6 text-xs">{% trans "Have questions or feedback? Reach out to us using the form below." %}</p>
+                        <form action="#" method="post" class="space-y-4">
+                            {% csrf_token %}
+                            
+                            <!-- Full Name -->
+                            <div>
+                                <label for="name" class="block text-xs font-medium text-gray-800">
+                                    Full Name / पूरा नाम:
+                                </label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name / अपना पूरा नाम लिखें"
+                                    class="mt-1 block w-full border border-gray-300 p-3 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 text-xs" required>
+                            </div>
+                        
+                            <!-- Organization Name -->
+                            <div>
+                                <label for="organization" class="block text-xs font-medium text-gray-800">
+                                    Organization Name / संस्था का नाम:
+                                </label>
+                                <input type="text" id="organization" name="organization" placeholder="Enter your organization name / अपनी संस्था का नाम दर्ज करें"
+                                    class="mt-1 block w-full border border-gray-300 p-3 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 text-xs" required>
+                            </div>
+                        
+                            <!-- Email Address -->
+                            <div>
+                                <label for="email" class="block text-xs font-medium text-gray-800">
+                                    Email Address / ईमेल पता:
+                                </label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email / अपना ईमेल दर्ज करें"
+                                    class="mt-1 block w-full border border-gray-300 p-3 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 text-xs" required>
+                            </div>
+                        
+                            <!-- Phone Number -->
+                            <div>
+                                <label for="phone" class="block text-xs font-medium text-gray-800">
+                                    Phone Number / फोन नंबर:
+                                </label>
+                                <input type="text" id="phone" name="phone" placeholder="Enter your phone number / अपना फोन नंबर दर्ज करें"
+                                    class="mt-1 block w-full border border-gray-300 p-3 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 text-xs" required>
+                            </div>
+                        
+                            <!-- ICE Button Quantity -->
+                            <div>
+                                <label for="ice_quantity" class="block text-xs font-medium text-gray-800">
+                                    ICE Button Quantity / ICE बटन की मात्रा:
+                                </label>
+                                <input type="number" id="ice_quantity" name="ice_quantity" placeholder="Enter quantity / मात्रा दर्ज करें"
+                                    class="mt-1 block w-full border border-gray-300 p-3 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 text-xs" required>
+                            </div>
+                            
+                            <!-- City -->
+                            <div>
+                                <label for="city" class="block text-xs font-medium text-gray-800">
+                                    City / शहर:
+                                </label>
+                                <input type="text" id="city" name="city" placeholder="Enter your city / अपना शहर दर्ज करें"
+                                    class="mt-1 block w-full border border-gray-300 p-3 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 text-xs" required>
+                            </div>
+                        
+                            <!-- Message Box -->
+                            <div>
+                                <label for="message" class="block text-xs font-medium text-gray-800">
+                                    Message / संदेश:
+                                </label>
+                                <textarea id="message" name="message" rows="3" placeholder="Enter your message / अपना संदेश दर्ज करें"
+                                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 p-3 text-xs"></textarea>
+                            </div>
+                        
+                            <!-- Submit Button -->
+                            <div class="mt-4">
+      <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-600 transition w-full text-sm flex items-center justify-center relative">
+    <span class="loader">
+        <div></div>
+    </span>
+    <span class="button-text">{% trans 'Submit' %}</span>
+</button>
+                            </div>
+
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    {% include "footer.html" %}
+
+<!-- Success Modal -->
+<div id="successModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/3">
+        <div class="flex justify-between items-center p-4 border-b">
+            <h5 class="text-lg font-semibold">Success</h5>
+            <button type="button" class="text-gray-700 hover:text-gray-900" onclick="toggleModal('successModal')">
+                <span>&#10005;</span>
+            </button>
+        </div>
+        <div class="p-4">
+            <p class="text-gray-700">Our team will review your submission and get in touch with you shortly to discuss the next steps. If you have any questions or need further assistance, feel free to reach out to us.</p>
+        </div>
+        <div class="p-4 text-right">
+            <button class="bg-[#f04438] text-white py-2 px-4 rounded-md hover:bg-[#d02a22]" onclick="toggleModal('successModal')">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Error Modal -->
+<div id="errorModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/3">
+        <div class="flex justify-between items-center p-4 border-b">
+            <h5 class="text-lg font-semibold">Error</h5>
+            <button type="button" class="text-gray-700 hover:text-gray-900" onclick="toggleModal('errorModal')">
+                <span>&#10005;</span>
+            </button>
+        </div>
+        <div class="p-4">
+            <p class="text-gray-700">It's not you, it's us. Feel free to contact us at <a href="mailto:support@ice-button.com" class="text-red-500">support@ice-button.com</a> with your query. Our team will assist you shortly while we review your request.</p>
+        </div>
+        <div class="p-4 text-right">
+            <button class="bg-[#f04438] text-white py-2 px-4 rounded-md hover:bg-[#d02a22]" onclick="toggleModal('errorModal')">Close</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        // Set the minimum date to today
+        const today = new Date().toISOString().split("T")[0];
+        document.getElementById("installation_date").setAttribute("min", today);
+    </script>
+ <script>
+document.querySelector('form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const submitButton = this.querySelector('button[type="submit"]');
+    const loader = submitButton.querySelector('.loader');
+    const buttonText = submitButton.querySelector('.button-text');
+
+    // Show loader
+    loader.classList.add('active');
+    buttonText.style.opacity = '0';
+    submitButton.disabled = true;
+
+    try {
+        // Your existing submission logic
+        const formData = new FormData(this);
+        const response = await fetch('/api/order/', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+            body: formData,
+        });
+
+        if (!response.ok) throw new Error();
+        toggleModal('successModal');
+        this.reset();
+    } catch (error) {
+        toggleModal('errorModal');
+    } finally {
+        // Hide loader
+        loader.classList.remove('active');
+        buttonText.style.opacity = '1';
+        submitButton.disabled = false;
+    }
+});
+
+// Modal toggle function
+function toggleModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.toggle('hidden');
+}
+</script>
+</body>
+</html>

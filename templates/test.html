@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: ICE Button</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f04438, #1a1a2e);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            background-color: #dee2e6;
+            margin: 40px 0;
+        }
+
+        .section {
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #f04438;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .image-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 100px;
+            align-items: flex-start; /* Ensures items start from the top */
+        }
+        
+        .image-placeholder {
+            width: 300px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #777;
+            border-radius: 10px;
+            overflow: hidden; /* Ensures no overflow outside this div */
+        }
+        .image-placeholder img {
+            width: 100%; /* Forces the image to fit the width of its container */
+            height: 100%; /* Forces the image to fit the height of its container */
+            object-fit: cover; /* Ensures the image covers the area, cropping as needed */
+            border-radius: 10px; /* Matches the container's border-radius */
+            max-width: 300px; /* Ensures the image doesn't exceed container's width */
+            max-height: 200px; /* Ensures the image doesn't exceed container's height */
+        }
+        .image-placeholder-small {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+            color: #777;
+            border-radius: 10px;
+            overflow: hidden; /* Ensures images don’t spill out of this container */
+            margin-bottom: 20px; /* Space between image and text */
+        }
+        
+        .image-placeholder-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images maintain aspect ratio and fit the container */
+            border-radius: 10px; /* Matches the container's border radius */
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .step {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .step:hover {
+            transform: scale(1.05);
+        }
+
+        .step h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: #f04438;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        ol, ul {
+            padding-left: 40px;
+            margin-left: 20px;
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+
+        ul {
+            list-style-type: disc;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .quote {
+            font-style: italic;
+            background-color: #f9f9fb;
+            border-left: 4px solid #f04438;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .image-row {
+                gap: 10px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    {% include "header.html" %}
+
+    <main class="mt-14 mb-12">
+        <div class="container mx-auto px-4">
+            <section class="hero">
+                <h2><strong>Transforming Healthcare Security with ICE-Button</strong></h2>
+                <p>An Advanced Emergency Response System for Healthcare Facilities</p>
+            </section>
+
+            <div class="line"></div>
+
+            <section class="section">
+                <h2><strong>Executive Summary</strong></h2>
+                <p>The healthcare sector has become increasingly vulnerable to violent incidents, jeopardizing the safety of staff, patients, and visitors. Recognizing the urgent need for a comprehensive security system, Mobiloitte Technologies Pvt Ltd developed ICE-Button, an advanced Emergency Response System specifically designed for healthcare facilities.</p>
+                <p>ICE-Button ensures swift, multi-channel communication and real-time situational awareness during emergencies. With its intuitive interface, the system reduces incident escalation and improves response times, safeguarding lives and property while restoring confidence in healthcare environments.</p>
+                <div class="image-row">
+                    <div class="image-placeholder">
+                        <img src="{% static 'images/overview/1.jpg' %}" alt="Image 1">
+                    </div>
+                    <div class="image-placeholder">
+                        <img src="{% static 'images/overview/2.jpg' %}" alt="Image 2">
+                    </div>
+                    <div class="image-placeholder">
+                        <img src="{% static 'images/overview/3.jpg' %}" alt="Image 3">
+                    </div>
+                </div>
+            </section>
+
+            <div class="line"></div>
+
+            <section class="section">
+                <h2><strong>Business Challenges</strong></h2>
+                <h3 class="pl-"><strong>Challenges Faced by Healthcare Facilities</strong></h3>
+                <br>
+                <ol class="features-list list-decimal pl-16">
+                    <li>
+                        <strong>Increasing Violence:</strong>
+                        <ul class="list-disc pl-4">
+                            <li>Rising incidents of aggression directed toward healthcare professionals and patients.</li>
+                            <li>Growing safety concerns for healthcare workers on duty, particularly during critical emergencies.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Safety Gaps:</strong>
+                        <ul class="list-disc pl-4">
+                            <li>Healthcare facilities lacked an efficient, technology-driven solution for responding to real-time incidents.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Delayed Responses:</strong>
+                        <ul class="list-disc pl-4">
+                            <li>Healthcare facilities lacked an efficient, technology-driven solution for responding to real-time incidents.</li>
+                            <li>Delays escalated incidents, leading to reputational losses and impacting operational trust.</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <br>
+                <h3><strong>Impact of These Challenges</strong></h3>
+                <br>
+                <ul class="features-list list-disc pl-16">
+                    <li><strong>Safety Threats:</strong> Risks to staff, patients, and visitors, increasing the liability of healthcare organizations.</li>
+                    <li><strong>Operational Disruptions:</strong> Escalations caused unnecessary financial and infrastructural stress.</li>
+                    <li><strong>Loss of Trust:</strong>Diminished confidence in the healthcare system due to recurring safety lapses</li>
+                </ul>
+            </section>
+
+            <div class="line"></div>
+
+            <section class="section mt-8">
+                <h2><strong>The ICE-Button Solution</strong></h2>
+                <h3><b>ICE-Button</b> is an <b>end-to-end emergency response system</b>combining advanced technology with real-time communication capabilities to mitigate safety risks. Designed specifically for healthcare settings, ICE-Button ensures that healthcare professionals can quickly <b>activate alerts,</b> escalate incidents, and monitor events in real time.</h3>
+                <br>
+                <h3><strong>Key Features</strong></h3>
+                <br>
+                <ol class="features-list list-decimal pl-16">
+                    <li>
+                        <strong>Instant Activation:</strong>
+                        <ul class="list-disc pl-4">
+                            <li>A single press of the red SOS button triggers immediate emergency alerts.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Multi-Channel Notifications:</strong>
+                        <ul class="list-disc pl-4">
+                        <li>Alerts are sent simultaneously via SMS, WhatsApp, email, and voice calls to predefined contacts.</li>
+                    </ul>
+                </li>
+                    <li><strong>Real-Time Monitoring:</strong>
+                        <ul class="list-disc pl-4">
+                            <li> Live video and audio streaming provides continuous situational updates during an incident.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Post-Incident Reporting:</strong>
+                        <ul class="list-disc pl-4">
+                            <li>Automatically generates detailed reports with recorded evidence for documentation and analysis.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Ease of Use:</strong>
+                        <ul class="list-disc pl-4">
+                            <li>An intuitive user interface designed to ensure ease of operation for healthcare professionals.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+
+            <div class="line"></div>
+
+            <section class="section">
+                <h2><strong>How ICE-Button Works</strong></h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="image-placeholder">
+                            <img src="{% static 'images/howitwork/1.jpg' %}" alt="Step 1">
+                        </div>
+                        <h3>Press the Button</h3>
+                        <p>Press the ICE SOS Button during an emergency to send an immediate alert to pre-configured contacts.</p>
+                    </div>
+                    <div class="step">
+                        <div class="image-placeholder">
+                            <img src="{% static 'images/howitwork/2.jpg' %}" alt="Step 2">
+                        </div>
+                        <h3>Instant Notification</h3>
+                        <p>Your contacts receive an alert with your location, ensuring quick assistance is on its way.</p>
+                    </div>
+                    <div class="step">
+                        <div class="image-placeholder">
+                            <img src="{% static 'images/howitwork/3.jpg' %}" alt="Step 3">
+                        </div>
+                        <h3>Continuous Monitoring</h3>
+                        <p>The device continues to track and notify contacts until the situation is resolved.</p>
+                    </div>
+                </div><br><br>
+                <ol class="features-list list-disc pl-16">
+                    <li><strong>Step 1: Trigger Alerts</strong><br>
+                        <ul class="list-disc pl-4">
+                            <li>Press the ICE SOS button to initiate emergency notifications.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Step 2: Send Notifications:</strong>
+                        <ul class="list-disc pl-4">
+                        <li> Notifications are sent to up to 15 pre-configured contacts via multiple communication channels (SMS, email, WhatsApp, and voice calls).</li>
+                        </ul>
+                    </li>
+                         <li><strong>Step 3: Continuous Monitoring:</strong>
+                            <ul class="list-disc pl-4">
+
+                                <li> Real-time video and audio feeds are streamed to provide immediate situational awareness.</li>
+                            </ul>
+                        </li>   
+                    <li><strong>Step 4: Acknowledge Alerts:</strong>
+                        <ul class="list-disc pl-4">
+
+                            <li>Responders confirm receipt of the alert and initiate necessary actions.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Step 5: Resolve:</strong>
+                        <ul class="list-disc pl-4">
+
+                            <li> Situations are marked as resolved using the blue button upon completion of emergency handling.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Step 6: Incident Reporting:</strong>
+                        <ul class="list-disc pl-4">
+
+                            <li>A comprehensive post-incident report with recorded audio, video, and alert logs is generated for documentation.</li>
+                        </ul>
+                    </li>
+                </ol>   
+            </section>
+
+            <div class="line"></div>
+
+            <section class="section">
+                <h2><strong>Implementation Impact</strong></h2>
+                    <ul class="features-list list-decimal pl-16">
+                        <li><strong>Case Study 1: Hospital A </strong>
+                            <ul class="list-disc pl-4">
+                        <li>Achieved a 50% reduction in violent incidents within the first quarter of implementation.</li>
+                        <li>Improved staff confidence and increased trust in security protocols.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Case Study 2: Hospital B </strong>
+                            <ul class="list-disc pl-4">
+                        <li>Enhanced emergency response times by 25%, ensuring faster resolution and minimizing escalations.</li>
+                        <li>Enabled real-time monitoring, empowering security personnel to take proactive measures.</li>
+                            </ul>
+                        </li>   
+                        <li><strong>Tangible Benefits:</strong>
+                            <ul class="list-disc pl-4">
+                        <li><strong>Enhanced Safety:</strong> Reduced risks to healthcare staff, patients, and visitors.</li>
+                        <li><strong>Improved Trust:</strong>Increased operational transparency and confidence among stakeholders.</li>
+                        <li><strong>Operational Efficiency:</strong> Streamlined emergency management workflows with automated reporting.</li>
+                        <li><strong>Data-Driven Decisions: </strong>Enabled actionable insights through comprehensive incident reporting.</li>
+                            </ul>
+                        </li>            
+                         </ul>
+                    
+            </section>
+            <div class="line"></div>
+    
+            <!-- Success Stories -->
+            <section class="section">
+                <h2><strong>Value Proposition</strong></h2>
+                    <h3><strong>ICE-Button stands out as an innovative, scalable, and user-centric solution designed for healthcare security:</strong></h3>
+                    <br>
+                    <ul class="features-list list-decimal pl-16">
+                        <li><strong>Proactive Safety:</strong> 
+                            <ul class="list-disc pl-4"><li>Prevents escalation of incidents through immediate activation and real-time situational awareness.</li>
+                            </ul></li>
+                        <li><strong>Comprehensive Coverage:</strong> 
+                            <ul class="list-disc pl-4"><li> Multi-channel notifications and monitoring ensure timely responses from designated contacts.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Ease of Use:</strong>  
+                            <ul class="list-disc pl-4"><li>Simple, intuitive interface designed specifically for healthcare professionals to operate under stress.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Scalability:</strong> 
+                            <ul class="list-disc pl-4"><li>Adaptable to facilities of all sizes, from small clinics to large multi-specialty hospitals.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <br>
+            </section>
+            <div class="line"></div>
+
+            <section class="section">
+                <h2><strong>Client Testimonial</strong></h2>
+                <p class="quote">"Implementing ICE-Button has been a game-changer for our hospital. The system’s rapid alert mechanism and real-time monitoring have significantly improved the safety of our staff and patients. It’s an investment in trust and security." — Dr. Ramesh Kumar, Director, Hospital A</p>
+            </section>
+            <div class="line"></div>
+
+            <section class="section pl-5">
+                <h2><strong>Challenges and Solutions</strong></h2>
+
+                    <br>
+                    <ol class="features-list list-disc pl-16">
+                        <li><strong>Challenge 1: Inefficient Emergency Communication</strong><br>
+                            <ul class="list-disc pl-4">
+                                <li><strong>Issue:</strong> Delays in notifying relevant personnel during emergencies.</li>
+                                <li><strong>Solution:</strong> Multi-channel alerts via SMS, WhatsApp, email, and voice calls ensured timely notifications.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Challenge 2: Lack of Situational Awareness</strong>
+                            <ul class="list-disc pl-4">
+                            <li><strong>Issue:</strong> Security teams struggled to assess the on-ground reality.</li>
+                            <li><strong>Solution:</strong> Real-time video and audio streaming enabled instant situational clarity for responders.</li>
+                            </ul>
+                        </li>
+                             <li><strong>Challenge 3: Absence of Post-Incident Data</strong>
+                                <ul class="list-disc pl-4">
+    
+                                    <li><strong>Issue:</strong> Facilities lacked systematic incident documentation for analysis and improvement.</li>
+                                    <li><strong>Solution:</strong> Automated post-incident reporting provided structured evidence for review and decision-making.</li>
+                                </ul>
+                            </li>   
+                         </ol>
+                    <br>
+            </section>
+            <div class="line"></div>
+            <!-- Success Stories -->
+            <section class="section pl-5">
+                <h2><strong>Conclusion</strong></h2>
+
+                    <br>
+                    <h3>ICE-Button has redefined emergency management within healthcare facilities by ensuring rapid responses, real-time situational monitoring, and comprehensive reporting. This user-friendly and scalable solution empowers healthcare professionals to act decisively, improving safety, operational efficiency, and trust.<br><br>
+                        By addressing critical safety gaps and delivering measurable results, ICE-Button stands as a benchmark for emergency response systems in the healthcare industry.
+                        </h3>
+                    <br>
+            </section>
+            <div class="line"></div>
+        <section class="section pl-5">
+            <h2><strong>Key Takeaways</strong></h2>
+                <br>
+                <ol class="features-list list-decimal pl-16">
+                    <li>
+                        <strong>Real-Time Response:</strong> ICE-Button ensures immediate and multi-channel emergency alerts.</li>
+                  
+                    <li>
+                        <strong>Situational Awareness:</strong> Live audio and video feeds empower security teams with actionable insights.</li>
+                 
+                    <li><strong>Operational Efficiency:</strong>  Post-incident reports streamline incident analysis and continuous improvement.</li>
+                    
+                    <li><strong>Scalable and User-Friendly:</strong>ICE-Button’s adaptable design serves facilities of all sizes while maintaining ease of use.</li>
+                
+                    <li><strong>Enhanced Trust:</strong>A proactive approach to safety strengthens confidence among healthcare professionals, patients, and stakeholders.</li>
+                 
+                </ol>
+        </section>
+            <div class="line"></div>
+            
+            <section class="section">
+                <p class="quote">Start using ICE-Button today and ensure the safety of your healthcare facility.<br>
+                    <a href="#" class="text-custom" style="color: #f04438; text-decoration: underline;">Request a Demo</a>
+                </p>
+            </section>
+        </div>
+    </main>
+
+    {% include "footer.html" %}
+</body>
+</html>

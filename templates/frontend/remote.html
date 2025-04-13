@@ -1,0 +1,524 @@
+{% extends 'frontend/nav.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Remote Monitoring{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/remote.css' %}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+<div class="container-fluid px-4 mt-4">
+    <div class="row">
+    <div class="col-12 mb-4">
+        <h3 class="pod-heading" style="margin-top: 12px;">{% trans 'Remote Management'%}</h3>
+        <p class="text-muted">{% trans 'You can watch you Ice Button Video Recording here.'%}</p>
+    </div>
+    <div class="col-12 mb-4 mt-3">
+        <form id="filterForm" class="row g-3 bg-white border border-1 rounded " style="padding-bottom:12px">
+            <!-- Search Field -->
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <input type="text" id="searchPod" class="form-control border-0" placeholder="{% trans 'Search by Button Name' %}">
+    </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="input-container position-relative">
+            <input 
+                type="text" 
+                id="startDateTime" 
+                class="form-control border-0 pe-5"  
+                placeholder="{% trans 'Start Date & Time'%}"
+            />
+            <i 
+                class="fa-solid fa-calendar-days position-absolute top-50 end-0 translate-middle-y pe-3 calendar-icon" 
+                data-input="startDateTime"
+                style="color: grey; cursor: pointer; transition: color 0.3s ease;"
+        onmouseover="this.style.color='#555';"
+        onmouseout="this.style.color='grey';">
+            </i>
+        </div>
+    </div>
+    
+    <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="input-container position-relative">
+            <input 
+                type="text" 
+                id="endDateTime" 
+                class="form-control border-0 pe-5"  
+                placeholder="{% trans 'End Date & Time'%}"
+            />
+            <i 
+                class="fa-solid fa-calendar-days position-absolute top-50 end-0 translate-middle-y pe-3 calendar-icon" 
+                data-input="endDateTime"
+                style="color: grey; cursor: pointer; transition: color 0.3s ease;"
+        onmouseover="this.style.color='#555';"
+        onmouseout="this.style.color='grey';">
+            </i>
+        </div>
+    </div>
+
+      <!-- Buttons -->
+      <div class="col-12 col-md-6 col-lg-3 d-flex align-items-center">
+        <button
+          type="button"
+          id="resetFilterBtn"
+          class="btn btn-outline-secondary flex-grow-1 me-2"
+        >
+          {% trans 'Reset'%}
+        </button>
+        <button
+          type="button"
+          id="applyFilterBtn"
+          class="btn flex-grow-1" style="background-color:#f04438; color:white"
+        >
+          {% trans 'Apply'%}
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="row m-0 px-0" id="video-list">
+    <!-- Example Card -->
+  </div>
+
+  <nav aria-label="Page navigation" class="mt-4">
+    <ul class="pagination justify-content-center" id="pagination">
+      <!-- Pagination items -->
+    </ul>
+  </nav>
+</div>
+
+
+<!-- Modal for Video Playback -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <div>
+                  <h5 id="modalDeviceName" class="modal-title">{% trans 'Device Name'%}</h5>
+                  <p id="modalDeviceSubtitle" class="modal-subtitle">{% trans 'Uploaded At'%}</p>
+              </div>
+              <button type="button" class="btn-cross" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="video-player-container">
+                  <video id="modalVideo" class="video-player" controls>
+                      Your browser does not support the video tag.
+                  </video>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Confirmation Modal for Delete Action -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-1">
+          <div class="modal-header">
+              <h5 class="modal-title" id="confirmDeleteModalLabel">{% trans 'Confirm Deletion'%}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-y text-center">
+              {% trans 'Are you sure you want to delete this recording?'%}
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel'%}</button>
+              <button type="button" class="btn btn-danger" id="confirmDeleteBtn">{% trans 'Confirm'%}</button>
+          </div>
+      </div>
+  </div>
+</div>
+<div id="staticImagePath" data-path="{% static 'images/no_data.jpg' %}" style="display: none;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const apiUrl = '/api/videos/';
+      const token = localStorage.getItem('access_token');
+      const videosPerPage = 9;
+      let allVideos = [];
+      let filteredVideos = [];
+      let currentPage = 1;
+      let videoIdToDelete = null;
+  
+      // Redirect to login if token is missing
+      if (!token) {
+          window.location.href = '/login';
+          return;
+      }
+  
+      // Fetch video list from the API
+      fetch(apiUrl, {
+          method: 'GET',
+          headers: { 'Authorization': `Bearer ${token}` },
+      })
+          .then(response => response.json())
+          .then(data => {
+              if (Array.isArray(data)) {
+                  allVideos = data;
+                  filteredVideos = data; // Initialize filtered videos
+                  renderPagination();
+                  renderVideoList();
+                  setupGlobalEventListeners();
+              } else {
+                  console.error('API response is not an array');
+              }
+          })
+          .catch(error => {
+              console.error('Error fetching videos:', error);
+          });
+  
+      // Render pagination
+      function renderPagination() {
+          const totalPages = Math.ceil(filteredVideos.length / videosPerPage);
+          const paginationContainer = document.getElementById('pagination');
+          paginationContainer.innerHTML = '';
+  
+          for (let i = 1; i <= totalPages; i++) {
+              const pageItem = `
+                  <li class="page-item ${i === currentPage ? 'active' : ''}">
+                      <button class="page-link" data-page="${i}">${i}</button>
+                  </li>
+              `;
+              paginationContainer.innerHTML += pageItem;
+          }
+  
+          paginationContainer.addEventListener('click', function (event) {
+              if (event.target.tagName === 'BUTTON') {
+                  currentPage = parseInt(event.target.getAttribute('data-page'));
+                  renderVideoList();
+                  updateActivePage();
+              }
+          });
+      }
+  
+      // Update active page without re-rendering all buttons
+      function updateActivePage() {
+          document.querySelectorAll('.page-item').forEach(item => {
+              item.classList.remove('active');
+          });
+          document.querySelector(`.page-item:nth-child(${currentPage})`).classList.add('active');
+      }
+  
+      function renderVideoList() {
+        const videoContainer = document.getElementById('video-list');
+        videoContainer.innerHTML = ''; // Clear the current video list
+        const startIndex = (currentPage - 1) * videosPerPage;
+        const endIndex = Math.min(startIndex + videosPerPage, filteredVideos.length);
+    
+        // Display "No videos found" if no videos match the filter criteria
+        if (filteredVideos.length === 0) {
+            const staticImagePath = document.getElementById('staticImagePath').getAttribute('data-path');
+            videoContainer.innerHTML = `<img src="${staticImagePath}" alt="No data available" class="m-auto">
+                        <p class="text-center text-muted mt-2">No Recording available</p>
+`;
+            return;
+        }
+    
+        // Render video cards for the current page
+        for (let i = startIndex; i < endIndex; i++) {
+            const video = filteredVideos[i];
+    
+            // Safely access the device_name and other fields
+            const deviceName = video.device?.device_name || 'Unknown Device';
+            const uploadedAt = video.uploaded_at || 'Unknown Date';
+            const videoUrl = video.video_url || '#';
+    
+            // Format the uploaded_at date and time
+            const formattedDateTime = formatDateTime(uploadedAt);
+    
+            const videoCard = `
+                <div class="col-lg-3 col-md-5 first-1 m-3" 
+                    data-video-url="${videoUrl}" 
+                    data-device-name="${deviceName}" 
+                    data-uploaded-at="${formattedDateTime.date} | ${formattedDateTime.time}" 
+                    data-video-id="${video.id}">
+                    <div class="video-header">
+                        <div class="name-desc">
+                            <h6>${deviceName}</h6>
+                            <p>${formattedDateTime.date}${formattedDateTime.time}</p>
+                        </div>
+                        <div class="icon-remot dropdown">
+                            <i class="bi bi-three-dots" data-bs-toggle="dropdown"></i>
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item download-btn" data-video-url="${videoUrl}">Download</button></li>
+                                <li><button class="dropdown-item delete-btn" data-video-id="${video.id}">Delete</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="video-container">
+                        <video class="w-100 grid-video" muted preload="auto">
+                            <source src="${videoUrl}" type="video/mp4">
+                        </video>
+                        <div class="play-icon">
+                            <i class="bi bi-play-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            `;
+            videoContainer.innerHTML += videoCard;
+        }
+    }
+    
+      
+  
+    function applyFilter() {
+        const deviceFilter = document.getElementById('searchPod').value.toLowerCase();
+        const startDateTime = document.getElementById("startDateTime").value
+            ? new Date(document.getElementById("startDateTime").value)
+            : null;
+        const endDateTime = document.getElementById("endDateTime").value
+            ? new Date(document.getElementById("endDateTime").value)
+            : null;
+    
+        filteredVideos = allVideos.filter(video => {
+            const deviceName = video.device?.device_name.toLowerCase() || '';
+            const uploadedAt = new Date(video.uploaded_at);
+    
+            // Check conditions
+            const deviceMatch = deviceFilter ? deviceName.includes(deviceFilter) : true;
+            const matchesStartDateTime = startDateTime ? uploadedAt >= startDateTime : true;
+            const matchesEndDateTime = endDateTime ? uploadedAt <= endDateTime : true;
+    
+            // Return true if all filters match
+            return deviceMatch && matchesStartDateTime && matchesEndDateTime;
+        });
+    
+        console.log('Filtered Videos:', filteredVideos);
+        currentPage = 1; // Reset to first page
+        renderPagination();
+        renderVideoList();
+    }
+    
+      
+      function resetFilter() {
+          // Clear filter input values
+          document.getElementById('searchPod').value = '';  // Clear the search pod filter
+          document.getElementById('startDate').value = '';  // Clear the start date filter
+          document.getElementById('endDate').value = '';    // Clear the end date filter
+      
+          // Reset filteredVideos to allVideos
+          filteredVideos = [...allVideos];  // Ensure to reset to the full list of videos
+          currentPage = 1;  // Reset to the first page
+          renderPagination();  // Re-render pagination
+          renderVideoList();  // Re-render video list to display all videos
+      }
+      
+  
+      // Event listener for the apply filter button
+      document.getElementById('applyFilterBtn').addEventListener('click', applyFilter);
+      document.getElementById('resetFilterBtn').addEventListener('click', resetFilter);
+  
+  document.getElementById('searchPod').addEventListener('input',function (){
+      applyFilter()
+  })
+  document.getElementById("startDate").addEventListener("change", applyFilter);
+  document.getElementById("endDate").addEventListener("change", applyFilter);
+      // Setup global event listeners
+      function setupGlobalEventListeners() {
+          // Video playback modal
+          document.querySelector('#video-list').addEventListener('click', function (event) {
+              if (event.target.closest('.play-icon')) {
+                  const card = event.target.closest('.first-1');
+                  const videoUrl = card.getAttribute('data-video-url');
+                  const deviceName = card.getAttribute('data-device-name');
+                  const uploadedAt = card.getAttribute('data-uploaded-at');
+  
+                  const modalVideo = document.getElementById('modalVideo');
+                  const modalDeviceName = document.getElementById('modalDeviceName');
+                  const modalSubtitle = document.getElementById('modalDeviceSubtitle');
+  
+                  modalDeviceName.textContent = deviceName;
+                  modalSubtitle.textContent = uploadedAt;
+                  modalVideo.src = videoUrl;
+                  modalVideo.currentTime = 0;
+                  modalVideo.muted = false;
+  
+                  modalVideo.addEventListener('loadedmetadata', () => {
+                      modalVideo.play();
+                  });
+  
+                  const videoModal = new bootstrap.Modal(document.getElementById('videoModal'));
+                  videoModal.show();
+              }
+          });
+  
+          // Pause video when modal is closed
+          document.getElementById('videoModal').addEventListener('hidden.bs.modal', function () {
+              const modalVideo = document.getElementById('modalVideo');
+              modalVideo.pause();
+              modalVideo.currentTime = 0;
+              modalVideo.src = '';
+          });
+  
+          // Download video
+          document.querySelector('#video-list').addEventListener('click', function (event) {
+              if (event.target.classList.contains('download-btn')) {
+                  const videoUrl = event.target.getAttribute('data-video-url');
+                  fetch(videoUrl)
+                      .then(response => response.blob())
+                      .then(blob => {
+                          const a = document.createElement('a');
+                          a.href = URL.createObjectURL(blob);
+                          a.download = videoUrl.split('/').pop();
+                          document.body.appendChild(a);
+                          a.click();
+                          document.body.removeChild(a);
+                      })
+                      .catch(error => {
+                          console.error('Error downloading video:', error);
+                      });
+              }
+          });
+  
+          // Confirm video deletion
+          document.querySelector('#video-list').addEventListener('click', function (event) {
+              if (event.target.classList.contains('delete-btn')) {
+                  videoIdToDelete = event.target.getAttribute('data-video-id');
+                  const confirmDeleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+                  confirmDeleteModal.show();
+              }
+          });
+  
+          // Delete video on confirmation
+          document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
+              if (videoIdToDelete) {
+                  deleteVideo(videoIdToDelete);
+                  const confirmDeleteModal = bootstrap.Modal.getInstance(document.getElementById('confirmDeleteModal'));
+                  confirmDeleteModal.hide();
+              }
+          });
+      }
+  
+      // Delete video via API
+      function deleteVideo(videoId) {
+          fetch(`/api/delete-video/${videoId}/`, {
+              method: 'DELETE',
+              headers: { 'Authorization': `Bearer ${token}` },
+          })
+              .then(response => {
+                  if (!response.ok) {
+                      return response.json().then(data => {
+                          throw new Error(data.detail || 'Failed to delete video');
+                      });
+                  }
+                  // Remove video from the array and re-render
+                  allVideos = allVideos.filter(video => video.id !== parseInt(videoId));
+                  filteredVideos = filteredVideos.filter(video => video.id !== parseInt(videoId));
+                  renderPagination();
+                  renderVideoList();
+              })
+              .catch(error => {
+                  alert(`Failed to delete video. Error: ${error.message}`);
+              });
+      }
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize Flatpickr for Start Date and End Date fields
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get elements with null checks
+    const startInput = document.getElementById('startDateTime');
+    const endInput = document.getElementById('endDateTime');
+    
+    if (!startInput || !endInput) return;
+
+    // Common configuration
+    const commonConfig = {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        minuteIncrement: 1,
+        maxDate: "today",
+        disableMobile: true, // Prevent native datetime picker
+        placeholder: "", // Empty initial placeholder
+        onReady: function(selectedDates, dateStr, instance) {
+            // Set placeholder from data attribute or default
+            const placeholder = instance.element.dataset.placeholder || 'Select Date & Time';
+            instance.element.setAttribute('placeholder', placeholder);
+            instance.element.style.color = '#6b7280'; // Placeholder color
+        }
+    };
+
+    // Initialize Start DateTime Picker
+    const startDateTimePicker = flatpickr("#startDateTime", {
+        ...commonConfig,
+        onChange: function(selectedDates) {
+            const startDate = selectedDates[0];
+            endDateTimePicker.set("minDate", startDate);
+        }
+    });
+
+    // Initialize End DateTime Picker
+    const endDateTimePicker = flatpickr("#endDateTime", {
+        ...commonConfig,
+        onChange: function(selectedDates) {
+            const endDate = selectedDates[0];
+            startDateTimePicker.set("maxDate", endDate);
+        }
+    });
+
+    // Mobile-specific fixes
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        setTimeout(() => {
+            [startInput, endInput].forEach(input => {
+                if(!input.value) {
+                    input.setAttribute('placeholder', 
+                        input.dataset.placeholder || input.getAttribute('placeholder') || 'Select Date'
+                    );
+                }
+            });
+        }, 300);
+    }
+});
+    // Add Event Listeners for Input Fields and Icons
+    const elements = [
+        { inputId: "startDateTime", iconSelector: '.calendar-icon[data-input="startDateTime"]' },
+        { inputId: "endDateTime", iconSelector: '.calendar-icon[data-input="endDateTime"]' }
+    ];
+
+    elements.forEach(({ inputId, iconSelector }) => {
+        const inputField = document.getElementById(inputId);
+        const icon = document.querySelector(iconSelector);
+
+        // Add click event to the input field
+        inputField.addEventListener('click', () => {
+            inputField.focus(); // Focus triggers Flatpickr
+        });
+
+        // Add click event to the calendar icon
+        icon.addEventListener('click', () => {
+            inputField.focus(); // Focus triggers Flatpickr
+        });
+    });
+});
+
+function formatDateTime(isoString) {
+    const dateObject = new Date(isoString);
+
+    // Extract date in the format 'Month Day, Year' (e.g., Dec 9, 2024)
+    const date = dateObject.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+    });
+
+    // Extract time in the format 'Hour:Minute:Second AM/PM'
+    const time = dateObject.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    });
+
+    return { date, time };
+}
+
+  
+</script>
+{% endblock %} 
